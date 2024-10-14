@@ -41,7 +41,7 @@
 >
 	{#each items as item, index (item.id)}
 		{#if index === 0}
-			<AbilityItem ability={item} />
+			<AbilityItem on:interact={removeItem} ability={item} />
 		{/if}
 	{/each}
 </div>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Ability } from './abilities';
+	import { createEventDispatcher } from 'svelte';
 
 	export let ability: Ability;
 
@@ -9,9 +10,15 @@
 	});
 
 	const image: any = images[`../lib/images/abilities/${ability.name}.png`];
+
+	const dispatch = createEventDispatcher<Record<string, Ability>>();
+
+	function fireInteract() {
+		dispatch('interact', ability);
+	}
 </script>
 
-<button class={`${ability.main ? 'main' : ''}`}>
+<button on:click={fireInteract} class={`${ability.main ? 'main' : ''}`}>
 	<enhanced:img src={image.default} alt={ability.name} />
 </button>
 

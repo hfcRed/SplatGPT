@@ -22,7 +22,19 @@
 	];
 
 	function addAbility(event: CustomEvent<Ability>) {
-		console.log(event.detail);
+		slots.find((slot, index) => {
+			if (slot.id !== '100') return false;
+
+			if (!event.detail.main) {
+				slots[index] = event.detail;
+				return true;
+			}
+
+			if (mainIndexes[index] && event.detail.mainType === mainIndexes[index]) {
+				slots[index] = event.detail;
+				return true;
+			}
+		});
 	}
 </script>
 
@@ -36,8 +48,8 @@
 	{/each}
 </div>
 
-<AbilitySelector abilities={subAbilities} />
-<AbilitySelector abilities={mainAbilities} />
+<AbilitySelector on:interact={addAbility} on:add={addAbility} abilities={subAbilities} />
+<AbilitySelector on:interact={addAbility} abilities={mainAbilities} />
 
 <style>
 	div {

@@ -37,7 +37,7 @@
 	on:finalize={handleFinalize}
 >
 	{#each abilities as ability (ability.id)}
-		<AbilityItem {ability} />
+		<AbilityItem on:interact {ability} />
 	{/each}
 </div>
 
