@@ -1,0 +1,23 @@
+* {
+	margin: 0;
+	min-width: 0;
+}
+
+html {
+	color-scheme: dark;
+}
+
+p {
+	overflow-wrap: anywhere;
+}
+
+img,
+svg,
+canvas,
+video,
+audio,
+iframe,
+embed,
+object {
+	display: block;
+}
