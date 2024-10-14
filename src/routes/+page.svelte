@@ -21,6 +21,13 @@
 		emptyAbility
 	];
 
+	$: disabledStates = {
+		head: slots[0].id !== '100',
+		clothes: slots[3].id !== '100',
+		shoes: slots[6].id !== '100',
+		all: slots.filter((slot) => slot.id !== '100').length === 9
+	};
+
 	function addAbility(event: CustomEvent<Ability>) {
 		slots.find((slot, index) => {
 			if (slot.id !== '100') return false;
@@ -48,8 +55,8 @@
 	{/each}
 </div>
 
-<AbilitySelector on:interact={addAbility} on:add={addAbility} abilities={subAbilities} />
-<AbilitySelector on:interact={addAbility} abilities={mainAbilities} />
+<AbilitySelector on:interact={addAbility} abilities={subAbilities} {disabledStates} />
+<AbilitySelector on:interact={addAbility} abilities={mainAbilities} {disabledStates} />
 
 <style>
 	div {

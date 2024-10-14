@@ -5,6 +5,7 @@
 	import AbilityItem from './AbilityItem.svelte';
 
 	export let abilities: Ability[] = [];
+	export let disabledStates: { [key: string]: boolean } = {};
 
 	function handleConsider(event: CustomEvent<DndEvent<Ability>>) {
 		const { trigger, id } = event.detail.info;
@@ -37,7 +38,11 @@
 	on:finalize={handleFinalize}
 >
 	{#each abilities as ability (ability.id)}
-		<AbilityItem on:interact {ability} />
+		<AbilityItem
+			disabled={disabledStates[ability.mainType || ''] === true || disabledStates.all === true}
+			on:interact
+			{ability}
+		/>
 	{/each}
 </div>
 

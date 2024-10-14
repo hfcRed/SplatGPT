@@ -3,6 +3,7 @@
 	import { createEventDispatcher } from 'svelte';
 
 	export let ability: Ability;
+	export let disabled: boolean = false;
 
 	const images = import.meta.glob('../lib/images/abilities/*.png', {
 		eager: true,
@@ -18,7 +19,11 @@
 	}
 </script>
 
-<button on:click={fireInteract} class={`${ability.main ? 'main' : ''}`}>
+<button
+	on:click={fireInteract}
+	class={`${ability.main ? `main ${ability.mainType}` : ''}`}
+	{disabled}
+>
 	<enhanced:img src={image.default} alt={ability.name} />
 </button>
 
@@ -33,6 +38,12 @@
 		border: none;
 		border-radius: 50%;
 		background-color: black;
+		transition: opacity 0.1s;
+	}
+
+	[disabled] {
+		opacity: 0.25;
+		pointer-events: none;
 	}
 
 	img {
