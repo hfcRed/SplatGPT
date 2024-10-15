@@ -43,6 +43,10 @@
 			}
 		});
 	}
+
+	function clearAll() {
+		slots = slots.map(() => emptyAbility);
+	}
 </script>
 
 <div>
