@@ -33,7 +33,13 @@
 </script>
 
 <div
-	use:dndzone={{ items: abilities, flipDurationMs: 200, dropFromOthersDisabled: true }}
+	use:dndzone={{
+		items: abilities,
+		flipDurationMs: 200,
+		dropFromOthersDisabled: true,
+		zoneTabIndex: -1,
+		zoneItemTabIndex: -1
+	}}
 	on:consider={handleConsider}
 	on:finalize={handleFinalize}
 >

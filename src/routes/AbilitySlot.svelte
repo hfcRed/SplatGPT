@@ -34,7 +34,7 @@
 </script>
 
 <div
-	use:dndzone={{ items, flipDurationMs: 200 }}
+	use:dndzone={{ items, flipDurationMs: 200, zoneTabIndex: -1, zoneItemTabIndex: -1 }}
 	on:consider={handleConsider}
 	on:finalize={handleFinalize}
 	class={`${mainType ? 'main' : ''}`}
