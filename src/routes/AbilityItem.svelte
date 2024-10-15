@@ -34,8 +34,7 @@
 		justify-content: center;
 		width: 100%;
 		height: 100%;
-		outline: 1px solid cornflowerblue;
-		border: none;
+		border: 1px solid cornflowerblue;
 		border-radius: 50%;
 		background-color: black;
 		transition: opacity 0.1s;

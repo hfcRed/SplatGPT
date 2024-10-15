@@ -50,12 +50,21 @@
 	div {
 		width: 3rem;
 		height: 3rem;
-		outline: 1px solid red;
+		border: 2px solid darkgrey;
+		border-right: 0;
+		border-bottom: 0;
 		border-radius: 50%;
+		background-image: url('../lib/images/abilities/Unknown.png');
+		background-size: contain;
+		background-color: black;
 	}
 
 	.main {
 		width: 4rem;
 		height: 4rem;
+	}
+
+	div > :global(button) {
+		border: 0;
 	}
 </style>
