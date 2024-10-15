@@ -1,16 +1,22 @@
 <script lang="ts">
 	import type { DndEvent } from 'svelte-dnd-action';
 	import type { Ability } from './abilities';
+	import { createEventDispatcher } from 'svelte';
 	import { dndzone, TRIGGERS, SHADOW_ITEM_MARKER_PROPERTY_NAME } from 'svelte-dnd-action';
 	import AbilityItem from './AbilityItem.svelte';
 
 	export let abilities: Ability[] = [];
 	export let disabledStates: { [key: string]: boolean } = {};
 
+	const dispatch = createEventDispatcher<Record<string, Ability | undefined>>();
+
 	function handleConsider(event: CustomEvent<DndEvent<Ability>>) {
 		const { trigger, id } = event.detail.info;
 
 		if (trigger === TRIGGERS.DRAG_STARTED) {
+			const draggedAbility = abilities.find((ability) => ability.id === id);
+			dispatch('drag', draggedAbility);
+
 			const idIndex = abilities.findIndex((item) => item.id === id);
 			const idNumber = id.toString().split('_')[0];
 			const idCopy = id.toString().includes('_') ? id.split('_')[1] : '0';
@@ -28,6 +34,7 @@
 	}
 
 	function handleFinalize(event: CustomEvent<DndEvent<Ability>>) {
+		dispatch('drag', undefined);
 		abilities = event.detail.items;
 	}
 </script>

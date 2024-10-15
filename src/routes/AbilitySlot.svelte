@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { DndEvent, Item } from 'svelte-dnd-action';
 	import type { Ability } from './abilities';
-	import { dndzone } from 'svelte-dnd-action';
+	import { createEventDispatcher } from 'svelte';
+	import { dndzone, TRIGGERS } from 'svelte-dnd-action';
 	import AbilityItem from './AbilityItem.svelte';
 
 	const emptyAbility: Ability = { id: '100', name: 'Unknown', main: false };
@@ -9,12 +10,24 @@
 	export let ability: Ability = emptyAbility;
 	export let mainType: string | null = null;
 	export let items: Ability[] = [];
+	export let disabled: boolean = false;
+
+	const dispatch = createEventDispatcher<Record<string, Ability | undefined>>();
 
 	function handleConsider(event: CustomEvent<DndEvent<Ability>>) {
+		const { trigger, id } = event.detail.info;
+
+		if (trigger === TRIGGERS.DRAG_STARTED) {
+			const draggedAbility = items.find((ability) => ability.id === id);
+			dispatch('drag', draggedAbility);
+		}
+
 		items = event.detail.items;
 	}
 
 	function handleFinalize(event: CustomEvent<DndEvent<Ability>>) {
+		dispatch('drag', undefined);
+
 		const item = event.detail.items[0];
 
 		if (item && item.main === true && item.mainType !== mainType) {
@@ -49,12 +62,13 @@
 		flipDurationMs: 200,
 		zoneTabIndex: -1,
 		zoneItemTabIndex: -1,
+		dropFromOthersDisabled: disabled,
 		dropTargetStyle: {},
 		transformDraggedElement: testCompatibility
 	}}
 	on:consider={handleConsider}
 	on:finalize={handleFinalize}
-	class={`${mainType ? 'main' : ''}`}
+	class={`${mainType ? 'main' : ''} ${disabled ? 'disabled' : ''}`}
 >
 	{#each items as item, index (item.id)}
 		{#if index === 0}
@@ -74,11 +88,17 @@
 		background-image: url('../lib/images/abilities/Unknown.png');
 		background-size: contain;
 		background-color: var(--spl-color-bg-low);
+		transition: opacity 0.1s;
 	}
 
 	.main {
 		width: 4rem;
 		height: 4rem;
+	}
+
+	.disabled {
+		opacity: 0.25;
+		pointer-events: none;
 	}
 
 	div > :global(button) {

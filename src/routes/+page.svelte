@@ -50,11 +50,24 @@
 	function clearAll() {
 		slots = slots.map(() => emptyAbility);
 	}
+
+	let enabledSlots: 'all' | 'head' | 'clothes' | 'shoes' = 'all';
+
+	function updateEnabledSlots(event: CustomEvent<Ability | undefined>) {
+		const ability = event.detail;
+		if (!ability || ability.main === false) {
+			enabledSlots = 'all';
+			return;
+		}
+		enabledSlots = ability.mainType || 'all';
+	}
 </script>
 
 <div>
 	{#each slots as slot, index}
 		<AbilitySlot
+			on:drag={updateEnabledSlots}
+			disabled={enabledSlots === 'all' ? false : mainIndexes[index] === enabledSlots ? false : true}
 			items={slot.id === '100' ? [] : [slot]}
 			bind:ability={slots[index]}
 			mainType={mainIndexes[index] || null}
@@ -62,8 +75,18 @@
 	{/each}
 </div>
 
-<AbilitySelector on:interact={addAbility} abilities={subAbilities} {disabledStates} />
-<AbilitySelector on:interact={addAbility} abilities={mainAbilities} {disabledStates} />
+<AbilitySelector
+	on:drag={updateEnabledSlots}
+	on:interact={addAbility}
+	abilities={subAbilities}
+	{disabledStates}
+/>
+<AbilitySelector
+	on:drag={updateEnabledSlots}
+	on:interact={addAbility}
+	abilities={mainAbilities}
+	{disabledStates}
+/>
 
 <style>
 	div {
