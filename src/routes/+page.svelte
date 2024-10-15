@@ -5,11 +5,14 @@
 	import AbilitySelector from './AbilitySelector.svelte';
 
 	const emptyAbility: Ability = { id: '100', name: 'Unknown', main: false };
-	const mainIndexes: { [key: number]: string } = { 0: 'head', 3: 'clothes', 6: 'shoes' };
+	const mainIndexes: { [key: number]: string } = { 0: 'head', 4: 'clothes', 8: 'shoes' };
 	const mainAbilities: Ability[] = abilities.filter((item) => item.main === true);
 	const subAbilities: Ability[] = abilities.filter((item) => item.main === false);
 
 	let slots: Ability[] = [
+		emptyAbility,
+		emptyAbility,
+		emptyAbility,
 		emptyAbility,
 		emptyAbility,
 		emptyAbility,
@@ -23,9 +26,9 @@
 
 	$: disabledStates = {
 		head: slots[0].id !== '100',
-		clothes: slots[3].id !== '100',
-		shoes: slots[6].id !== '100',
-		all: slots.filter((slot) => slot.id !== '100').length === 9
+		clothes: slots[4].id !== '100',
+		shoes: slots[8].id !== '100',
+		all: slots.filter((slot) => slot.id !== '100').length === 12
 	};
 
 	function addAbility(event: CustomEvent<Ability>) {
@@ -65,8 +68,8 @@
 <style>
 	div {
 		display: grid;
-		grid-template-columns: repeat(3, fit-content(100%));
-		gap: 1rem;
+		grid-template-columns: repeat(4, fit-content(100%));
+		gap: 1rem 0.5rem;
 		align-items: center;
 	}
 </style>
