@@ -40,10 +40,7 @@
 		border-radius: 50%;
 		background-color: var(--spl-color-bg-low);
 		padding: 0.25rem;
-		transition:
-			opacity 0.1s,
-			background-color 0.1s,
-			outline-color 0.1s;
+		transition: opacity 0.1s;
 	}
 
 	[disabled] {
@@ -54,10 +51,5 @@
 	img {
 		width: 100%;
 		height: 100%;
-	}
-
-	.incompatible {
-		background-color: var(--spl-color-red-low) !important;
-		outline-color: var(--spl-color-red) !important;
 	}
 </style>

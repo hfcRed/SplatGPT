@@ -44,16 +44,6 @@
 		items = [];
 		ability = emptyAbility;
 	}
-
-	function testCompatibility(element: HTMLElement | undefined, data: Item | undefined) {
-		if (!element || !data || !data.main) return;
-
-		if (data.mainType !== mainType) {
-			element.classList.add('incompatible');
-		} else {
-			element.classList.remove('incompatible');
-		}
-	}
 </script>
 
 <div
@@ -63,8 +53,7 @@
 		zoneTabIndex: -1,
 		zoneItemTabIndex: -1,
 		dropFromOthersDisabled: disabled,
-		dropTargetStyle: {},
-		transformDraggedElement: testCompatibility
+		dropTargetStyle: {}
 	}}
 	on:consider={handleConsider}
 	on:finalize={handleFinalize}
