@@ -34,19 +34,30 @@
 		justify-content: center;
 		width: 100%;
 		height: 100%;
-		border: 1px solid var(--spl-color-outline);
+		outline: 1px solid var(--spl-color-outline);
+		outline-offset: -1px;
+		border: none;
 		border-radius: 50%;
 		background-color: var(--spl-color-bg-low);
-		transition: opacity 0.1s;
+		padding: 0.25rem;
+		transition:
+			opacity 0.1s,
+			background-color 0.1s,
+			outline-color 0.1s;
 	}
 
 	[disabled] {
-		opacity: 0.5;
+		opacity: 0.25;
 		pointer-events: none;
 	}
 
 	img {
 		width: 100%;
 		height: 100%;
+	}
+
+	.incompatible {
+		background-color: var(--spl-color-red-low) !important;
+		outline-color: var(--spl-color-red) !important;
 	}
 </style>

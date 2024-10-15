@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { DndEvent } from 'svelte-dnd-action';
+	import type { DndEvent, Item } from 'svelte-dnd-action';
 	import type { Ability } from './abilities';
 	import { dndzone } from 'svelte-dnd-action';
 	import AbilityItem from './AbilityItem.svelte';
@@ -31,6 +31,16 @@
 		items = [];
 		ability = emptyAbility;
 	}
+
+	function testCompatibility(element: HTMLElement | undefined, data: Item | undefined) {
+		if (!element || !data || !data.main) return;
+
+		if (data.mainType !== mainType) {
+			element.classList.add('incompatible');
+		} else {
+			element.classList.remove('incompatible');
+		}
+	}
 </script>
 
 <div
@@ -39,7 +49,8 @@
 		flipDurationMs: 200,
 		zoneTabIndex: -1,
 		zoneItemTabIndex: -1,
-		dropTargetStyle: {}
+		dropTargetStyle: {},
+		transformDraggedElement: testCompatibility
 	}}
 	on:consider={handleConsider}
 	on:finalize={handleFinalize}
@@ -70,11 +81,7 @@
 		height: 4rem;
 	}
 
-	.test {
-		background-color: red;
-	}
-
 	div > :global(button) {
-		border: 0;
+		outline: 0;
 	}
 </style>
