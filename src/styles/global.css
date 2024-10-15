@@ -1,3 +1,86 @@
+:root,
+::backdrop {
+	--spl-color-accent-low: #002643;
+	--spl-color-accent: #006eb4;
+	--spl-color-accent-high: #9aceff;
+	--spl-color-white: #ffffff;
+	--spl-color-gray-1: #ebeef5;
+	--spl-color-gray-2: #bec2cb;
+	--spl-color-gray-3: #858b9c;
+	--spl-color-gray-4: #525868;
+	--spl-color-gray-5: #30374a;
+	--spl-color-gray-6: #222634;
+	--spl-color-black: #16181f;
+
+	--spl-hue-red: 360;
+	--spl-hue-green: 150;
+	--spl-sl-low: 40%, 20%;
+	--spl-sl: 80%, 60%;
+	--spl-sl-high: 100%, 80%;
+
+	--spl-color-red-low: hsl(var(--spl-hue-red), var(--spl-sl-low));
+	--spl-color-red: hsl(var(--spl-hue-red), var(--spl-sl));
+	--spl-color-red-high: hsl(var(--spl-hue-red), var(--spl-sl-high));
+	--spl-color-green-low: hsl(var(--spl-hue-green), var(--spl-sl-low));
+	--spl-color-green: hsl(var(--spl-hue-green), var(--spl-sl));
+	--spl-color-green-high: hsl(var(--spl-hue-green), var(--spl-sl-high));
+
+	--spl-color-text: var(--spl-color-gray-2);
+	--spl-color-subtext: var(--spl-color-gray-3);
+	--spl-color-text-accent: var(--spl-color-accent-high);
+	--spl-color-text-inverse: var(--spl-color-black);
+	--spl-color-bg-low: var(--spl-color-black);
+	--spl-color-bg: var(--spl-color-gray-6);
+	--spl-color-bg-high: var(--spl-color-gray-5);
+	--spl-color-outline: var(--spl-color-gray-5);
+	--spl-color-outline-high: var(--spl-color-gray-4);
+}
+
+:root,
+::backdrop {
+	--spl-text-xs: 0.8125rem;
+	--spl-text-sm: 0.875rem;
+	--spl-text-base: 1rem;
+	--spl-text-lg: 1.125rem;
+	--spl-text-xl: 1.25rem;
+	--spl-text-2xl: 1.5rem;
+	--spl-text-3xl: 1.8125rem;
+	--spl-text-4xl: 2.1875rem;
+	--spl-text-5xl: 2.625rem;
+
+	--spl-text-h1: var(--spl-text-4xl);
+	--spl-text-h2: var(--spl-text-3xl);
+	--spl-text-h3: var(--spl-text-2xl);
+	--spl-text-h4: var(--spl-text-xl);
+
+	--spl-line-height: 1.75;
+	--spl-line-height-headings: 1.2;
+
+	--spl-font-system: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol', 'Noto Color Emoji';
+	--spl-font-system-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+		'Courier New', monospace;
+	--spl-font: var(--spl-font-custon, var(--spl-font-system)), var(--spl-font-system);
+	--spl-font-mono: var(--spl-font-custom-mono, var(--spl-font-system-mono)),
+		var(--spl-font-system-mono);
+
+	--spl-shadow-sm: 0 4px 6px -1px #0000001a, 0 2px 4px -2px #0000001a;
+	--spl-shadow-md: 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a;
+	--spl-shadow-lg: 0 20px 25px -5px #0000001a, 0 8px 10px -6px #0000001a;
+
+	--spl-radius-sm: 0.25rem;
+	--spl-radius-md: 0.5rem;
+	--spl-radius-lg: 0.75rem;
+
+	@media (width >= 50em) {
+		--spl-text-h1: var(--spl-text-5xl);
+		--spl-text-h2: var(--spl-text-4xl);
+		--spl-text-h3: var(--spl-text-3xl);
+		--spl-text-h4: var(--spl-text-2xl);
+	}
+}
+
 * {
 	margin: 0;
 	min-width: 0;
@@ -5,10 +88,73 @@
 
 html {
 	color-scheme: dark;
+	accent-color: var(--spl-color-accent);
+	scrollbar-width: thin;
+	scrollbar-color: var(--spl-color-bg-high) var(--spl-color-bg);
+
+	&::-webkit-scrollbar,
+	&::-webkit-scrollbar-track {
+		background-color: var(--spl-color-bg);
+		height: 5px;
+		width: 5px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: var(--spl-color-bg-high);
+		border-radius: var(--spl-radius-md);
+	}
+}
+
+body {
+	color: var(--spl-color-text);
+	background-color: var(--spl-color-bg-low);
+	font-family: var(--spl-font);
+	font-size: var(--spl-text-base);
+	line-height: var(--spl-line-height);
+	width: 100%;
+	min-height: 100vh;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--spl-color-white);
+	line-height: var(--spl-line-height-headings);
+	margin-top: 1.5rem;
+	overflow-wrap: anywhere;
+}
+
+h1 {
+	font-size: var(--spl-text-h1);
+}
+
+h2 {
+	font-size: var(--spl-text-h2);
+}
+
+h3 {
+	font-size: var(--spl-text-h3);
+}
+
+h4 {
+	font-size: var(--spl-text-h4);
+}
+
+h5 {
+	font-size: var(--spl-text-h5);
 }
 
 p {
 	overflow-wrap: anywhere;
+}
+
+a {
+	color: var(--spl-color-accent-high);
 }
 
 img,
