@@ -34,7 +34,13 @@
 </script>
 
 <div
-	use:dndzone={{ items, flipDurationMs: 200, zoneTabIndex: -1, zoneItemTabIndex: -1 }}
+	use:dndzone={{
+		items,
+		flipDurationMs: 200,
+		zoneTabIndex: -1,
+		zoneItemTabIndex: -1,
+		dropTargetStyle: {}
+	}}
 	on:consider={handleConsider}
 	on:finalize={handleFinalize}
 	class={`${mainType ? 'main' : ''}`}
@@ -50,18 +56,22 @@
 	div {
 		width: 3rem;
 		height: 3rem;
-		border: 2px solid darkgrey;
+		border: 2px solid var(--spl-color-outline-high);
 		border-right: 0;
 		border-bottom: 0;
 		border-radius: 50%;
 		background-image: url('../lib/images/abilities/Unknown.png');
 		background-size: contain;
-		background-color: black;
+		background-color: var(--spl-color-bg-low);
 	}
 
 	.main {
 		width: 4rem;
 		height: 4rem;
+	}
+
+	.test {
+		background-color: red;
 	}
 
 	div > :global(button) {

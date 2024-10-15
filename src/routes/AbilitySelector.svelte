@@ -30,6 +30,10 @@
 	function handleFinalize(event: CustomEvent<DndEvent<Ability>>) {
 		abilities = event.detail.items;
 	}
+
+	function test(element: any, data: any, index: any) {
+		console.log(element);
+	}
 </script>
 
 <div
@@ -38,7 +42,9 @@
 		flipDurationMs: 200,
 		dropFromOthersDisabled: true,
 		zoneTabIndex: -1,
-		zoneItemTabIndex: -1
+		zoneItemTabIndex: -1,
+		transformDraggedElement: test,
+		dropTargetStyle: {}
 	}}
 	on:consider={handleConsider}
 	on:finalize={handleFinalize}

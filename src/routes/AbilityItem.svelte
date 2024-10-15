@@ -34,14 +34,14 @@
 		justify-content: center;
 		width: 100%;
 		height: 100%;
-		border: 1px solid cornflowerblue;
+		border: 1px solid var(--spl-color-outline);
 		border-radius: 50%;
-		background-color: black;
+		background-color: var(--spl-color-bg-low);
 		transition: opacity 0.1s;
 	}
 
 	[disabled] {
-		opacity: 0.25;
+		opacity: 0.5;
 		pointer-events: none;
 	}
 
