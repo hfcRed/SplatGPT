@@ -35,13 +35,15 @@
 		slots.find((slot, index) => {
 			if (slot.id !== '100') return false;
 
+			const newSlot = { ...event.detail, id: Math.floor(Math.random() * 10000000000).toString() };
+
 			if (!event.detail.main) {
-				slots[index] = event.detail;
+				slots[index] = newSlot;
 				return true;
 			}
 
 			if (mainIndexes[index] && event.detail.mainType === mainIndexes[index]) {
-				slots[index] = event.detail;
+				slots[index] = newSlot;
 				return true;
 			}
 		});
@@ -62,6 +64,8 @@
 		enabledSlots = ability.mainType || 'all';
 	}
 </script>
+
+<OutputQuality {slots} />
 
 <div>
 	{#each slots as slot, index}
@@ -87,8 +91,6 @@
 	abilities={mainAbilities}
 	{disabledStates}
 />
-
-<OutputQuality {slots} />
 
 <style>
 	div {
