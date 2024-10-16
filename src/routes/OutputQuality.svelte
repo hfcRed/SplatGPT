@@ -200,11 +200,10 @@
 	$: {
 		slots;
 		quality = getQuality();
-		console.log(quality);
 	}
 
 	function getQuality(): number {
-		const highest = 0.5;
+		const highest = 0.6710279;
 		const mainIndexes = [0, 4, 8];
 
 		let abilityCounts: { [key: string]: number } = {};
@@ -240,8 +239,8 @@
 		}
 
 		const weightedAverageProbability = totalWeightedProbability / totalWeight;
-		const remainingApPercentage = remainingAp / 57;
-		const adjustedProbability = weightedAverageProbability * (1 + remainingApPercentage * 2);
+		const remainingApPercentage = Math.exp(remainingAp / 57);
+		const adjustedProbability = weightedAverageProbability * remainingApPercentage;
 
 		const qualityBrackets = [0.1, 0.2, 0.3, 0.5, 1];
 		const quality = adjustedProbability ? adjustedProbability / highest : 0;
