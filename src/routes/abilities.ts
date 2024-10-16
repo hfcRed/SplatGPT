@@ -33,3 +33,5 @@ export const abilities: Ability[] = [
 	{ id: '125', name: 'ObjectEffect_Up', main: true, mainType: 'shoes' },
 	{ id: '126', name: 'SomersaultLanding', main: true, mainType: 'shoes' }
 ];
+
+export const emptyAbility: Ability = { id: '100', name: 'Unknown', main: false };

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { Ability } from './abilities';
-	import { abilities } from './abilities';
+	import { abilities, emptyAbility } from './abilities';
 	import AbilitySlot from './AbilitySlot.svelte';
 	import AbilitySelector from './AbilitySelector.svelte';
+	import OutputQuality from './OutputQuality.svelte';
 
-	const emptyAbility: Ability = { id: '100', name: 'Unknown', main: false };
 	const mainIndexes: { [key: number]: string } = { 0: 'head', 4: 'clothes', 8: 'shoes' };
 	const mainAbilities: Ability[] = abilities.filter((item) => item.main === true);
 	const subAbilities: Ability[] = abilities.filter((item) => item.main === false);
@@ -87,6 +87,8 @@
 	abilities={mainAbilities}
 	{disabledStates}
 />
+
+<OutputQuality {slots} />
 
 <style>
 	div {

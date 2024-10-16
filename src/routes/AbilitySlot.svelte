@@ -1,11 +1,10 @@
 <script lang="ts">
-	import type { DndEvent, Item } from 'svelte-dnd-action';
+	import type { DndEvent } from 'svelte-dnd-action';
 	import type { Ability } from './abilities';
+	import { emptyAbility } from './abilities';
 	import { createEventDispatcher } from 'svelte';
 	import { dndzone, TRIGGERS } from 'svelte-dnd-action';
 	import AbilityItem from './AbilityItem.svelte';
-
-	const emptyAbility: Ability = { id: '100', name: 'Unknown', main: false };
 
 	export let ability: Ability = emptyAbility;
 	export let mainType: string | null = null;
