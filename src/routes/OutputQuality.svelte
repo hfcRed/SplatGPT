@@ -259,9 +259,6 @@
 		display: block;
 		width: 14rem;
 		height: 1rem;
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
 		border: 1px solid var(--spl-color-outline);
 		border-radius: var(--spl-radius-md);
 		background: none;
@@ -272,6 +269,7 @@
 	meter::-webkit-meter-bar {
 		width: 14rem;
 		height: 1rem;
+		border: 1px solid var(--spl-color-outline);
 		background: none;
 		background-color: var(--spl-color-bg);
 		border-radius: var(--spl-radius-md);
