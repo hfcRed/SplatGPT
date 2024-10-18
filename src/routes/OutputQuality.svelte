@@ -218,6 +218,8 @@
 			abilityCounts[ability.name] = abilityCounts[ability.name] + points || points;
 		}
 
+		if (remainingAp >= 54) return 4;
+
 		let totalWeightedProbability = 0;
 		let totalWeight = 0;
 
