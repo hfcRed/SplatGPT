@@ -95,7 +95,7 @@
 		}
 
 		&:focus-visible {
-			outline: solid 3px var(--spl-button-color);
+			outline: solid 2px var(--spl-button-color);
 			outline-offset: 1px;
 		}
 	}
