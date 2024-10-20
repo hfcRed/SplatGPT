@@ -1,6 +1,5 @@
+import exec from 'child_process';
 import fs from 'fs';
-
-createData();
 
 let weaponInfoMain;
 let weaponInfoSub;
@@ -19,8 +18,10 @@ async function createData() {
     createMainData();
 }
 
-async function createMainData() {
+function createMainData() {
+    const path = './src/lib/data/weapons/weapons.ts';
     let weapons = {};
+
     for (const weapon of weaponInfoMain) {
         if (weapon.Type !== "Versus") continue;
 
@@ -39,5 +40,10 @@ async function createMainData() {
         weapons[id] = { id, name, image, sub: { id: sub, name: subName, image: subImage }, special: { id: special, name: specialName, image: specialImage } };
     }
 
-    fs.writeFileSync('./scripts/output/weapons.json', JSON.stringify(weapons, null, 4));
+    console.log(`Creating file for weapons`);
+
+    fs.writeFileSync(path, `import type { Weapon } from './types'; \n\n export const weapons: { [key: string]: Weapon } = ${JSON.stringify(weapons, null, 4)};`);
+    exec.execSync(`npx prettier --write ${path}`);
 }
+
+createData();
