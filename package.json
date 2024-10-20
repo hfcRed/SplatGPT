@@ -12,7 +12,8 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"test:integration": "playwright test",
-		"test:unit": "vitest"
+		"test:unit": "vitest",
+		"create-data": "node scripts/create-data.js"
 	},
 	"devDependencies": {
 		"@melt-ui/pp": "^0.3.2",
