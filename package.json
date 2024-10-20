@@ -13,7 +13,8 @@
 		"format": "prettier --write .",
 		"test:integration": "playwright test",
 		"test:unit": "vitest",
-		"create-data": "node scripts/create-data.js"
+		"create-weapon-data": "node scripts/create-weapon-data.js",
+		"create-ability-data": "node scripts/create-ability-data.js"
 	},
 	"devDependencies": {
 		"@melt-ui/pp": "^0.3.2",
