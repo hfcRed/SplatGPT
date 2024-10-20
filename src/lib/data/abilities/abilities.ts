@@ -1,5 +1,13 @@
 import type { Ability } from './types';
 
+export const emptyAbility: Ability = {
+	id: '12',
+	name: 'None',
+	main: false,
+	mainType: 'None',
+	image: '/src/lib/images/abilities/None.png'
+};
+
 export const abilities: { [key: string]: Ability } = {
 	Action_Up: {
 		id: '1',
@@ -77,13 +85,6 @@ export const abilities: { [key: string]: Ability } = {
 		main: true,
 		mainType: 'Head',
 		image: '/src/lib/images/abilities/MinorityUp.png'
-	},
-	None: {
-		id: '12',
-		name: 'None',
-		main: false,
-		mainType: 'None',
-		image: '/src/lib/images/abilities/None.png'
 	},
 	ObjectEffect_Up: {
 		id: '13',

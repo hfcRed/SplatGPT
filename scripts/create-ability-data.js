@@ -30,9 +30,12 @@ function createAbilityData() {
         abilities[name] = { id, name, main, mainType, image };
     }
 
+    const emptyAbility = abilities["None"];
+    delete abilities["None"];
+
     console.log(`Creating file for abilities`);
 
-    fs.writeFileSync(path, `import type { Ability } from './types'; \n\n export const abilities: { [key: string]: Ability } = ${JSON.stringify(abilities, null, 4)};`);
+    fs.writeFileSync(path, `import type { Ability } from './types'; \n\n export const emptyAbility: Ability = ${JSON.stringify(emptyAbility, null, 4)}; \n\n export const abilities: { [key: string]: Ability } = ${JSON.stringify(abilities, null, 4)};`);
     exec.execSync(`npx prettier --write ${path}`);
 }
 
