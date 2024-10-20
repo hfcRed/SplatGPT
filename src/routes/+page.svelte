@@ -4,6 +4,8 @@
 	import AbilitySlot from './AbilitySlot.svelte';
 	import AbilitySelector from './AbilitySelector.svelte';
 	import OutputQuality from './OutputQuality.svelte';
+	import Combobox from '$lib/components/Combobox.svelte';
+	import { weapons, type Weapon } from '$lib/data/weapons';
 
 	const mainIndexes: { [key: number]: string } = { 0: 'head', 4: 'clothes', 8: 'shoes' };
 	const mainAbilities: Ability[] = abilities.filter((item) => item.main === true);
@@ -63,7 +65,11 @@
 		}
 		enabledSlots = ability.mainType || 'all';
 	}
+
+	let current: Weapon = weapons[Object.keys(weapons)[0]];
 </script>
+
+<Combobox title="Weapon" items={Object.values(weapons)} bind:current />
 
 <OutputQuality {slots} />
 

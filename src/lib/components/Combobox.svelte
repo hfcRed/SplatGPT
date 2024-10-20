@@ -2,7 +2,7 @@
 	import type { HTMLInputAttributes } from 'svelte/elements';
 
 	export type Size = 'small' | 'medium' | 'large';
-	export type Item = { name: string; icon?: any };
+	export type Item = { name: string; icon?: any; image?: string };
 
 	type BaseProps = {
 		size?: Size;
@@ -21,6 +21,11 @@
 	import { createCombobox, melt, type ComboboxOptionProps } from '@melt-ui/svelte';
 	import { fly } from 'svelte/transition';
 	import ChevronUpDown from '$lib/icons/ChevronUpDown.svelte';
+
+	const images: any = import.meta.glob('/src/lib/images/*/*.png', {
+		eager: true,
+		query: { enhanced: true }
+	});
 
 	export let size: Size = 'medium';
 	export let items: Item[] = [{ name: 'No items specified' }];
@@ -90,7 +95,10 @@
 		<div class="item-container" tabindex="0">
 			{#each filteredItems as item, index (index)}
 				<li class={`${$isSelected(item) ? 'selected' : ''}`} use:melt={$option(toOption(item))}>
-					<svelte:component this={item.icon} size="1.25em" />
+					<svelte:component this={item.icon} size="32px" />
+					{#if item.image}
+						<enhanced:img src={images[item.image].default} alt={item.name} width="32" height="32" />
+					{/if}
 					{item.name}
 				</li>
 			{:else}
@@ -185,6 +193,9 @@
 
 	li {
 		border-radius: var(--spl-radius-md);
+		display: flex;
+		align-items: center;
+		gap: 1rem;
 		padding: 0.5rem 1rem;
 		scroll-margin: 0.5rem;
 		cursor: pointer;
