@@ -53,9 +53,10 @@
 
 			const countString = count.toString();
 
-			const closest = Object.keys(token).reduce((a, b) =>
-				Math.abs(+b - +countString) < Math.abs(+a - +countString) ? b : a
-			);
+			const closest = Object.keys(token)
+				.map(Number)
+				.filter((key) => key <= +countString)
+				.reduce((a, b) => (Math.abs(b - +countString) < Math.abs(a - +countString) ? b : a));
 
 			const probability = token[closest];
 			const weight = 1 / probability;
