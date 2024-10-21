@@ -12,7 +12,6 @@
 		const module = await import(
 			/* @vite-ignore */ `/src/lib/data/abilities/tokens/${weapon.referenceKit}.ts`
 		);
-		console.log(module.tokens);
 		tokens = module.tokens;
 	}
 
