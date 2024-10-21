@@ -4,6 +4,7 @@ import fs from 'fs';
 let abilityInfo;
 let abilityTokens;
 let abilityRemap;
+let abilityOrder;
 
 async function createData() {
     const abilities = await fetch("https://raw.githubusercontent.com/Leanny/splat3/refs/heads/main/data/parameter/910/misc/spl__GearSkillTraitsParam.spl__GearSkillTraitsParam.json")
@@ -11,6 +12,7 @@ async function createData() {
 
     abilityTokens = JSON.parse(fs.readFileSync('./scripts/input/ability-tokens.json', 'utf8'));
     abilityRemap = JSON.parse(fs.readFileSync('./scripts/input/ability-remap.json', 'utf8'));
+    abilityOrder = JSON.parse(fs.readFileSync('./scripts/input/ability-order.json', 'utf8'));
 
     createAbilityData();
     createTokenData();
@@ -22,13 +24,14 @@ function createAbilityData() {
 
     for (const [key, value] of Object.entries(abilityInfo.Traits)) {
         const name = key;
-        const id = (Object.keys(abilityInfo.Traits).indexOf(name) + 1).toString();
-        const main = value.KindLimit !== "None";
-        const mainType = value.KindLimit;
+        const id = abilityOrder.indexOf(name).toString();
+        const mainType = (value.KindLimit).toLowerCase();
         const image = `/src/lib/images/abilities/${name}.png`;
 
-        abilities[name] = { id, name, main, mainType, image };
+        abilities[name] = { id, name, mainType, image };
     }
+
+    abilities = Object.keys(abilities).sort((a, b) => abilities[a].id - abilities[b].id).reduce((acc, key) => { acc[key] = abilities[key]; return acc }, {});
 
     const emptyAbility = abilities["None"];
     delete abilities["None"];
@@ -48,7 +51,7 @@ function createTokenData() {
 
         for (const [ability, probability] of Object.entries(value)) {
             const split = ability.split('_');
-            const num = parseInt(split[split.length - 1]) ? parseInt(split.pop() || '0') : 0;
+            const num = parseInt(split[split.length - 1]) ? parseInt(split.pop() || '10') : "10";
             const name = split.join('_');
             const newName = abilityRemap[name];
 

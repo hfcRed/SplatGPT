@@ -1,7 +1,6 @@
 export type Ability = {
 	id: string;
 	name: string;
-	main: boolean;
-	mainType: 'Head' | 'Clothes' | 'Shoes' | 'None';
+	mainType: 'head' | 'clothes' | 'shoes' | 'none';
 	image: string;
 };
