@@ -8,14 +8,15 @@
 	export let slots: Ability[] = [];
 	export let weapon: Weapon;
 
-	async function loadTokens(weapon: Weapon) {
-		const module = await import(
-			/* @vite-ignore */ `/src/lib/data/abilities/tokens/${weapon.referenceKit}.ts`
-		);
-		tokens = module.tokens;
-	}
+	const modules = import.meta.glob('/src/lib/data/abilities/tokens/*.ts', { import: 'tokens' });
 
-	$: loadTokens(weapon);
+	$: {
+		weapon;
+		modules[`/src/lib/data/abilities/tokens/${weapon.referenceKit}.ts`]().then((module) => {
+			tokens = module as Tokens;
+			quality = getQuality();
+		});
+	}
 
 	let quality = 0;
 	$: {
