@@ -27,7 +27,7 @@
 	function getQuality(): number {
 		if (!tokens) return 4;
 
-		const highest = 0.6710279;
+		const highest = Object.values(tokens).reduce((a, b) => Math.max(a, ...Object.values(b)), 0);
 		const mainIndexes = [0, 4, 8];
 
 		let abilityCounts: { [key: string]: number } = {};
