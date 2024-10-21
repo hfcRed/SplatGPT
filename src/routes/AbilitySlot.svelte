@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { DndEvent } from 'svelte-dnd-action';
-	import type { Ability } from './abilities';
-	import { emptyAbility } from './abilities';
+	import { emptyAbility, type Ability } from '$lib/data/abilities';
 	import { createEventDispatcher } from 'svelte';
 	import { dndzone, TRIGGERS } from 'svelte-dnd-action';
 	import AbilityItem from './AbilityItem.svelte';
@@ -29,7 +28,7 @@
 
 		const item = event.detail.items[0];
 
-		if (item && item.main === true && item.mainType !== mainType) {
+		if (item && item.mainType !== 'none' && item.mainType !== mainType) {
 			items = [];
 			ability = emptyAbility;
 			return;
@@ -73,7 +72,7 @@
 		border-right: 0;
 		border-bottom: 0;
 		border-radius: 50%;
-		background-image: url('../lib/images/abilities/Unknown.png');
+		background-image: url('../lib/images/abilities/None.png');
 		background-size: contain;
 		background-color: var(--spl-color-bg-low);
 		transition: opacity 0.1s;

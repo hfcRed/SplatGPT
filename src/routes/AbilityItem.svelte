@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Ability } from './abilities';
+	import type { Ability } from '$lib/data/abilities';
 	import { createEventDispatcher } from 'svelte';
 
 	export let ability: Ability;
@@ -21,7 +21,7 @@
 
 <button
 	on:click={fireInteract}
-	class={`${ability.main ? `main ${ability.mainType}` : ''}`}
+	class={`${ability.mainType !== 'none' ? `main ${ability.mainType}` : ''}`}
 	{disabled}
 >
 	<enhanced:img src={image.default} alt={ability.name} />

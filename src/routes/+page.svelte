@@ -1,15 +1,16 @@
 <script lang="ts">
-	import type { Ability } from './abilities';
-	import { abilities, emptyAbility } from './abilities';
+	import { abilities, emptyAbility, type Ability } from '$lib/data/abilities';
 	import AbilitySlot from './AbilitySlot.svelte';
 	import AbilitySelector from './AbilitySelector.svelte';
 	import OutputQuality from './OutputQuality.svelte';
 	import Combobox from '$lib/components/Combobox.svelte';
-	import { weapons, type Weapon } from '$lib/data/weapons';
+	import { weapons, type Weapon } from '$lib/data/weapons/index';
 
 	const mainIndexes: { [key: number]: string } = { 0: 'head', 4: 'clothes', 8: 'shoes' };
-	const mainAbilities: Ability[] = abilities.filter((item) => item.main === true);
-	const subAbilities: Ability[] = abilities.filter((item) => item.main === false);
+
+	const entries = Object.values(abilities);
+	const mainAbilities: Ability[] = entries.filter((item) => item.mainType !== 'none');
+	const subAbilities: Ability[] = entries.filter((item) => item.mainType === 'none');
 
 	let slots: Ability[] = [
 		emptyAbility,
@@ -27,19 +28,19 @@
 	];
 
 	$: disabledStates = {
-		head: slots[0].id !== '100',
-		clothes: slots[4].id !== '100',
-		shoes: slots[8].id !== '100',
-		all: slots.filter((slot) => slot.id !== '100').length === 12
+		head: slots[0].id !== '0',
+		clothes: slots[4].id !== '0',
+		shoes: slots[8].id !== '0',
+		all: slots.filter((slot) => slot.id !== '0').length === 12
 	};
 
 	function addAbility(event: CustomEvent<Ability>) {
 		slots.find((slot, index) => {
-			if (slot.id !== '100') return false;
+			if (slot.id !== '0') return false;
 
 			const newSlot = { ...event.detail, id: Math.floor(Math.random() * 10000000000).toString() };
 
-			if (!event.detail.main) {
+			if (event.detail.mainType === 'none') {
 				slots[index] = newSlot;
 				return true;
 			}
@@ -55,23 +56,23 @@
 		slots = slots.map(() => emptyAbility);
 	}
 
-	let enabledSlots: 'all' | 'head' | 'clothes' | 'shoes' = 'all';
+	let enabledSlots: 'all' | 'head' | 'clothes' | 'shoes' | 'none' = 'all';
 
 	function updateEnabledSlots(event: CustomEvent<Ability | undefined>) {
 		const ability = event.detail;
-		if (!ability || ability.main === false) {
+		if (!ability || ability.mainType === 'none') {
 			enabledSlots = 'all';
 			return;
 		}
 		enabledSlots = ability.mainType || 'all';
 	}
 
-	let current: Weapon = weapons[Object.keys(weapons)[0]];
+	let weapon: Weapon = weapons[Object.keys(weapons)[0]];
 </script>
 
-<Combobox title="Weapon" items={Object.values(weapons)} bind:current />
+<Combobox title="Weapon" items={Object.values(weapons)} bind:current={weapon} />
 
-<OutputQuality {slots} />
+<OutputQuality {weapon} {slots} />
 
 <div>
 	{#each slots as slot, index}

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { DndEvent } from 'svelte-dnd-action';
-	import type { Ability } from './abilities';
+	import type { Ability } from '$lib/data/abilities';
 	import { createEventDispatcher } from 'svelte';
 	import { dndzone, TRIGGERS, SHADOW_ITEM_MARKER_PROPERTY_NAME } from 'svelte-dnd-action';
 	import AbilityItem from './AbilityItem.svelte';
