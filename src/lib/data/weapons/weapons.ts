@@ -5,6 +5,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 0,
 		name: 'Shooter_Short_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Short_00.png',
+		referenceKit: 0,
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
@@ -20,6 +21,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1,
 		name: 'Shooter_Short_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Short_01.png',
+		referenceKit: 1,
 		sub: {
 			id: 8,
 			name: 'Beacon',
@@ -35,6 +37,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 10,
 		name: 'Shooter_First_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_First_00.png',
+		referenceKit: 10,
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
@@ -50,6 +53,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 11,
 		name: 'Shooter_First_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_First_01.png',
+		referenceKit: 11,
 		sub: {
 			id: 13,
 			name: 'Bomb_Torpedo',
@@ -65,6 +69,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 20,
 		name: 'Shooter_Precision_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Precision_00.png',
+		referenceKit: 20,
 		sub: {
 			id: 2,
 			name: 'Bomb_Quick',
@@ -80,6 +85,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 21,
 		name: 'Shooter_Precision_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Precision_01.png',
+		referenceKit: 21,
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
@@ -95,6 +101,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 30,
 		name: 'Shooter_Blaze_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Blaze_00.png',
+		referenceKit: 30,
 		sub: {
 			id: 5,
 			name: 'Bomb_Fizzy',
@@ -110,6 +117,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 31,
 		name: 'Shooter_Blaze_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Blaze_01.png',
+		referenceKit: 31,
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
@@ -125,6 +133,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 40,
 		name: 'Shooter_Normal_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Normal_00.png',
+		referenceKit: 40,
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
@@ -140,6 +149,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 41,
 		name: 'Shooter_Normal_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Normal_01.png',
+		referenceKit: 41,
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
@@ -155,6 +165,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 45,
 		name: 'Shooter_Normal_H',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Normal_H.png',
+		referenceKit: 40,
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
@@ -170,6 +181,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 46,
 		name: 'Shooter_Normal_Oct',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Normal_Oct.png',
+		referenceKit: 41,
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
@@ -185,6 +197,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 47,
 		name: 'Shooter_Normal_O',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Normal_O.png',
+		referenceKit: 40,
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
@@ -200,6 +213,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 50,
 		name: 'Shooter_Gravity_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Gravity_00.png',
+		referenceKit: 50,
 		sub: {
 			id: 4,
 			name: 'Shield',
@@ -215,6 +229,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 51,
 		name: 'Shooter_Gravity_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Gravity_01.png',
+		referenceKit: 51,
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
@@ -230,6 +245,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 60,
 		name: 'Shooter_QuickMiddle_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_QuickMiddle_00.png',
+		referenceKit: 60,
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
@@ -245,6 +261,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 61,
 		name: 'Shooter_QuickMiddle_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_QuickMiddle_01.png',
+		referenceKit: 61,
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
@@ -260,6 +277,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 70,
 		name: 'Shooter_Expert_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Expert_00.png',
+		referenceKit: 70,
 		sub: {
 			id: 12,
 			name: 'LineMarker',
@@ -275,6 +293,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 71,
 		name: 'Shooter_Expert_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Expert_01.png',
+		referenceKit: 71,
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
@@ -290,6 +309,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 80,
 		name: 'Shooter_Heavy_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Heavy_00.png',
+		referenceKit: 80,
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
@@ -305,6 +325,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 81,
 		name: 'Shooter_Heavy_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Heavy_01.png',
+		referenceKit: 81,
 		sub: {
 			id: 4,
 			name: 'Shield',
@@ -320,6 +341,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 90,
 		name: 'Shooter_Long_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Long_00.png',
+		referenceKit: 90,
 		sub: {
 			id: 12,
 			name: 'LineMarker',
@@ -335,6 +357,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 91,
 		name: 'Shooter_Long_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Long_01.png',
+		referenceKit: 91,
 		sub: {
 			id: 11,
 			name: 'PoisonMist',
@@ -350,6 +373,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 100,
 		name: 'Shooter_QuickLong_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_QuickLong_00.png',
+		referenceKit: 100,
 		sub: {
 			id: 9,
 			name: 'PointSensor',
@@ -365,6 +389,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 101,
 		name: 'Shooter_QuickLong_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_QuickLong_01.png',
+		referenceKit: 101,
 		sub: {
 			id: 10,
 			name: 'Trap',
@@ -380,6 +405,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 200,
 		name: 'Blaster_Short_00',
 		image: '/src/lib/images/weapons/Path_Wst_Blaster_Short_00.png',
+		referenceKit: 200,
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
@@ -395,6 +421,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 201,
 		name: 'Blaster_Short_01',
 		image: '/src/lib/images/weapons/Path_Wst_Blaster_Short_01.png',
+		referenceKit: 201,
 		sub: {
 			id: 5,
 			name: 'Bomb_Fizzy',
@@ -410,6 +437,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 205,
 		name: 'Blaster_Short_O',
 		image: '/src/lib/images/weapons/Path_Wst_Blaster_Short_O.png',
+		referenceKit: 200,
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
@@ -425,6 +453,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 210,
 		name: 'Blaster_Middle_00',
 		image: '/src/lib/images/weapons/Path_Wst_Blaster_Middle_00.png',
+		referenceKit: 210,
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
@@ -440,6 +469,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 211,
 		name: 'Blaster_Middle_01',
 		image: '/src/lib/images/weapons/Path_Wst_Blaster_Middle_01.png',
+		referenceKit: 211,
 		sub: {
 			id: 9,
 			name: 'PointSensor',
@@ -455,6 +485,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 220,
 		name: 'Blaster_Long_00',
 		image: '/src/lib/images/weapons/Path_Wst_Blaster_Long_00.png',
+		referenceKit: 220,
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
@@ -470,6 +501,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 221,
 		name: 'Blaster_Long_01',
 		image: '/src/lib/images/weapons/Path_Wst_Blaster_Long_01.png',
+		referenceKit: 221,
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
@@ -485,6 +517,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 230,
 		name: 'Blaster_LightShort_00',
 		image: '/src/lib/images/weapons/Path_Wst_Blaster_LightShort_00.png',
+		referenceKit: 230,
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
@@ -500,6 +533,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 231,
 		name: 'Blaster_LightShort_01',
 		image: '/src/lib/images/weapons/Path_Wst_Blaster_LightShort_01.png',
+		referenceKit: 231,
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
@@ -515,6 +549,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 240,
 		name: 'Blaster_Light_00',
 		image: '/src/lib/images/weapons/Path_Wst_Blaster_Light_00.png',
+		referenceKit: 240,
 		sub: {
 			id: 10,
 			name: 'Trap',
@@ -530,6 +565,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 241,
 		name: 'Blaster_Light_01',
 		image: '/src/lib/images/weapons/Path_Wst_Blaster_Light_01.png',
+		referenceKit: 241,
 		sub: {
 			id: 13,
 			name: 'Bomb_Torpedo',
@@ -545,6 +581,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 250,
 		name: 'Blaster_LightLong_00',
 		image: '/src/lib/images/weapons/Path_Wst_Blaster_LightLong_00.png',
+		referenceKit: 250,
 		sub: {
 			id: 11,
 			name: 'PoisonMist',
@@ -560,6 +597,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 251,
 		name: 'Blaster_LightLong_01',
 		image: '/src/lib/images/weapons/Path_Wst_Blaster_LightLong_01.png',
+		referenceKit: 251,
 		sub: {
 			id: 12,
 			name: 'LineMarker',
@@ -575,6 +613,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 260,
 		name: 'Blaster_Precision_00',
 		image: '/src/lib/images/weapons/Path_Wst_Blaster_Precision_00.png',
+		referenceKit: 260,
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
@@ -590,6 +629,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 261,
 		name: 'Blaster_Precision_01',
 		image: '/src/lib/images/weapons/Path_Wst_Blaster_Precision_01.png',
+		referenceKit: 261,
 		sub: {
 			id: 2,
 			name: 'Bomb_Quick',
@@ -605,6 +645,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 300,
 		name: 'Shooter_TripleQuick_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_TripleQuick_00.png',
+		referenceKit: 300,
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
@@ -620,6 +661,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 301,
 		name: 'Shooter_TripleQuick_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_TripleQuick_01.png',
+		referenceKit: 301,
 		sub: {
 			id: 2,
 			name: 'Bomb_Quick',
@@ -635,6 +677,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 310,
 		name: 'Shooter_TripleMiddle_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_TripleMiddle_00.png',
+		referenceKit: 310,
 		sub: {
 			id: 9,
 			name: 'PointSensor',
@@ -650,6 +693,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 311,
 		name: 'Shooter_TripleMiddle_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_TripleMiddle_01.png',
+		referenceKit: 311,
 		sub: {
 			id: 4,
 			name: 'Shield',
@@ -665,6 +709,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 400,
 		name: 'Shooter_Flash_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Flash_00.png',
+		referenceKit: 400,
 		sub: {
 			id: 4,
 			name: 'Shield',
@@ -680,6 +725,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 401,
 		name: 'Shooter_Flash_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shooter_Flash_01.png',
+		referenceKit: 401,
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
@@ -695,6 +741,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1000,
 		name: 'Roller_Compact_00',
 		image: '/src/lib/images/weapons/Path_Wst_Roller_Compact_00.png',
+		referenceKit: 1000,
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
@@ -710,6 +757,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1001,
 		name: 'Roller_Compact_01',
 		image: '/src/lib/images/weapons/Path_Wst_Roller_Compact_01.png',
+		referenceKit: 1001,
 		sub: {
 			id: 2,
 			name: 'Bomb_Quick',
@@ -725,6 +773,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1010,
 		name: 'Roller_Normal_00',
 		image: '/src/lib/images/weapons/Path_Wst_Roller_Normal_00.png',
+		referenceKit: 1010,
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
@@ -740,6 +789,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1011,
 		name: 'Roller_Normal_01',
 		image: '/src/lib/images/weapons/Path_Wst_Roller_Normal_01.png',
+		referenceKit: 1011,
 		sub: {
 			id: 8,
 			name: 'Beacon',
@@ -755,6 +805,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1015,
 		name: 'Roller_Normal_O',
 		image: '/src/lib/images/weapons/Path_Wst_Roller_Normal_O.png',
+		referenceKit: 1010,
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
@@ -770,6 +821,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1020,
 		name: 'Roller_Heavy_00',
 		image: '/src/lib/images/weapons/Path_Wst_Roller_Heavy_00.png',
+		referenceKit: 1020,
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
@@ -785,6 +837,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1021,
 		name: 'Roller_Heavy_01',
 		image: '/src/lib/images/weapons/Path_Wst_Roller_Heavy_01.png',
+		referenceKit: 1021,
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
@@ -800,6 +853,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1030,
 		name: 'Roller_Hunter_00',
 		image: '/src/lib/images/weapons/Path_Wst_Roller_Hunter_00.png',
+		referenceKit: 1030,
 		sub: {
 			id: 10,
 			name: 'Trap',
@@ -815,6 +869,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1031,
 		name: 'Roller_Hunter_01',
 		image: '/src/lib/images/weapons/Path_Wst_Roller_Hunter_01.png',
+		referenceKit: 1031,
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
@@ -830,6 +885,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1040,
 		name: 'Roller_Wide_00',
 		image: '/src/lib/images/weapons/Path_Wst_Roller_Wide_00.png',
+		referenceKit: 1040,
 		sub: {
 			id: 4,
 			name: 'Shield',
@@ -845,6 +901,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1041,
 		name: 'Roller_Wide_01',
 		image: '/src/lib/images/weapons/Path_Wst_Roller_Wide_01.png',
+		referenceKit: 1041,
 		sub: {
 			id: 12,
 			name: 'LineMarker',
@@ -860,6 +917,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1100,
 		name: 'Brush_Mini_00',
 		image: '/src/lib/images/weapons/Path_Wst_Brush_Mini_00.png',
+		referenceKit: 1100,
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
@@ -875,6 +933,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1101,
 		name: 'Brush_Mini_01',
 		image: '/src/lib/images/weapons/Path_Wst_Brush_Mini_01.png',
+		referenceKit: 1101,
 		sub: {
 			id: 10,
 			name: 'Trap',
@@ -890,6 +949,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1110,
 		name: 'Brush_Normal_00',
 		image: '/src/lib/images/weapons/Path_Wst_Brush_Normal_00.png',
+		referenceKit: 1110,
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
@@ -905,6 +965,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1111,
 		name: 'Brush_Normal_01',
 		image: '/src/lib/images/weapons/Path_Wst_Brush_Normal_01.png',
+		referenceKit: 1111,
 		sub: {
 			id: 8,
 			name: 'Beacon',
@@ -920,6 +981,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1115,
 		name: 'Brush_Normal_O',
 		image: '/src/lib/images/weapons/Path_Wst_Brush_Normal_O.png',
+		referenceKit: 1110,
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
@@ -935,6 +997,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1120,
 		name: 'Brush_Heavy_00',
 		image: '/src/lib/images/weapons/Path_Wst_Brush_Heavy_00.png',
+		referenceKit: 1120,
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
@@ -950,6 +1013,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 1121,
 		name: 'Brush_Heavy_01',
 		image: '/src/lib/images/weapons/Path_Wst_Brush_Heavy_01.png',
+		referenceKit: 1121,
 		sub: {
 			id: 9,
 			name: 'PointSensor',
@@ -965,6 +1029,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 2000,
 		name: 'Charger_Quick_00',
 		image: '/src/lib/images/weapons/Path_Wst_Charger_Quick_00.png',
+		referenceKit: 2000,
 		sub: {
 			id: 9,
 			name: 'PointSensor',
@@ -980,6 +1045,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 2001,
 		name: 'Charger_Quick_01',
 		image: '/src/lib/images/weapons/Path_Wst_Charger_Quick_01.png',
+		referenceKit: 2001,
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
@@ -995,6 +1061,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 2010,
 		name: 'Charger_Normal_00',
 		image: '/src/lib/images/weapons/Path_Wst_Charger_Normal_00.png',
+		referenceKit: 2010,
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
@@ -1010,6 +1077,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 2011,
 		name: 'Charger_Normal_01',
 		image: '/src/lib/images/weapons/Path_Wst_Charger_Normal_01.png',
+		referenceKit: 2011,
 		sub: {
 			id: 4,
 			name: 'Shield',
@@ -1025,6 +1093,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 2015,
 		name: 'Charger_Normal_O',
 		image: '/src/lib/images/weapons/Path_Wst_Charger_Normal_O.png',
+		referenceKit: 2010,
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
@@ -1040,6 +1109,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 2020,
 		name: 'Charger_NormalScope_00',
 		image: '/src/lib/images/weapons/Path_Wst_Charger_NormalScope_00.png',
+		referenceKit: 2020,
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
@@ -1055,6 +1125,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 2021,
 		name: 'Charger_NormalScope_01',
 		image: '/src/lib/images/weapons/Path_Wst_Charger_NormalScope_01.png',
+		referenceKit: 2021,
 		sub: {
 			id: 4,
 			name: 'Shield',
@@ -1070,6 +1141,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 2030,
 		name: 'Charger_Long_00',
 		image: '/src/lib/images/weapons/Path_Wst_Charger_Long_00.png',
+		referenceKit: 2030,
 		sub: {
 			id: 10,
 			name: 'Trap',
@@ -1085,6 +1157,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 2031,
 		name: 'Charger_Long_01',
 		image: '/src/lib/images/weapons/Path_Wst_Charger_Long_01.png',
+		referenceKit: 2031,
 		sub: {
 			id: 8,
 			name: 'Beacon',
@@ -1100,6 +1173,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 2040,
 		name: 'Charger_LongScope_00',
 		image: '/src/lib/images/weapons/Path_Wst_Charger_LongScope_00.png',
+		referenceKit: 2040,
 		sub: {
 			id: 10,
 			name: 'Trap',
@@ -1115,6 +1189,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 2041,
 		name: 'Charger_LongScope_01',
 		image: '/src/lib/images/weapons/Path_Wst_Charger_LongScope_01.png',
+		referenceKit: 2041,
 		sub: {
 			id: 8,
 			name: 'Beacon',
@@ -1130,6 +1205,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 2050,
 		name: 'Charger_Light_00',
 		image: '/src/lib/images/weapons/Path_Wst_Charger_Light_00.png',
+		referenceKit: 2050,
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
@@ -1145,6 +1221,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 2051,
 		name: 'Charger_Light_01',
 		image: '/src/lib/images/weapons/Path_Wst_Charger_Light_01.png',
+		referenceKit: 2051,
 		sub: {
 			id: 5,
 			name: 'Bomb_Fizzy',
@@ -1160,6 +1237,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 2060,
 		name: 'Charger_Keeper_00',
 		image: '/src/lib/images/weapons/Path_Wst_Charger_Keeper_00.png',
+		referenceKit: 2060,
 		sub: {
 			id: 13,
 			name: 'Bomb_Torpedo',
@@ -1175,6 +1253,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 2061,
 		name: 'Charger_Keeper_01',
 		image: '/src/lib/images/weapons/Path_Wst_Charger_Keeper_01.png',
+		referenceKit: 2061,
 		sub: {
 			id: 5,
 			name: 'Bomb_Fizzy',
@@ -1190,6 +1269,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 2070,
 		name: 'Charger_Pencil_00',
 		image: '/src/lib/images/weapons/Path_Wst_Charger_Pencil_00.png',
+		referenceKit: 2070,
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
@@ -1205,6 +1285,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 2071,
 		name: 'Charger_Pencil_01',
 		image: '/src/lib/images/weapons/Path_Wst_Charger_Pencil_01.png',
+		referenceKit: 2071,
 		sub: {
 			id: 4,
 			name: 'Shield',
@@ -1220,6 +1301,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 3000,
 		name: 'Slosher_Strong_00',
 		image: '/src/lib/images/weapons/Path_Wst_Slosher_Strong_00.png',
+		referenceKit: 3000,
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
@@ -1235,6 +1317,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 3001,
 		name: 'Slosher_Strong_01',
 		image: '/src/lib/images/weapons/Path_Wst_Slosher_Strong_01.png',
+		referenceKit: 3001,
 		sub: {
 			id: 12,
 			name: 'LineMarker',
@@ -1250,6 +1333,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 3005,
 		name: 'Slosher_Strong_O',
 		image: '/src/lib/images/weapons/Path_Wst_Slosher_Strong_O.png',
+		referenceKit: 3000,
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
@@ -1265,6 +1349,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 3010,
 		name: 'Slosher_Diffusion_00',
 		image: '/src/lib/images/weapons/Path_Wst_Slosher_Diffusion_00.png',
+		referenceKit: 3010,
 		sub: {
 			id: 11,
 			name: 'PoisonMist',
@@ -1280,6 +1365,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 3011,
 		name: 'Slosher_Diffusion_01',
 		image: '/src/lib/images/weapons/Path_Wst_Slosher_Diffusion_01.png',
+		referenceKit: 3011,
 		sub: {
 			id: 5,
 			name: 'Bomb_Fizzy',
@@ -1295,6 +1381,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 3020,
 		name: 'Slosher_Launcher_00',
 		image: '/src/lib/images/weapons/Path_Wst_Slosher_Launcher_00.png',
+		referenceKit: 3020,
 		sub: {
 			id: 5,
 			name: 'Bomb_Fizzy',
@@ -1310,6 +1397,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 3021,
 		name: 'Slosher_Launcher_01',
 		image: '/src/lib/images/weapons/Path_Wst_Slosher_Launcher_01.png',
+		referenceKit: 3021,
 		sub: {
 			id: 9,
 			name: 'PointSensor',
@@ -1325,6 +1413,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 3030,
 		name: 'Slosher_Bathtub_00',
 		image: '/src/lib/images/weapons/Path_Wst_Slosher_Bathtub_00.png',
+		referenceKit: 3030,
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
@@ -1340,6 +1429,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 3031,
 		name: 'Slosher_Bathtub_01',
 		image: '/src/lib/images/weapons/Path_Wst_Slosher_Bathtub_01.png',
+		referenceKit: 3031,
 		sub: {
 			id: 12,
 			name: 'LineMarker',
@@ -1355,6 +1445,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 3040,
 		name: 'Slosher_Washtub_00',
 		image: '/src/lib/images/weapons/Path_Wst_Slosher_Washtub_00.png',
+		referenceKit: 3040,
 		sub: {
 			id: 9,
 			name: 'PointSensor',
@@ -1370,6 +1461,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 3041,
 		name: 'Slosher_Washtub_01',
 		image: '/src/lib/images/weapons/Path_Wst_Slosher_Washtub_01.png',
+		referenceKit: 3041,
 		sub: {
 			id: 4,
 			name: 'Shield',
@@ -1385,6 +1477,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 3050,
 		name: 'Slosher_Double_00',
 		image: '/src/lib/images/weapons/Path_Wst_Slosher_Double_00.png',
+		referenceKit: 3050,
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
@@ -1400,6 +1493,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 3051,
 		name: 'Slosher_Double_01',
 		image: '/src/lib/images/weapons/Path_Wst_Slosher_Double_01.png',
+		referenceKit: 3051,
 		sub: {
 			id: 8,
 			name: 'Beacon',
@@ -1415,6 +1509,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 4000,
 		name: 'Spinner_Quick_00',
 		image: '/src/lib/images/weapons/Path_Wst_Spinner_Quick_00.png',
+		referenceKit: 4000,
 		sub: {
 			id: 2,
 			name: 'Bomb_Quick',
@@ -1430,6 +1525,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 4001,
 		name: 'Spinner_Quick_01',
 		image: '/src/lib/images/weapons/Path_Wst_Spinner_Quick_01.png',
+		referenceKit: 4001,
 		sub: {
 			id: 11,
 			name: 'PoisonMist',
@@ -1445,6 +1541,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 4010,
 		name: 'Spinner_Standard_00',
 		image: '/src/lib/images/weapons/Path_Wst_Spinner_Standard_00.png',
+		referenceKit: 4010,
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
@@ -1460,6 +1557,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 4011,
 		name: 'Spinner_Standard_01',
 		image: '/src/lib/images/weapons/Path_Wst_Spinner_Standard_01.png',
+		referenceKit: 4011,
 		sub: {
 			id: 9,
 			name: 'PointSensor',
@@ -1475,6 +1573,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 4015,
 		name: 'Spinner_Standard_O',
 		image: '/src/lib/images/weapons/Path_Wst_Spinner_Standard_O.png',
+		referenceKit: 4010,
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
@@ -1490,6 +1589,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 4020,
 		name: 'Spinner_Hyper_00',
 		image: '/src/lib/images/weapons/Path_Wst_Spinner_Hyper_00.png',
+		referenceKit: 4020,
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
@@ -1505,6 +1605,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 4021,
 		name: 'Spinner_Hyper_01',
 		image: '/src/lib/images/weapons/Path_Wst_Spinner_Hyper_01.png',
+		referenceKit: 4021,
 		sub: {
 			id: 10,
 			name: 'Trap',
@@ -1520,6 +1621,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 4030,
 		name: 'Spinner_Downpour_00',
 		image: '/src/lib/images/weapons/Path_Wst_Spinner_Downpour_00.png',
+		referenceKit: 4030,
 		sub: {
 			id: 5,
 			name: 'Bomb_Fizzy',
@@ -1535,6 +1637,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 4031,
 		name: 'Spinner_Downpour_01',
 		image: '/src/lib/images/weapons/Path_Wst_Spinner_Downpour_01.png',
+		referenceKit: 4031,
 		sub: {
 			id: 10,
 			name: 'Trap',
@@ -1550,6 +1653,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 4040,
 		name: 'Spinner_Serein_00',
 		image: '/src/lib/images/weapons/Path_Wst_Spinner_Serein_00.png',
+		referenceKit: 4040,
 		sub: {
 			id: 9,
 			name: 'PointSensor',
@@ -1565,6 +1669,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 4041,
 		name: 'Spinner_Serein_01',
 		image: '/src/lib/images/weapons/Path_Wst_Spinner_Serein_01.png',
+		referenceKit: 4041,
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
@@ -1580,6 +1685,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 4050,
 		name: 'Spinner_HyperShort_00',
 		image: '/src/lib/images/weapons/Path_Wst_Spinner_HyperShort_00.png',
+		referenceKit: 4050,
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
@@ -1595,6 +1701,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 4051,
 		name: 'Spinner_HyperShort_01',
 		image: '/src/lib/images/weapons/Path_Wst_Spinner_HyperShort_01.png',
+		referenceKit: 4051,
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
@@ -1610,6 +1717,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 5000,
 		name: 'Maneuver_Short_00',
 		image: '/src/lib/images/weapons/Path_Wst_Maneuver_Short_00.png',
+		referenceKit: 5000,
 		sub: {
 			id: 8,
 			name: 'Beacon',
@@ -1625,6 +1733,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 5001,
 		name: 'Maneuver_Short_01',
 		image: '/src/lib/images/weapons/Path_Wst_Maneuver_Short_01.png',
+		referenceKit: 5001,
 		sub: {
 			id: 13,
 			name: 'Bomb_Torpedo',
@@ -1640,6 +1749,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 5010,
 		name: 'Maneuver_Normal_00',
 		image: '/src/lib/images/weapons/Path_Wst_Maneuver_Normal_00.png',
+		referenceKit: 5010,
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
@@ -1655,6 +1765,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 5011,
 		name: 'Maneuver_Normal_01',
 		image: '/src/lib/images/weapons/Path_Wst_Maneuver_Normal_01.png',
+		referenceKit: 5011,
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
@@ -1670,6 +1781,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 5015,
 		name: 'Maneuver_Normal_O',
 		image: '/src/lib/images/weapons/Path_Wst_Maneuver_Normal_O.png',
+		referenceKit: 5010,
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
@@ -1685,6 +1797,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 5020,
 		name: 'Maneuver_Gallon_00',
 		image: '/src/lib/images/weapons/Path_Wst_Maneuver_Gallon_00.png',
+		referenceKit: 5020,
 		sub: {
 			id: 4,
 			name: 'Shield',
@@ -1700,6 +1813,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 5021,
 		name: 'Maneuver_Gallon_01',
 		image: '/src/lib/images/weapons/Path_Wst_Maneuver_Gallon_01.png',
+		referenceKit: 5021,
 		sub: {
 			id: 9,
 			name: 'PointSensor',
@@ -1715,6 +1829,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 5030,
 		name: 'Maneuver_Dual_00',
 		image: '/src/lib/images/weapons/Path_Wst_Maneuver_Dual_00.png',
+		referenceKit: 5030,
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
@@ -1730,6 +1845,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 5031,
 		name: 'Maneuver_Dual_01',
 		image: '/src/lib/images/weapons/Path_Wst_Maneuver_Dual_01.png',
+		referenceKit: 5031,
 		sub: {
 			id: 8,
 			name: 'Beacon',
@@ -1745,6 +1861,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 5040,
 		name: 'Maneuver_Stepper_00',
 		image: '/src/lib/images/weapons/Path_Wst_Maneuver_Stepper_00.png',
+		referenceKit: 5040,
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
@@ -1760,6 +1877,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 5041,
 		name: 'Maneuver_Stepper_01',
 		image: '/src/lib/images/weapons/Path_Wst_Maneuver_Stepper_01.png',
+		referenceKit: 5041,
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
@@ -1775,6 +1893,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 5050,
 		name: 'Maneuver_Long_00',
 		image: '/src/lib/images/weapons/Path_Wst_Maneuver_Long_00.png',
+		referenceKit: 5050,
 		sub: {
 			id: 10,
 			name: 'Trap',
@@ -1790,6 +1909,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 5051,
 		name: 'Maneuver_Long_01',
 		image: '/src/lib/images/weapons/Path_Wst_Maneuver_Long_01.png',
+		referenceKit: 5051,
 		sub: {
 			id: 2,
 			name: 'Bomb_Quick',
@@ -1805,6 +1925,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 6000,
 		name: 'Shelter_Normal_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shelter_Normal_00.png',
+		referenceKit: 6000,
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
@@ -1820,6 +1941,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 6001,
 		name: 'Shelter_Normal_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shelter_Normal_01.png',
+		referenceKit: 6001,
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
@@ -1835,6 +1957,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 6005,
 		name: 'Shelter_Normal_O',
 		image: '/src/lib/images/weapons/Path_Wst_Shelter_Normal_O.png',
+		referenceKit: 6000,
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
@@ -1850,6 +1973,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 6010,
 		name: 'Shelter_Wide_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shelter_Wide_00.png',
+		referenceKit: 6010,
 		sub: {
 			id: 8,
 			name: 'Beacon',
@@ -1865,6 +1989,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 6011,
 		name: 'Shelter_Wide_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shelter_Wide_01.png',
+		referenceKit: 6011,
 		sub: {
 			id: 10,
 			name: 'Trap',
@@ -1880,6 +2005,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 6020,
 		name: 'Shelter_Compact_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shelter_Compact_00.png',
+		referenceKit: 6020,
 		sub: {
 			id: 10,
 			name: 'Trap',
@@ -1895,6 +2021,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 6021,
 		name: 'Shelter_Compact_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shelter_Compact_01.png',
+		referenceKit: 6021,
 		sub: {
 			id: 13,
 			name: 'Bomb_Torpedo',
@@ -1910,6 +2037,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 6030,
 		name: 'Shelter_Focus_00',
 		image: '/src/lib/images/weapons/Path_Wst_Shelter_Focus_00.png',
+		referenceKit: 6030,
 		sub: {
 			id: 12,
 			name: 'LineMarker',
@@ -1925,6 +2053,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 6031,
 		name: 'Shelter_Focus_01',
 		image: '/src/lib/images/weapons/Path_Wst_Shelter_Focus_01.png',
+		referenceKit: 6031,
 		sub: {
 			id: 11,
 			name: 'PoisonMist',
@@ -1940,6 +2069,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 7010,
 		name: 'Stringer_Normal_00',
 		image: '/src/lib/images/weapons/Path_Wst_Stringer_Normal_00.png',
+		referenceKit: 7010,
 		sub: {
 			id: 11,
 			name: 'PoisonMist',
@@ -1955,6 +2085,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 7011,
 		name: 'Stringer_Normal_01',
 		image: '/src/lib/images/weapons/Path_Wst_Stringer_Normal_01.png',
+		referenceKit: 7011,
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
@@ -1970,6 +2101,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 7015,
 		name: 'Stringer_Normal_O',
 		image: '/src/lib/images/weapons/Path_Wst_Stringer_Normal_O.png',
+		referenceKit: 7010,
 		sub: {
 			id: 11,
 			name: 'PoisonMist',
@@ -1985,6 +2117,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 7020,
 		name: 'Stringer_Short_00',
 		image: '/src/lib/images/weapons/Path_Wst_Stringer_Short_00.png',
+		referenceKit: 7020,
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
@@ -2000,6 +2133,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 7021,
 		name: 'Stringer_Short_01',
 		image: '/src/lib/images/weapons/Path_Wst_Stringer_Short_01.png',
+		referenceKit: 7021,
 		sub: {
 			id: 4,
 			name: 'Shield',
@@ -2015,6 +2149,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 7030,
 		name: 'Stringer_Explosion_00',
 		image: '/src/lib/images/weapons/Path_Wst_Stringer_Explosion_00.png',
+		referenceKit: 7030,
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
@@ -2030,6 +2165,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 7031,
 		name: 'Stringer_Explosion_01',
 		image: '/src/lib/images/weapons/Path_Wst_Stringer_Explosion_01.png',
+		referenceKit: 7031,
 		sub: {
 			id: 9,
 			name: 'PointSensor',
@@ -2045,6 +2181,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 8000,
 		name: 'Saber_Normal_00',
 		image: '/src/lib/images/weapons/Path_Wst_Saber_Normal_00.png',
+		referenceKit: 8000,
 		sub: {
 			id: 2,
 			name: 'Bomb_Quick',
@@ -2060,6 +2197,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 8001,
 		name: 'Saber_Normal_01',
 		image: '/src/lib/images/weapons/Path_Wst_Saber_Normal_01.png',
+		referenceKit: 8001,
 		sub: {
 			id: 11,
 			name: 'PoisonMist',
@@ -2075,6 +2213,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 8005,
 		name: 'Saber_Normal_O',
 		image: '/src/lib/images/weapons/Path_Wst_Saber_Normal_O.png',
+		referenceKit: 8000,
 		sub: {
 			id: 2,
 			name: 'Bomb_Quick',
@@ -2090,6 +2229,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 8010,
 		name: 'Saber_Lite_00',
 		image: '/src/lib/images/weapons/Path_Wst_Saber_Lite_00.png',
+		referenceKit: 8010,
 		sub: {
 			id: 13,
 			name: 'Bomb_Torpedo',
@@ -2105,6 +2245,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 8011,
 		name: 'Saber_Lite_01',
 		image: '/src/lib/images/weapons/Path_Wst_Saber_Lite_01.png',
+		referenceKit: 8011,
 		sub: {
 			id: 8,
 			name: 'Beacon',
@@ -2120,6 +2261,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 8020,
 		name: 'Saber_Heavy_00',
 		image: '/src/lib/images/weapons/Path_Wst_Saber_Heavy_00.png',
+		referenceKit: 8020,
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
@@ -2135,6 +2277,7 @@ export const weapons: { [key: string]: Weapon } = {
 		id: 8021,
 		name: 'Saber_Heavy_01',
 		image: '/src/lib/images/weapons/Path_Wst_Saber_Heavy_01.png',
+		referenceKit: 8021,
 		sub: {
 			id: 4,
 			name: 'Shield',

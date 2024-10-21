@@ -4,6 +4,7 @@ import fs from 'fs';
 let weaponInfoMain;
 let weaponInfoSub;
 let weaponInfoSpecial;
+let referenceKitData;
 
 async function createData() {
     const mains = await fetch("https://raw.githubusercontent.com/Leanny/splat3/refs/heads/main/data/mush/910/WeaponInfoMain.json")
@@ -14,6 +15,9 @@ async function createData() {
 
     const specials = await fetch("https://raw.githubusercontent.com/Leanny/splat3/refs/heads/main/data/mush/910/WeaponInfoSpecial.json")
     weaponInfoSpecial = await specials.json();
+
+    const references = await fetch("https://splat.top/api/weapon_info")
+    referenceKitData = await references.json();
 
     createMainData();
 }
@@ -37,7 +41,9 @@ function createMainData() {
         const special = weaponInfoSpecial.find(special => special.__RowId === specialName).Id;
         const specialImage = `/src/lib/images/specials/${specialName}.png`
 
-        weapons[id] = { id, name, image, sub: { id: sub, name: subName, image: subImage }, special: { id: special, name: specialName, image: specialImage } };
+        const referenceKit = referenceKitData[id].reference_id;
+
+        weapons[id] = { id, name, image, referenceKit, sub: { id: sub, name: subName, image: subImage }, special: { id: special, name: specialName, image: specialImage } };
     }
 
     console.log(`Creating file for weapons`);
