@@ -1,34 +1,35 @@
 <script lang="ts">
-	import type { Ability } from '$lib/data/abilities';
 	import type { Tokens } from '$lib/data/abilities/tokens/types';
 	import type { Weapon } from '$lib/data/weapons';
-
-	let tokens: Tokens;
+	import { mainIndexes, type Ability } from '$lib/data/abilities';
 
 	export let slots: Ability[] = [];
 	export let weapon: Weapon;
 
 	const modules = import.meta.glob('/src/lib/data/abilities/tokens/*.ts', { import: 'tokens' });
 
+	let tokens: Tokens;
 	$: {
 		weapon;
 		modules[`/src/lib/data/abilities/tokens/${weapon.referenceKit}.ts`]().then((module) => {
 			tokens = module as Tokens;
-			quality = getQuality();
+			getQuality();
 		});
 	}
 
 	let quality = 0;
 	$: {
 		slots;
-		quality = getQuality();
+		getQuality();
 	}
 
-	function getQuality(): number {
-		if (!tokens) return 4;
+	function getQuality() {
+		if (!tokens || slots.filter((slot) => slot.id === '0').length === 12) {
+			quality = 1;
+			return;
+		}
 
 		const highest = Object.values(tokens).reduce((a, b) => Math.max(a, ...Object.values(b)), 0);
-		const mainIndexes = [0, 4, 8];
 
 		let abilityCounts: { [key: string]: number } = {};
 		let remainingAp = 57;
@@ -36,7 +37,7 @@
 		for (const ability of slots) {
 			if (ability.id === '0') continue;
 
-			const points = mainIndexes.includes(slots.indexOf(ability)) ? 10 : 3;
+			const points = mainIndexes.hasOwnProperty(slots.indexOf(ability)) ? 10 : 3;
 
 			remainingAp -= points;
 			abilityCounts[ability.name] = abilityCounts[ability.name] + points || points;
@@ -69,74 +70,30 @@
 		const remainingApPercentage = Math.exp(remainingAp / 57);
 		const adjustedProbability = weightedAverageProbability * remainingApPercentage;
 
-		const qualityBrackets = [0.1, 0.2, 0.3, 0.5, 1];
-		const quality = adjustedProbability ? adjustedProbability / highest : 0;
-		const bracket = qualityBrackets.findIndex((bracket) => quality <= bracket);
-
-		return bracket === -1 ? 4 : bracket;
+		quality = adjustedProbability / highest;
 	}
 </script>
 
-<label for="meter">Estimated Quality:</label>
-<meter id="meter" max="4" min="0" low="2" optimum="4" value={quality}> </meter>
+<div class="meter" role="meter" aria-valuemin="0" aria-valuemax="0.5" aria-valuenow={quality}>
+	<div class="meter-bar" style={`transform: translateX(-${100 - (100 * quality) / 0.5}%)`} />
+</div>
 
 <style>
-	meter {
-		display: block;
-		width: 14rem;
+	.meter {
+		position: relative;
+		width: 100%;
 		height: 1rem;
-		border: 1px solid var(--spl-color-outline);
-		border-radius: var(--spl-radius-md);
-		background: none;
 		background-color: var(--spl-color-bg);
-		margin-bottom: 1rem;
+		border-radius: 99999px;
+		overflow: hidden;
 	}
 
-	meter::-webkit-meter-bar {
-		width: 14rem;
-		height: 1rem;
-		border: 1px solid var(--spl-color-outline);
-		background: none;
-		background-color: var(--spl-color-bg);
-		border-radius: var(--spl-radius-md);
-	}
-
-	meter::-webkit-meter-optimum-value {
-		background: none;
-		background-color: var(--spl-color-green);
-		transition:
-			width 0.25s,
-			background-color 0.1s;
-	}
-
-	meter::-webkit-meter-suboptimum-value {
-		background: none;
-		background-color: var(--spl-color-red);
-		transition:
-			width 0.25s,
-			background-color 0.1s;
-	}
-
-	meter::-webkit-meter-even-less-good-value {
-		background: none;
-		background-color: var(--spl-color-red);
-		transition:
-			width 0.25s,
-			background-color 0.1s;
-	}
-
-	meter:-moz-meter-optimum::-moz-meter-bar {
-		background: none;
-		background-color: var(--spl-color-green);
-	}
-
-	meter:-moz-meter-sub-optimum::-moz-meter-bar {
-		background: none;
-		background-color: var(--spl-color-red);
-	}
-
-	meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
-		background: none;
-		background-color: var(--spl-color-red);
+	.meter-bar {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: var(--spl-color-accent-high);
+		transition: transform 0.5s cubic-bezier(0.6, 0, 0.4, 1);
+		border-radius: 99999px;
 	}
 </style>
