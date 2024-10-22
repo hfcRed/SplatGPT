@@ -1,0 +1,5 @@
+{
+    "explorer.sortOrderReverse": true,
+    "workbench.editor.labelFormat": "short",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+}
