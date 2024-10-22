@@ -5,12 +5,12 @@
 	export let ability: Ability;
 	export let disabled: boolean = false;
 
-	const images = import.meta.glob('../lib/images/abilities/*.png', {
+	const images = import.meta.glob('/src/lib/images/abilities/*.png', {
 		eager: true,
 		query: { enhanced: true }
 	});
 
-	const image: any = images[`../lib/images/abilities/${ability.name}.png`];
+	const image: any = images[`/src/lib/images/abilities/${ability.name}.png`];
 
 	const dispatch = createEventDispatcher<Record<string, Ability>>();
 
