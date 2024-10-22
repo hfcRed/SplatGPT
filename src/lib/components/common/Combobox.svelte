@@ -1,15 +1,16 @@
 <script lang="ts" context="module">
 	import type { HTMLInputAttributes } from 'svelte/elements';
+	import type { ComponentType } from 'svelte';
 
 	export type Size = 'small' | 'medium' | 'large';
-	export type Item = { name: string; icon?: any; image?: string };
+	export type Item = { name: string; icon?: ComponentType; image?: string };
 
 	type BaseProps = {
 		size?: Size;
 		items: Item[];
 		title?: string;
 		description?: string;
-		icon?: any;
+		icon?: ComponentType;
 		rounded?: boolean;
 		disabled?: boolean;
 	};
@@ -21,17 +22,13 @@
 	import { createCombobox, melt, type ComboboxOptionProps } from '@melt-ui/svelte';
 	import { fly } from 'svelte/transition';
 	import ChevronUpDown from '$lib/icons/ChevronUpDown.svelte';
-
-	const images: any = import.meta.glob('/src/lib/images/*/*.png', {
-		eager: true,
-		query: { enhanced: true }
-	});
+	import { images } from '$lib/images';
 
 	export let size: Size = 'medium';
 	export let items: Item[] = [{ name: 'No items specified' }];
 	export let title: string | undefined = undefined;
 	export let description: string | undefined = undefined;
-	export let icon: any = undefined;
+	export let icon: ComponentType | undefined = undefined;
 	export let rounded = false;
 	export let disabled = false;
 
@@ -97,7 +94,7 @@
 				<li class={`${$isSelected(item) ? 'selected' : ''}`} use:melt={$option(toOption(item))}>
 					<svelte:component this={item.icon} size="32px" />
 					{#if item.image}
-						<enhanced:img src={images[item.image].default} alt={item.name} width="32" height="32" />
+						<enhanced:img src={images[item.image]} alt={item.name} width="32" height="32" />
 					{/if}
 					{item.name}
 				</li>

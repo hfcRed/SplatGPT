@@ -1,16 +1,10 @@
 <script lang="ts">
 	import type { Ability } from '$lib/data/abilities';
 	import { createEventDispatcher } from 'svelte';
+	import { images } from '$lib/images';
 
 	export let ability: Ability;
 	export let disabled: boolean = false;
-
-	const images = import.meta.glob('/src/lib/images/abilities/*.png', {
-		eager: true,
-		query: { enhanced: true }
-	});
-
-	const image: any = images[`/src/lib/images/abilities/${ability.name}.png`];
 
 	const dispatch = createEventDispatcher<Record<string, Ability>>();
 
@@ -24,7 +18,7 @@
 	class={`${ability.mainType !== 'none' ? `main ${ability.mainType}` : ''}`}
 	{disabled}
 >
-	<enhanced:img src={image.default} alt={ability.name} />
+	<enhanced:img src={images[`/src/lib/images/abilities/${ability.name}.png`]} alt={ability.name} />
 </button>
 
 <style>
