@@ -1,2 +1,2 @@
 export type { Ability } from './types';
-export { abilities, emptyAbility } from './abilities';
+export { abilities, emptyAbility, mainIndexes } from './abilities';
