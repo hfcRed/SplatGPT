@@ -79,7 +79,7 @@
 		<AbilitySlot
 			on:drag={updateEnabledSlots}
 			disabled={enabledSlots === 'all' ? false : mainIndexes[index] === enabledSlots ? false : true}
-			items={slot.id === '100' ? [] : [slot]}
+			items={slot.id === '0' ? [] : [slot]}
 			bind:ability={slots[index]}
 			mainType={mainIndexes[index] || null}
 		/>
