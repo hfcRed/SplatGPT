@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Icon, { type IconNodes, type IconProps } from '$lib/components/Icon.svelte';
+	import Icon, { type IconNodes, type IconProps } from '$lib/components/common/Icon.svelte';
 	type $$Props = IconProps;
 
 	const nodes: IconNodes = [
