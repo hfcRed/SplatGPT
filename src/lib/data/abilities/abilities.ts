@@ -1,5 +1,7 @@
 import type { Ability } from './types';
 
+export const mainIndexes: { [key: number]: string } = { 0: 'head', 4: 'clothes', 8: 'shoes' };
+
 export const emptyAbility: Ability = {
 	id: '0',
 	name: 'None',
