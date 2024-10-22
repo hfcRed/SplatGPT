@@ -72,7 +72,7 @@
 		border-right: 0;
 		border-bottom: 0;
 		border-radius: 50%;
-		background-image: url('../lib/images/abilities/None.png');
+		background-image: url('/src/lib/images/abilities/None.png');
 		background-size: contain;
 		background-color: var(--spl-color-bg-low);
 		transition: opacity 0.1s;
