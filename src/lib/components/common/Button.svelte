@@ -68,11 +68,13 @@
 <style>
 	button,
 	a {
+		min-height: var(--btn-min-height);
+		border-radius: var(--btn-radius);
+		padding: var(--btn-padding);
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
 		vertical-align: middle;
-		min-height: var(--spl-min-height);
 		height: auto;
 		white-space: nowrap;
 		font-weight: 600;
@@ -95,7 +97,7 @@
 		}
 
 		&:focus-visible {
-			outline: solid 2px var(--spl-button-color);
+			outline: solid 2px var(--btn-color);
 			outline-offset: 1px;
 		}
 	}
@@ -129,102 +131,103 @@
 		visibility: hidden;
 	}
 
-	.theme {
-		--spl-button-color: var(--spl-color-accent-high);
-		--spl-button-color-hover: var(--spl-color-accent-low);
-	}
-
-	.green {
-		--spl-button-color: var(--spl-color-green-high);
-		--spl-button-color-hover: var(--spl-color-green-low);
-	}
-
-	.red {
-		--spl-button-color: var(--spl-color-red-high);
-		--spl-button-color-hover: var(--spl-color-red-low);
-	}
-
-	.neutral {
-		--spl-button-color: var(--spl-color-text);
-		--spl-button-color-hover: var(--spl-color-bg-high);
-	}
-
 	.filled {
-		background-color: var(--spl-button-color);
+		background-color: var(--btn-color);
 		color: var(--spl-color-text-inverse);
 
 		&:hover:not(:disabled),
 		&:focus-visible {
-			background-color: color-mix(in hsl, var(--spl-button-color) 90%, black);
+			background-color: color-mix(in hsl, var(--btn-color) 90%, black);
 		}
 
 		&:active:not(:disabled) {
-			background-color: var(--spl-button-color);
+			background-color: var(--btn-color);
 		}
 	}
 
 	.outlined {
-		color: var(--spl-button-color);
-		border-color: var(--spl-button-color);
+		color: var(--btn-color);
+		border-color: var(--btn-color);
 		background-color: transparent;
 
 		&:hover:not(:disabled),
 		&:focus-visible {
-			background-color: var(--spl-button-color-hover);
+			background-color: var(--btn-color-hover);
 		}
 	}
 
 	.text {
 		background-color: transparent;
-		color: var(--spl-button-color);
+		color: var(--btn-color);
 
 		&:hover:not(:disabled),
 		&:focus-visible {
-			background-color: var(--spl-button-color-hover);
+			background-color: var(--btn-color-hover);
 		}
 	}
 
+	.custom {
+		--btn-min-height: var(--btn-custom-height);
+		--btn-padding: var(--btn-custom-padding);
+		background-color: var(--btn-custom-bg);
+		color: var(--btn-custom-text);
+		border: var(--btn-custom-border);
+
+		&:hover:not(:disabled),
+		&:focus-visible {
+			background-color: var(--btn-custom-bg-hover);
+		}
+	}
+
+	.theme {
+		--btn-color: var(--spl-color-accent-high);
+		--btn-color-hover: var(--spl-color-accent-low);
+	}
+
+	.green {
+		--btn-color: var(--spl-color-green-high);
+		--btn-color-hover: var(--spl-color-green-low);
+	}
+
+	.red {
+		--btn-color: var(--spl-color-red-high);
+		--btn-color-hover: var(--spl-color-red-low);
+	}
+
+	.neutral {
+		--btn-color: var(--spl-color-text);
+		--btn-color-hover: var(--spl-color-bg-high);
+	}
+
 	.small {
-		--spl-min-height: 2rem;
-		border-radius: var(--spl-radius-sm);
-		padding: 0 0.5rem;
+		--btn-min-height: 2rem;
+		--btn-radius: var(--spl-radius-sm);
+		--btn-padding: 0 0.5rem;
 	}
 
 	.medium {
-		--spl-min-height: 2.5rem;
-		border-radius: var(--spl-radius-md);
-		padding: 0 1rem;
+		--btn-min-height: 2.5rem;
+		--btn-radius: var(--spl-radius-md);
+		--btn-padding: 0 1rem;
 	}
 
 	.large {
-		--spl-min-height: 3rem;
-		border-radius: var(--spl-radius-lg);
-		padding: 0 1.5rem;
+		--btn-min-height: 3rem;
+		--btn-radius: var(--spl-radius-lg);
+		--btn-padding: 0 1.5rem;
+	}
+
+	.round {
+		--btn-radius: 99999px;
+	}
+
+	.circle {
+		--btn-radius: 50%;
+		--btn-padding: 0px 0px;
+		min-width: var(--btn-min-height);
 	}
 
 	.full {
 		width: 100%;
-	}
-
-	.round {
-		border-radius: 99999px;
-	}
-
-	.circle {
-		min-width: var(--spl-min-height);
-		border-radius: 50%;
-		padding: 0px 0px;
-	}
-
-	.custom {
-		--spl-min-height: var(--spl-custom-height);
-		background-color: var(--spl-custom-bg);
-		color: var(--spl-custom-text);
-		border: 1px solid var(--spl-custom-border);
-
-		&:hover:not(:disabled),
-		&:focus-visible {
-			background-color: var(--spl-custom-bg-hover);
-		}
 	}
 </style>

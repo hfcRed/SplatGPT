@@ -123,11 +123,11 @@
 		pointer-events: none;
 
 		&:first-child {
-			left: var(--spl-padding);
+			left: var(--cbb-padding);
 		}
 
 		&:last-child {
-			right: var(--spl-padding);
+			right: var(--cbb-padding);
 		}
 	}
 
@@ -144,11 +144,11 @@
 
 	input {
 		color: var(--spl-color-text);
-		background-color: var(--spl-color-bg);
+		background-color: var(--spl-color-bg-low);
 		border: 1px solid var(--spl-color-outline);
-		border-radius: var(--spl-radius);
-		padding: 0 calc(var(--spl-padding) * 3) 0 var(--spl-padding);
-		min-height: var(--spl-min-height);
+		border-radius: var(--cbb-radius);
+		padding: 0 calc(var(--cbb-padding) * 3) 0 var(--cbb-padding);
+		min-height: var(--cbb-min-height);
 		height: auto;
 		width: 100%;
 		outline: solid 2px transparent;
@@ -165,11 +165,12 @@
 		}
 
 		&.hasIcon {
-			padding-left: calc(var(--spl-padding) * 3);
+			padding-left: calc(var(--cbb-padding) * 3);
 		}
 	}
 
 	ul {
+		background-color: inherit;
 		display: flex;
 		flex-direction: column;
 		max-height: 300px;
@@ -178,13 +179,13 @@
 	}
 
 	.item-container {
-		overflow-y: auto;
-		background-color: var(--spl-color-bg);
+		background-color: var(--spl-color-bg-low);
 		border-radius: var(--spl-radius-md);
-		padding: 0.5rem;
-		scrollbar-width: none;
 		box-shadow: var(--spl-shadow-md);
 		outline: 1px solid var(--spl-color-outline);
+		overflow-y: auto;
+		scrollbar-width: none;
+		padding: 0.5rem;
 		margin-top: 2px;
 	}
 
@@ -200,30 +201,31 @@
 
 		&.selected {
 			color: var(--spl-color-white);
+			font-weight: 600;
 		}
 
 		&:hover,
 		&[data-highlighted] {
-			background-color: var(--spl-color-bg-high);
+			background-color: var(--spl-color-bg);
 		}
 	}
 
 	.small {
-		--spl-min-height: 2rem;
-		--spl-padding: 0.5rem;
-		--spl-radius: var(--spl-radius-sm);
+		--cbb-min-height: 2rem;
+		--cbb-padding: 0.5rem;
+		--cbb-radius: var(--spl-radius-sm);
 	}
 
 	.medium {
-		--spl-min-height: 2.5rem;
-		--spl-padding: 1rem;
-		--spl-radius: var(--spl-radius-md);
+		--cbb-min-height: 2.5rem;
+		--cbb-padding: 1rem;
+		--cbb-radius: var(--spl-radius-md);
 	}
 
 	.large {
-		--spl-min-height: 3rem;
-		--spl-padding: 1.5rem;
-		--spl-radius: var(--spl-radius-lg);
+		--cbb-min-height: 3rem;
+		--cbb-padding: 1.5rem;
+		--cbb-radius: var(--spl-radius-lg);
 	}
 
 	.round {

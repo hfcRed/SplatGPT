@@ -1,8 +1,7 @@
 <script lang="ts">
-	import type { DndEvent } from 'svelte-dnd-action';
-	import { emptyAbility, type Ability } from '$lib/data/abilities';
+	import { dndzone, TRIGGERS, type DndEvent } from 'svelte-dnd-action';
 	import { createEventDispatcher } from 'svelte';
-	import { dndzone, TRIGGERS } from 'svelte-dnd-action';
+	import { emptyAbility, type Ability } from '$lib/data/abilities';
 	import AbilityItem from './AbilityItem.svelte';
 
 	export let ability: Ability = emptyAbility;
@@ -66,16 +65,20 @@
 
 <style>
 	div {
-		width: 3rem;
-		height: 3rem;
+		background-color: var(--spl-color-bg-low);
 		border: 2px solid var(--spl-color-outline-high);
 		border-right: 0;
 		border-bottom: 0;
 		border-radius: 50%;
+		width: 3rem;
+		height: 3rem;
 		background-image: url('/src/lib/images/abilities/None.png');
 		background-size: contain;
-		background-color: var(--spl-color-bg-low);
 		transition: opacity 0.1s;
+	}
+
+	div > :global(button) {
+		outline: 0;
 	}
 
 	.main {
@@ -86,9 +89,5 @@
 	.disabled {
 		opacity: 0.25;
 		pointer-events: none;
-	}
-
-	div > :global(button) {
-		outline: 0;
 	}
 </style>

@@ -74,26 +74,26 @@
 	}
 </script>
 
-<div class="meter" role="meter" aria-valuemin="0" aria-valuemax="0.5" aria-valuenow={quality}>
-	<div class="meter-bar" style={`transform: translateX(-${100 - (100 * quality) / 0.5}%)`} />
+<div class="meter" role="meter" aria-valuemin="0" aria-valuemax="0.4" aria-valuenow={quality}>
+	<div class="meter-bar" style={`transform: translateX(-${100 - (100 * quality) / 0.4}%)`} />
 </div>
 
 <style>
 	.meter {
+		background-color: var(--spl-color-bg);
 		position: relative;
 		width: 100%;
 		height: 1rem;
-		background-color: var(--spl-color-bg);
 		border-radius: 99999px;
 		overflow: hidden;
 	}
 
 	.meter-bar {
+		background-color: var(--spl-color-accent-high);
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		background-color: var(--spl-color-accent-high);
-		transition: transform 0.5s cubic-bezier(0.6, 0, 0.4, 1);
 		border-radius: 99999px;
+		transition: transform 0.5s cubic-bezier(0.6, 0, 0.4, 1);
 	}
 </style>

@@ -1,12 +1,16 @@
 <script lang="ts">
-	import type { DndEvent } from 'svelte-dnd-action';
 	import type { Ability } from '$lib/data/abilities';
+	import {
+		dndzone,
+		TRIGGERS,
+		SHADOW_ITEM_MARKER_PROPERTY_NAME,
+		type DndEvent
+	} from 'svelte-dnd-action';
 	import { createEventDispatcher } from 'svelte';
-	import { dndzone, TRIGGERS, SHADOW_ITEM_MARKER_PROPERTY_NAME } from 'svelte-dnd-action';
 	import AbilityItem from './AbilityItem.svelte';
 
 	export let abilities: Ability[] = [];
-	export let disabledStates: { [key: string]: boolean } = {};
+	export let disabledAbilities: { [key: string]: boolean } = {};
 
 	const dispatch = createEventDispatcher<Record<string, Ability | undefined>>();
 
@@ -23,7 +27,7 @@
 			const newId = `${idNumber}_${+idCopy + +'1'}`;
 
 			event.detail.items = event.detail.items.filter(
-				(item: any) => !item[SHADOW_ITEM_MARKER_PROPERTY_NAME]
+				(item) => !item.hasOwnProperty(SHADOW_ITEM_MARKER_PROPERTY_NAME)
 			);
 
 			event.detail.items.splice(idIndex, 0, { ...abilities[idIndex], id: newId });
@@ -53,7 +57,8 @@
 >
 	{#each abilities as ability (ability.id)}
 		<AbilityItem
-			disabled={disabledStates[ability.mainType || ''] === true || disabledStates.all === true}
+			disabled={disabledAbilities[ability.mainType || ''] === true ||
+				disabledAbilities.all === true}
 			on:interact
 			{ability}
 		/>
