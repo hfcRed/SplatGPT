@@ -24,11 +24,12 @@ function createAbilityData() {
 
     for (const [key, value] of Object.entries(abilityInfo.Traits)) {
         const name = key;
+        const tokenName = Object.keys(abilityRemap).find(key => abilityRemap[key] === name) || "none";
         const id = abilityOrder.indexOf(name).toString();
         const mainType = (value.KindLimit).toLowerCase();
         const image = `/src/lib/images/abilities/${name}.png`;
 
-        abilities[name] = { id, name, mainType, image };
+        abilities[name] = { id, name, tokenName, mainType, image };
     }
 
     abilities = Object.keys(abilities).sort((a, b) => abilities[a].id - abilities[b].id).reduce((acc, key) => { acc[key] = abilities[key]; return acc }, {});
