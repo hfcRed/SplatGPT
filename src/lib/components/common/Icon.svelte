@@ -1,29 +1,32 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { SVGAttributes, SvelteHTMLElements } from 'svelte/elements';
 
 	export type Color = 'theme' | 'green' | 'red' | 'currentColor';
 
+	export type IconNodes = [
+		element: keyof SvelteHTMLElements,
+		attributes: SVGAttributes<SVGSVGElement>
+	][];
+
 	export type IconProps = {
+		nodes?: IconNodes;
 		color?: Color;
 		size?: number | string;
 		strokeWidth?: number | string;
 		flippedX?: boolean;
 		flippedY?: boolean;
 	};
-
-	export type IconNodes = [
-		element: keyof SvelteHTMLElements,
-		attributes: SVGAttributes<SVGSVGElement>
-	][];
 </script>
 
 <script lang="ts">
-	export let nodes: IconNodes = [];
-	export let color: Color = 'currentColor';
-	export let size: number | string = '1em';
-	export let strokeWidth: number | string = 2;
-	export let flippedX: boolean = false;
-	export let flippedY: boolean = false;
+	let {
+		nodes = [],
+		color = 'currentColor',
+		size = '1em',
+		strokeWidth = 2,
+		flippedX = false,
+		flippedY = false
+	}: IconProps = $props();
 </script>
 
 <svg
@@ -36,7 +39,9 @@
 	width={size}
 	height={size}
 	stroke-width={strokeWidth}
-	class={`${color} ${flippedX ? 'flip-x' : ''} ${flippedY ? 'flip-y' : ''}`}
+	class={`${color}`}
+	class:flip-x={flippedX}
+	class:flip-y={flippedY}
 >
 	{#each nodes as [element, attributes]}
 		<svelte:element this={element} {...attributes} />

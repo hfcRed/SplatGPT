@@ -3,25 +3,19 @@
 	import type { Weapon } from '$lib/data/weapons';
 	import { mainIndexes, type Ability } from '$lib/data/abilities';
 
-	export let slots: Ability[] = [];
-	export let weapon: Weapon;
-
-	const modules = import.meta.glob('/src/lib/data/abilities/tokens/*.ts', { import: 'tokens' });
-
-	let tokens: Tokens;
-	$: {
-		weapon;
-		modules[`/src/lib/data/abilities/tokens/${weapon.referenceKit}.ts`]().then((module) => {
-			tokens = module as Tokens;
-			getQuality();
-		});
+	interface Props {
+		slots: Ability[];
+		weapon: Weapon;
 	}
 
-	let quality = 0;
-	$: {
+	let { slots = [], weapon }: Props = $props();
+
+	let quality = $state(0);
+
+	$effect(() => {
 		slots;
 		getQuality();
-	}
+	});
 
 	function getQuality() {
 		if (!tokens || slots.filter((slot) => slot.id === '0').length === 12) {
@@ -72,10 +66,22 @@
 
 		quality = adjustedProbability / highest;
 	}
+
+	const modules = import.meta.glob('/src/lib/data/abilities/tokens/*.ts', { import: 'tokens' });
+
+	let tokens: Tokens | undefined = $state();
+
+	$effect(() => {
+		weapon;
+		modules[`/src/lib/data/abilities/tokens/${weapon.referenceKit}.ts`]().then((module) => {
+			tokens = module as Tokens;
+			getQuality();
+		});
+	});
 </script>
 
 <div class="meter" role="meter" aria-valuemin="0" aria-valuemax="0.4" aria-valuenow={quality}>
-	<div class="meter-bar" style={`transform: translateX(-${100 - (100 * quality) / 0.4}%)`} />
+	<div class="meter-bar" style={`transform: translateX(-${100 - (100 * quality) / 0.4}%)`}></div>
 </div>
 
 <style>

@@ -1,29 +1,37 @@
 <script lang="ts">
 	import { dndzone, TRIGGERS, type DndEvent } from 'svelte-dnd-action';
-	import { createEventDispatcher } from 'svelte';
 	import { emptyAbility, type Ability } from '$lib/data/abilities';
 	import AbilityItem from './AbilityItem.svelte';
 
-	export let ability: Ability = emptyAbility;
-	export let mainType: string | null = null;
-	export let items: Ability[] = [];
-	export let disabled: boolean = false;
+	interface Props {
+		mainType: string | null;
+		disabled?: boolean;
+		ability?: Ability;
+		items: Ability[];
+		drag: (ability: Ability | undefined) => void;
+	}
 
-	const dispatch = createEventDispatcher<Record<string, Ability | undefined>>();
+	let {
+		mainType = null,
+		disabled = false,
+		ability = $bindable(emptyAbility),
+		items = $bindable([]),
+		drag
+	}: Props = $props();
 
 	function handleConsider(event: CustomEvent<DndEvent<Ability>>) {
 		const { trigger, id } = event.detail.info;
 
 		if (trigger === TRIGGERS.DRAG_STARTED) {
 			const draggedAbility = items.find((ability) => ability.id === id);
-			dispatch('drag', draggedAbility);
+			drag(draggedAbility);
 		}
 
 		items = event.detail.items;
 	}
 
 	function handleFinalize(event: CustomEvent<DndEvent<Ability>>) {
-		dispatch('drag', undefined);
+		drag(undefined);
 
 		const item = event.detail.items[0];
 
@@ -52,13 +60,14 @@
 		dropFromOthersDisabled: disabled,
 		dropTargetStyle: {}
 	}}
-	on:consider={handleConsider}
-	on:finalize={handleFinalize}
-	class={`${mainType ? 'main' : ''} ${disabled ? 'disabled' : ''}`}
+	class:main={mainType}
+	class:disabled
+	onconsider={handleConsider}
+	onfinalize={handleFinalize}
 >
 	{#each items as item, index (item.id)}
 		{#if index === 0}
-			<AbilityItem on:interact={removeItem} ability={item} />
+			<AbilityItem interact={removeItem} ability={item} />
 		{/if}
 	{/each}
 </div>

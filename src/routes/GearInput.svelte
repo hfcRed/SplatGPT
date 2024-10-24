@@ -10,7 +10,7 @@
 	const mainAbilities: Ability[] = abilityEntries.filter((item) => item.mainType !== 'none');
 	const subAbilities: Ability[] = abilityEntries.filter((item) => item.mainType === 'none');
 
-	let slots: Ability[] = [
+	let slots: Ability[] = $state([
 		emptyAbility,
 		emptyAbility,
 		emptyAbility,
@@ -23,12 +23,11 @@
 		emptyAbility,
 		emptyAbility,
 		emptyAbility
-	];
+	]);
 
-	let enabledSlots: 'all' | 'head' | 'clothes' | 'shoes' = 'all';
+	let enabledSlots: 'all' | 'head' | 'clothes' | 'shoes' = $state('all');
 
-	function updateEnabledSlots(event: CustomEvent<Ability | undefined>) {
-		const ability = event.detail;
+	function updateEnabledSlots(ability: Ability | undefined) {
 		if (!ability || ability.mainType === 'none') {
 			enabledSlots = 'all';
 			return;
@@ -36,25 +35,25 @@
 		enabledSlots = ability.mainType || 'all';
 	}
 
-	$: disabledAbilities = {
+	let disabledAbilities = $derived({
 		head: slots[0].id !== '0',
 		clothes: slots[4].id !== '0',
 		shoes: slots[8].id !== '0',
 		all: slots.filter((slot) => slot.id !== '0').length === 12
-	};
+	});
 
-	function addAbility(event: CustomEvent<Ability>) {
+	function addAbility(ability: Ability) {
 		slots.find((slot, index) => {
 			if (slot.id !== '0') return false;
 
-			const newSlot = { ...event.detail, id: Math.floor(Math.random() * 10000000000).toString() };
+			const newSlot = { ...ability, id: Math.floor(Math.random() * 10000000000).toString() };
 
-			if (event.detail.mainType === 'none') {
+			if (ability.mainType === 'none') {
 				slots[index] = newSlot;
 				return true;
 			}
 
-			if (mainIndexes[index] && event.detail.mainType === mainIndexes[index]) {
+			if (mainIndexes[index] && ability.mainType === mainIndexes[index]) {
 				slots[index] = newSlot;
 				return true;
 			}
@@ -65,7 +64,7 @@
 		slots = slots.map(() => emptyAbility);
 	}
 
-	let weapon: Weapon = weapons[Object.keys(weapons)[0]];
+	let weapon: Weapon = $state(weapons[Object.keys(weapons)[0]]);
 </script>
 
 <Combobox bind:current={weapon} title="Weapon" items={Object.values(weapons)} />
@@ -75,27 +74,27 @@
 <div>
 	{#each slots as slot, index}
 		<AbilitySlot
-			on:drag={updateEnabledSlots}
 			bind:ability={slots[index]}
 			disabled={enabledSlots === 'all' ? false : mainIndexes[index] === enabledSlots ? false : true}
 			items={slot.id === '0' ? [] : [slot]}
 			mainType={mainIndexes[index] || null}
+			drag={updateEnabledSlots}
 		/>
 	{/each}
 </div>
 
 <AbilitySelector
-	on:drag={updateEnabledSlots}
-	on:interact={addAbility}
 	abilities={subAbilities}
 	{disabledAbilities}
+	drag={updateEnabledSlots}
+	interact={addAbility}
 />
 
 <AbilitySelector
-	on:drag={updateEnabledSlots}
-	on:interact={addAbility}
 	abilities={mainAbilities}
 	{disabledAbilities}
+	drag={updateEnabledSlots}
+	interact={addAbility}
 />
 
 <style>

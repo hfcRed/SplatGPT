@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	export type Color = 'theme' | 'green' | 'red' | 'currentColor';
 
 	export type IconProps = {
@@ -9,9 +9,7 @@
 </script>
 
 <script lang="ts">
-	export let color: Color = 'currentColor';
-	export let size: number | string = '1em';
-	export let strokeWidth: number | string = 2;
+	let { color = 'currentColor', size = '1em', strokeWidth = 2 }: IconProps = $props();
 </script>
 
 <svg

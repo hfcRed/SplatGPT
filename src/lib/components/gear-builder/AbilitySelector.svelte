@@ -1,25 +1,23 @@
 <script lang="ts">
 	import type { Ability } from '$lib/data/abilities';
-	import {
-		dndzone,
-		TRIGGERS,
-		SHADOW_ITEM_MARKER_PROPERTY_NAME,
-		type DndEvent
-	} from 'svelte-dnd-action';
-	import { createEventDispatcher } from 'svelte';
+	import { dndzone, TRIGGERS, type DndEvent } from 'svelte-dnd-action';
 	import AbilityItem from './AbilityItem.svelte';
 
-	export let abilities: Ability[] = [];
-	export let disabledAbilities: { [key: string]: boolean } = {};
+	interface Props {
+		abilities: Ability[];
+		disabledAbilities?: { [key: string]: boolean };
+		interact: (ability: Ability) => void;
+		drag: (ability: Ability | undefined) => void;
+	}
 
-	const dispatch = createEventDispatcher<Record<string, Ability | undefined>>();
+	let { abilities = $bindable([]), disabledAbilities = {}, interact, drag }: Props = $props();
 
 	function handleConsider(event: CustomEvent<DndEvent<Ability>>) {
 		const { trigger, id } = event.detail.info;
 
 		if (trigger === TRIGGERS.DRAG_STARTED) {
 			const draggedAbility = abilities.find((ability) => ability.id === id);
-			dispatch('drag', draggedAbility);
+			drag(draggedAbility);
 
 			const idIndex = abilities.findIndex((item) => item.id === id);
 			const idNumber = id.toString().split('_')[0];
@@ -27,7 +25,7 @@
 			const newId = `${idNumber}_${+idCopy + +'1'}`;
 
 			event.detail.items = event.detail.items.filter(
-				(item) => !item.hasOwnProperty(SHADOW_ITEM_MARKER_PROPERTY_NAME)
+				(item) => !item.hasOwnProperty('isDndShadowItem')
 			);
 
 			event.detail.items.splice(idIndex, 0, { ...abilities[idIndex], id: newId });
@@ -38,7 +36,7 @@
 	}
 
 	function handleFinalize(event: CustomEvent<DndEvent<Ability>>) {
-		dispatch('drag', undefined);
+		drag(undefined);
 		abilities = event.detail.items;
 	}
 </script>
@@ -52,14 +50,14 @@
 		zoneItemTabIndex: -1,
 		dropTargetStyle: {}
 	}}
-	on:consider={handleConsider}
-	on:finalize={handleFinalize}
+	onconsider={handleConsider}
+	onfinalize={handleFinalize}
 >
 	{#each abilities as ability (ability.id)}
 		<AbilityItem
 			disabled={disabledAbilities[ability.mainType || ''] === true ||
 				disabledAbilities.all === true}
-			on:interact
+			{interact}
 			{ability}
 		/>
 	{/each}

@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 
 	export type Color = 'theme' | 'green' | 'red' | 'neutral';
@@ -24,18 +24,22 @@
 	import Spinner from './Spinner.svelte';
 	type Props = ButtonProps | LinkProps;
 
-	export let color: Color = 'theme';
-	export let size: Size = 'medium';
-	export let variant: Variant = 'filled';
-	export let href: Props['href'] = undefined;
-	export let type: Props['type'] = 'button';
-	export let disabled: Props['disabled'] = false;
-	export let target: Props['target'] = undefined;
-	export let loading = false;
-	export let full = false;
-	export let rounded = false;
-	export let circle = false;
-	export let custom = false;
+	let {
+		color = 'theme',
+		size = 'medium',
+		variant = 'filled',
+		href = undefined,
+		type = 'button',
+		disabled = false,
+		target = undefined,
+		loading = false,
+		full = false,
+		rounded = false,
+		circle = false,
+		custom = false,
+		children,
+		...rest
+	}: Props = $props();
 </script>
 
 <svelte:element
@@ -43,25 +47,20 @@
 	role={href ? undefined : 'button'}
 	type={href ? undefined : type}
 	aria-disabled={disabled ? 'true' : undefined}
-	class={`${color} ${size} ${variant} ${full ? 'full' : ''} ${rounded ? 'round' : ''} ${circle ? 'circle' : ''} ${custom ? 'custom' : ''}`}
+	class={`${color} ${size} ${variant}`}
+	class:circle
+	class:custom
+	class:full
+	class:rounded
 	data-loading={loading}
 	{href}
 	{target}
 	{disabled}
-	on:click
-	on:change
-	on:keydown
-	on:keyup
-	on:mouseenter
-	on:mouseleave
-	on:mousedown
-	on:pointerdown
-	on:mouseup
-	on:pointerup
+	{...rest}
 >
 	<Spinner color="currentColor" size="1.5em" strokeWidth="3" />
 	<div>
-		<slot />
+		{@render children?.()}
 	</div>
 </svelte:element>
 
@@ -217,7 +216,7 @@
 		--btn-padding: 0 1.5rem;
 	}
 
-	.round {
+	.rounded {
 		--btn-radius: 99999px;
 	}
 

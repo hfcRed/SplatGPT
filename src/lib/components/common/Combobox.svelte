@@ -1,21 +1,19 @@
-<script lang="ts" context="module">
-	import type { HTMLInputAttributes } from 'svelte/elements';
-	import type { ComponentType } from 'svelte';
+<script lang="ts" module>
+	import type { Component } from 'svelte';
 
 	export type Size = 'small' | 'medium' | 'large';
-	export type Item = { name: string; icon?: ComponentType; image?: string };
+	export type Item = { name: string; icon?: Component; image?: string };
 
-	type BaseProps = {
+	export type BaseProps = {
 		size?: Size;
 		items: Item[];
 		title?: string;
 		description?: string;
-		icon?: ComponentType;
+		icon?: Component;
 		rounded?: boolean;
 		disabled?: boolean;
+		current?: Item;
 	};
-
-	export type InputProps = HTMLInputAttributes & BaseProps;
 </script>
 
 <script lang="ts">
@@ -24,16 +22,18 @@
 	import ChevronUpDown from '$lib/icons/ChevronUpDown.svelte';
 	import { images } from '$lib/images';
 
-	export let size: Size = 'medium';
-	export let items: Item[] = [{ name: 'No items specified' }];
-	export let title: string | undefined = undefined;
-	export let description: string | undefined = undefined;
-	export let icon: ComponentType | undefined = undefined;
-	export let rounded = false;
-	export let disabled = false;
+	let {
+		size = 'medium',
+		items = [{ name: 'No items specified' }],
+		title = undefined,
+		description = undefined,
+		icon = undefined,
+		rounded = false,
+		disabled = false,
+		current = $bindable(items[0])
+	}: BaseProps = $props();
 
 	const defaultItem = items[0];
-	export let current: Item = defaultItem;
 
 	const toOption = (item: Item): ComboboxOptionProps<Item> => ({
 		value: item,
@@ -46,39 +46,50 @@
 		helpers: { isSelected }
 	} = createCombobox<Item>({
 		forceVisible: true,
-		defaultSelected: toOption(defaultItem)
+		defaultSelected: toOption(current)
 	});
 
-	$: current = $selected?.value ?? defaultItem;
+	$effect(() => {
+		current = $selected?.value ?? defaultItem;
+	});
 
-	$: if (!$open) {
-		$inputValue = $selected?.label ?? '';
-	}
+	$effect(() => {
+		if (!$open) {
+			$inputValue = $selected?.label ?? '';
+		}
+	});
 
-	$: filteredItems = $touchedInput
-		? items.filter(({ name }) => {
-				const normalizedInput = $inputValue.toLowerCase();
-				return name.toLowerCase().includes(normalizedInput);
-			})
-		: items;
+	let filteredItems = $derived(
+		$touchedInput
+			? items.filter(({ name }) => {
+					const normalizedInput = $inputValue.toLowerCase();
+					return name.toLowerCase().includes(normalizedInput);
+				})
+			: items
+	);
+
+	const IconComponent = $derived(icon);
 </script>
 
 <div>
-	<!-- svelte-ignore a11y-label-has-associated-control - $label contains the 'for' attribute -->
+	<!-- svelte-ignore a11y_label_has_associated_control - $label contains the 'for' attribute -->
 	{#if title}
 		<label class="title" use:melt={$label}>
 			<span>{title}</span>
 		</label>
 	{/if}
 	<div class={`controls ${size}`}>
-		<svelte:component this={icon} size="1.25em" />
+		{#if icon}
+			<IconComponent size="1.25em" />
+		{/if}
 		<input
-			class={`${icon ? 'hasIcon' : ''} ${rounded ? 'round' : ''}`}
+			class:hasIcon={icon}
+			class:rounded
 			type="test"
 			autocomplete="off"
-			autocorrect="false"
-			use:melt={$input}
+			autocorrect="off"
 			{disabled}
+			use:melt={$input}
 		/>
 		<ChevronUpDown size="1.25em" />
 	</div>
@@ -88,11 +99,11 @@
 </div>
 {#if $open}
 	<ul use:melt={$menu} transition:fly={{ duration: 200, y: -5 }}>
-		<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+		<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 		<div class="item-container" tabindex="0">
 			{#each filteredItems as item, index (index)}
-				<li class={`${$isSelected(item) ? 'selected' : ''}`} use:melt={$option(toOption(item))}>
-					<svelte:component this={item.icon} size="32px" />
+				<li class:selected={$isSelected(item)} use:melt={$option(toOption(item))}>
+					<item.icon size="32px" />
 					{#if item.image}
 						<enhanced:img src={images[item.image]} alt={item.name} width="32" height="32" />
 					{/if}
@@ -228,7 +239,7 @@
 		--cbb-radius: var(--spl-radius-lg);
 	}
 
-	.round {
+	.rounded {
 		border-radius: 99999px;
 	}
 </style>

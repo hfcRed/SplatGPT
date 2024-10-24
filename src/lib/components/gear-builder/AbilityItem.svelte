@@ -1,22 +1,25 @@
 <script lang="ts">
 	import type { Ability } from '$lib/data/abilities';
-	import { createEventDispatcher } from 'svelte';
 	import { images } from '$lib/images';
 
-	export let ability: Ability;
-	export let disabled: boolean = false;
+	interface Props {
+		ability: Ability;
+		disabled?: boolean;
+		interact: (ability: Ability) => void;
+	}
 
-	const dispatch = createEventDispatcher<Record<string, Ability>>();
+	let { ability, disabled = false, interact }: Props = $props();
 
 	function fireInteract() {
-		dispatch('interact', ability);
+		interact(ability);
 	}
 </script>
 
 <button
-	on:click={fireInteract}
+	aria-label={ability.name}
 	class={`${ability.mainType !== 'none' ? `main ${ability.mainType}` : ''}`}
 	{disabled}
+	onclick={fireInteract}
 >
 	<enhanced:img src={images[`/src/lib/images/abilities/${ability.name}.png`]} alt={ability.name} />
 </button>
@@ -42,7 +45,8 @@
 		pointer-events: none;
 	}
 
-	img {
+	/* svelte-ignore */
+	button :global(img) {
 		width: 100%;
 		height: 100%;
 	}
