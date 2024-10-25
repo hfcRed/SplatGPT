@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { abilities, emptyAbility, mainIndexes, type Ability } from '$lib/data/abilities';
-	import { last } from '@melt-ui/svelte/internal/helpers';
+	import AbilitySlot from '$lib/components/gear-builder/AbilitySlot.svelte';
 
 	type Token = [string, number];
 
@@ -147,103 +147,95 @@
 		['<NULL>', 8.704054366148739e-9]
 	];
 
-	let slots: Ability[] = [];
+	let slots: Ability[] = [
+		emptyAbility,
+		emptyAbility,
+		emptyAbility,
+		emptyAbility,
+		emptyAbility,
+		emptyAbility,
+		emptyAbility,
+		emptyAbility,
+		emptyAbility,
+		emptyAbility,
+		emptyAbility,
+		emptyAbility
+	];
 
-	// Greedy search algorithm
-	// If a main ability is picked, we walk backwards to the main ability slot, replace it, spread the ability that was there to the other slots, then continue
 	function mapResponseToSlots() {
 		const sortedResponse = response.sort((a, b) => b[1] - a[1]);
 
-		let lastAbility: Ability | undefined;
-		let lastAp: number = 0;
+		let remainingAp = 57;
+		let mainAbilities: { [key: string]: number } = {};
+		let subAbilities: { [key: string]: number } = {};
 
-		for (const token of response) {
-			if (slots.length >= 12) break;
+		while (remainingAp > 0) {
+			const token = sortedResponse.shift();
+			if (!token) break;
 
 			const split = token[0].split('_');
 			const num = parseInt(split[split.length - 1]) ? parseInt(split.pop() || '10') : 10;
 			const tokenName = split.join('_');
 
 			const ability = Object.values(abilities).find((ability) => ability.tokenName === tokenName);
-			const probability = token[1];
 
 			if (!ability) continue;
 
-			if (!lastAbility) {
-				lastAbility = ability;
-				lastAp = num;
-				continue;
+			if (num === 10) mainAbilities[ability.tokenName] = num;
+			else subAbilities[ability.tokenName] = num;
+
+			const allAp =
+				Object.values(mainAbilities).reduce((acc, cur) => acc + cur, 0) +
+				Object.values(subAbilities).reduce((acc, cur) => acc + cur, 0);
+			remainingAp = 57 - allAp;
+		}
+
+		for (const name of Object.keys(mainAbilities)) {
+			const ability = Object.values(abilities).find((ability) => ability.tokenName === name);
+			if (!ability) continue;
+
+			const index =
+				Object.keys(mainIndexes).find((key) => mainIndexes[parseInt(key)] === ability.mainType) ||
+				'0';
+
+			if (slots[parseInt(index)].id !== '0') continue;
+
+			slots[parseInt(index)] = { ...ability };
+		}
+
+		for (const [name, ap] of Object.entries(subAbilities)) {
+			const ability = Object.values(abilities).find((ability) => ability.tokenName === name);
+			if (!ability) continue;
+
+			let currentAp = ap;
+
+			const freeMainSlots = slots.reduce((acc, cur, index) => {
+				if (mainIndexes.hasOwnProperty(index) && cur.id === '0') acc.push(index);
+				return acc;
+			}, [] as number[]);
+
+			if (currentAp > 10 && freeMainSlots.length > 0) {
+				slots[freeMainSlots.shift() || 0] = { ...ability };
+				currentAp -= 10;
 			}
 
-			if (lastAbility.id === ability.id) {
-				lastAbility = ability;
-				lastAp = num;
-				continue;
+			let freeSubSlots = slots.reduce((acc, cur, index) => {
+				if (!mainIndexes.hasOwnProperty(index) && cur.id === '0') acc.push(index);
+				return acc;
+			}, [] as number[]);
+
+			const count = Math.floor(currentAp / 3);
+
+			for (let i = 0; i < count; i++) {
+				if (freeSubSlots.length === 0) break;
+
+				slots[freeSubSlots.shift() || 0] = { ...ability };
+
+				freeSubSlots = slots.reduce((acc, cur, index) => {
+					if (!mainIndexes.hasOwnProperty(index) && cur.id === '0') acc.push(index);
+					return acc;
+				}, [] as number[]);
 			}
-
-			// free slots should take into consideration that any slot can have an ability in it
-			// there are 12 slots in total
-
-			let freeSlots: Number[];
-
-			while (lastAp > 0) {
-				if (slots.length >= 12) {
-					lastAp = 0;
-					break;
-				}
-
-				if (lastAbility.mainType !== 'none') {
-					const mainIndex = parseInt(
-						Object.keys(mainIndexes).find(
-							(key) => mainIndexes[parseInt(key)] === lastAbility?.mainType
-						) || '0'
-					);
-
-					while (slots.length < mainIndex) {
-						// this needs to update the free slots
-						slots.push({ ...emptyAbility });
-					}
-
-					if (slots.length === mainIndex) {
-						// this needs to take the next available free slot
-						slots.push({ ...lastAbility });
-						lastAp -= 10;
-						continue;
-					}
-
-					const occupiedSlot = slots[mainIndex];
-
-					if (occupiedSlot.mainType !== 'none') {
-						lastAp -= 10;
-						continue;
-					}
-
-					for (let i = 0; i < 3; i++) {
-						if (slots.length === 12) break;
-						if (Object.keys(mainIndexes).includes(slots.length.toString())) {
-							// this needs to update the free slots
-							slots.push({ ...emptyAbility });
-						} else {
-							// this needs to take the next available free slot
-							slots.push({ ...occupiedSlot });
-						}
-					}
-
-					slots[mainIndex] = { ...lastAbility };
-					lastAp -= 10;
-					continue;
-				}
-
-				const slotCount = slots.length;
-				const isMainSlot = mainIndexes.hasOwnProperty(slotCount);
-
-				// this needs to take the next available free slot
-				slots.push({ ...lastAbility });
-				lastAp -= isMainSlot ? 10 : 3;
-			}
-
-			lastAbility = ability;
-			lastAp = num;
 		}
 
 		console.log(slots);
@@ -251,3 +243,22 @@
 
 	mapResponseToSlots();
 </script>
+
+<div>
+	{#each slots as slot, index}
+		<AbilitySlot
+			items={slot.id === '0' ? [] : [slot]}
+			mainType={mainIndexes[index] || null}
+			dragDisabled
+		/>
+	{/each}
+</div>
+
+<style>
+	div {
+		display: grid;
+		grid-template-columns: repeat(4, fit-content(100%));
+		gap: 1rem 0.5rem;
+		align-items: center;
+	}
+</style>
