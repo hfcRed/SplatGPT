@@ -8,7 +8,8 @@
 		disabled?: boolean;
 		ability?: Ability;
 		items: Ability[];
-		drag: (ability: Ability | undefined) => void;
+		dragDisabled?: boolean;
+		drag?: (ability: Ability | undefined) => void;
 	}
 
 	let {
@@ -16,6 +17,7 @@
 		disabled = false,
 		ability = $bindable(emptyAbility),
 		items = $bindable([]),
+		dragDisabled = false,
 		drag
 	}: Props = $props();
 
@@ -24,14 +26,14 @@
 
 		if (trigger === TRIGGERS.DRAG_STARTED) {
 			const draggedAbility = items.find((ability) => ability.id === id);
-			drag(draggedAbility);
+			if (drag) drag(draggedAbility);
 		}
 
 		items = event.detail.items;
 	}
 
 	function handleFinalize(event: CustomEvent<DndEvent<Ability>>) {
-		drag(undefined);
+		if (drag) drag(undefined);
 
 		const item = event.detail.items[0];
 
@@ -58,6 +60,7 @@
 		zoneTabIndex: -1,
 		zoneItemTabIndex: -1,
 		dropFromOthersDisabled: disabled,
+		dragDisabled,
 		dropTargetStyle: {}
 	}}
 	class:main={mainType}
