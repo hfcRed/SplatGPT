@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { abilities, emptyAbility, mainIndexes, type Ability } from '$lib/data/abilities';
 	import { weapons, type Weapon } from '$lib/data/weapons/index';
+	import { outputPredictions, type Token } from './slots.svelte';
 	import AbilitySelector from '$lib/components/gear-builder/AbilitySelector.svelte';
 	import AbilitySlot from '$lib/components/gear-builder/AbilitySlot.svelte';
 	import OutputQuality from '../lib/components/gear-builder/OutputQuality.svelte';
@@ -91,6 +92,8 @@
 		});
 
 		const data = await response.json();
+		const predictions = [...data.predictions].sort((a, b) => b[1] - a[1]);
+		outputPredictions.tokens = predictions;
 	}
 </script>
 
