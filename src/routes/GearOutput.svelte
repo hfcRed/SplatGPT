@@ -93,6 +93,8 @@
 				return acc;
 			}, [] as number[]);
 
+			if (currentAp === 2) currentAp = 3;
+
 			const count = Math.floor(currentAp / 3);
 
 			for (let i = 0; i < count; i++) {
