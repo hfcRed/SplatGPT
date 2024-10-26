@@ -80,6 +80,7 @@
 	});
 </script>
 
+<p>Estimated output quality</p>
 <div class="meter" role="meter" aria-valuemin="0" aria-valuemax="0.4" aria-valuenow={quality}>
 	<div class="meter-bar" style={`transform: translateX(-${100 - (100 * quality) / 0.4}%)`}></div>
 </div>

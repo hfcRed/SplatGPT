@@ -49,7 +49,7 @@
 			const tokenName = split.join('_');
 
 			const ability = Object.values(abilities).find((ability) => ability.tokenName === tokenName);
-			if (num < 10 || !ability) continue;
+			if (num <= 10 || !ability) continue;
 
 			subAbilities[ability.tokenName] = num;
 
