@@ -1,31 +1,22 @@
 <script lang="ts">
 	import { abilities, emptyAbility, mainIndexes, type Ability } from '$lib/data/abilities';
 	import { weapons, type Weapon } from '$lib/data/weapons/index';
-	import { outputPredictions, type Token } from './slots.svelte';
 	import AbilitySelector from '$lib/components/gear-builder/AbilitySelector.svelte';
 	import AbilitySlot from '$lib/components/gear-builder/AbilitySlot.svelte';
 	import OutputQuality from '../lib/components/gear-builder/OutputQuality.svelte';
 	import Combobox from '$lib/components/common/Combobox.svelte';
 	import Button from '$lib/components/common/Button.svelte';
+	import {
+		inputSlots,
+		outputSlots,
+		outputPredictions,
+		isRunning,
+		type Token
+	} from './gear-states.svelte';
 
 	const abilityEntries = Object.values(abilities);
 	const mainAbilities: Ability[] = abilityEntries.filter((item) => item.mainType !== 'none');
 	const subAbilities: Ability[] = abilityEntries.filter((item) => item.mainType === 'none');
-
-	let slots: Ability[] = $state([
-		emptyAbility,
-		emptyAbility,
-		emptyAbility,
-		emptyAbility,
-		emptyAbility,
-		emptyAbility,
-		emptyAbility,
-		emptyAbility,
-		emptyAbility,
-		emptyAbility,
-		emptyAbility,
-		emptyAbility
-	]);
 
 	let enabledSlots: 'all' | 'head' | 'clothes' | 'shoes' = $state('all');
 
@@ -38,73 +29,91 @@
 	}
 
 	let disabledAbilities = $derived({
-		head: slots[0].id !== '0',
-		clothes: slots[4].id !== '0',
-		shoes: slots[8].id !== '0',
-		all: slots.filter((slot) => slot.id !== '0').length === 12
+		head: inputSlots.abilities[0].id !== '0',
+		clothes: inputSlots.abilities[4].id !== '0',
+		shoes: inputSlots.abilities[8].id !== '0',
+		all: inputSlots.abilities.filter((slot) => slot.id !== '0').length === 12
 	});
 
 	function addAbility(ability: Ability) {
-		slots.find((slot, index) => {
+		inputSlots.abilities.find((slot, index) => {
 			if (slot.id !== '0') return false;
 
 			const newSlot = { ...ability, id: Math.floor(Math.random() * 10000000000).toString() };
 
 			if (ability.mainType === 'none') {
-				slots[index] = newSlot;
+				inputSlots.abilities[index] = newSlot;
 				return true;
 			}
 
 			if (mainIndexes[index] && ability.mainType === mainIndexes[index]) {
-				slots[index] = newSlot;
+				inputSlots.abilities[index] = newSlot;
 				return true;
 			}
 		});
 	}
 
 	function clearAbilities() {
-		slots = slots.map(() => emptyAbility);
+		inputSlots.abilities = inputSlots.abilities.map(() => emptyAbility);
 	}
 
-	let weapon: Weapon = $state(weapons[Object.keys(weapons)[0]]);
+	const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 	async function getProbabilities() {
+		isRunning.state = true;
+
 		let abilities: { [key: string]: number } = {};
 
-		for (const ability of slots) {
+		for (const ability of inputSlots.abilities) {
 			if (ability.id === '0') continue;
 
-			const points = mainIndexes.hasOwnProperty(slots.indexOf(ability)) ? 10 : 3;
+			const points = mainIndexes.hasOwnProperty(inputSlots.abilities.indexOf(ability)) ? 10 : 3;
 
 			abilities[ability.tokenName] = abilities[ability.tokenName] + points || points;
 		}
 
-		const response = await fetch('https://splat.top/api/infer', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				'User-Agent': 'SplatGPT'
-			},
-			body: JSON.stringify({
-				abilities,
-				weapon_id: weapon.id
-			})
-		});
+		outputSlots.abilities = Array(12).fill(emptyAbility);
+		await sleep(500);
 
-		const data = await response.json();
-		const predictions = [...data.predictions].sort((a, b) => b[1] - a[1]);
+		outputSlots.abilities = [...inputSlots.abilities];
+		await sleep(500);
+
+		let data;
+		try {
+			const response = await fetch('https://splat.top/api/infer', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					'User-Agent': 'SplatGPT'
+				},
+				body: JSON.stringify({
+					abilities,
+					weapon_id: weapon.id
+				})
+			});
+
+			data = await response.json();
+		} catch (error) {
+			console.error(error);
+			isRunning.state = false;
+			return;
+		}
+
+		const predictions = [...data.predictions].sort((a, b) => b[1] - a[1]) as Token[];
 		outputPredictions.tokens = predictions;
 	}
+
+	let weapon: Weapon = $state(weapons[Object.keys(weapons)[0]]);
 </script>
 
 <Combobox bind:current={weapon} title="Weapon" items={Object.values(weapons)} />
 
-<OutputQuality {weapon} {slots} />
+<OutputQuality {weapon} slots={inputSlots.abilities} />
 
 <div>
-	{#each slots as slot, index}
+	{#each inputSlots.abilities as slot, index}
 		<AbilitySlot
-			bind:ability={slots[index]}
+			bind:ability={inputSlots.abilities[index]}
 			disabled={enabledSlots === 'all' ? false : mainIndexes[index] === enabledSlots ? false : true}
 			items={slot.id === '0' ? [] : [slot]}
 			mainType={mainIndexes[index] || null}
@@ -128,7 +137,7 @@
 />
 
 <Button color="red" onclick={clearAbilities}>Clear</Button>
-<Button onclick={getProbabilities}>Send</Button>
+<Button onclick={getProbabilities} disabled={isRunning.state}>Send</Button>
 
 <style>
 	div {

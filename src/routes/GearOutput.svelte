@@ -1,12 +1,31 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
+	import { fly, blur } from 'svelte/transition';
+	import { expoIn } from 'svelte/easing';
 	import { abilities, emptyAbility, mainIndexes, type Ability } from '$lib/data/abilities';
-	import AbilitySlot from '$lib/components/gear-builder/AbilitySlot.svelte';
-	import { outputPredictions, type Token } from './slots.svelte';
+	import AbilityItem from '$lib/components/gear-builder/AbilityItem.svelte';
+	import { outputSlots, outputPredictions, isRunning, type Token } from './gear-states.svelte';
 
-	let slots: Ability[] = $derived(mapResponseToSlots(outputPredictions.tokens));
+	const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-	function mapResponseToSlots(response: Token[]) {
-		const responseCopy = [...response];
+	$effect(() => {
+		const abilities = untrack(() => outputSlots.abilities);
+		const tokens = outputPredictions.tokens;
+
+		(async () => {
+			const newSlots = mapResponseToSlots(tokens);
+
+			for (let i = 0; i < newSlots.length; i++) {
+				abilities[i] = newSlots[i];
+				await sleep(50);
+			}
+
+			isRunning.state = false;
+		})();
+	});
+
+	function mapResponseToSlots(tokens: Token[]): Ability[] {
+		const responseCopy = [...tokens];
 		const sortedResponse = responseCopy.sort((a, b) => b[1] - a[1]);
 
 		let remainingAp = 57;
@@ -40,6 +59,7 @@
 			0
 		);
 
+		// We need to ensure that we have at least 3 abilities that could be main abilities
 		while (subAbilitiesAbove10 + Object.keys(mainAbilities).length < 3) {
 			const token = sortedResponse.shift();
 			if (!token) break;
@@ -93,7 +113,10 @@
 				return acc;
 			}, [] as number[]);
 
+			// Temporary fix to prevent a slot from being left over due to the 3 AP cost
+			// the AP buckets might change in the future
 			if (currentAp === 2) currentAp = 3;
+			if (currentAp === 11) currentAp = 12;
 
 			const count = Math.floor(currentAp / 3);
 
@@ -113,21 +136,48 @@
 	}
 </script>
 
-<div>
-	{#each slots as slot, index}
-		<AbilitySlot
-			items={slot.id === '0' ? [] : [slot]}
-			mainType={mainIndexes[index] || null}
-			dragDisabled
-		/>
+<div class="container">
+	{#each outputSlots.abilities as slot, index}
+		<div class="item" class:main={mainIndexes[index]}>
+			{#if slot.id !== '0'}
+				<div
+					in:fly={{ y: -20, duration: 250, opacity: 1, easing: expoIn }}
+					out:blur={{ duration: 250 }}
+				>
+					<AbilityItem ability={slot} disabled={false} interact={() => {}} />
+				</div>
+			{/if}
+		</div>
 	{/each}
 </div>
 
 <style>
-	div {
+	.container {
 		display: grid;
 		grid-template-columns: repeat(4, fit-content(100%));
 		gap: 1rem 0.5rem;
 		align-items: center;
+	}
+
+	.item {
+		background-color: var(--spl-color-bg-low);
+		border: 2px solid var(--spl-color-outline-high);
+		border-right: 0;
+		border-bottom: 0;
+		border-radius: 50%;
+		width: 3rem;
+		height: 3rem;
+		background-image: url('/src/lib/images/abilities/None.png');
+		background-size: contain;
+		transition: opacity 0.1s;
+	}
+
+	.item :global(button) {
+		outline: 0;
+	}
+
+	.main {
+		width: 4rem;
+		height: 4rem;
 	}
 </style>
