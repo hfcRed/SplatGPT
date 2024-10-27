@@ -24,12 +24,13 @@ function createAbilityData() {
 
     for (const [key, value] of Object.entries(abilityInfo.Traits)) {
         const name = key;
-        const tokenName = Object.keys(abilityRemap).find(key => abilityRemap[key] === name) || "none";
+        const tokenName = Object.keys(abilityRemap.tokens).find(key => abilityRemap.tokens[key] === name) || "none";
+        const sendouName = abilityRemap.sendou[name] || "none";
         const id = abilityOrder.indexOf(name).toString();
         const mainType = (value.KindLimit).toLowerCase();
         const image = `/src/lib/images/abilities/${name}.png`;
 
-        abilities[name] = { id, name, tokenName, mainType, image };
+        abilities[name] = { id, name, tokenName, sendouName, mainType, image };
     }
 
     abilities = Object.keys(abilities).sort((a, b) => abilities[a].id - abilities[b].id).reduce((acc, key) => { acc[key] = abilities[key]; return acc }, {});
@@ -54,7 +55,7 @@ function createTokenData() {
             const split = ability.split('_');
             const num = parseInt(split[split.length - 1]) ? parseInt(split.pop() || '10') : "10";
             const name = split.join('_');
-            const newName = abilityRemap[name];
+            const newName = abilityRemap.tokens[name];
 
             if (!newName) continue;
 
