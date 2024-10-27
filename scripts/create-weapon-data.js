@@ -37,9 +37,9 @@ function createMainData() {
         const name = weapon.__RowId;
         const image = `/src/lib/images/weapons/Path_Wst_${name}.png`
         const sub = weaponInfoSub.find(sub => sub.__RowId === subName).Id;
-        const subImage = `/src/lib/images/subs/${subName}.png`
+        const subImage = `/src/lib/images/subs/${sub}.png`
         const special = weaponInfoSpecial.find(special => special.__RowId === specialName).Id;
-        const specialImage = `/src/lib/images/specials/${specialName}.png`
+        const specialImage = `/src/lib/images/specials/${special}.png`
 
         const referenceKit = referenceKitData[id].reference_id;
 

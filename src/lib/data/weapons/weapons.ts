@@ -9,12 +9,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
-			image: '/src/lib/images/subs/Bomb_Curling.png'
+			image: '/src/lib/images/subs/6.png'
 		},
 		special: {
 			id: 11,
 			name: 'SpUltraStamp',
-			image: '/src/lib/images/specials/SpUltraStamp.png'
+			image: '/src/lib/images/specials/11.png'
 		}
 	},
 	'1': {
@@ -25,12 +25,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 8,
 			name: 'Beacon',
-			image: '/src/lib/images/subs/Beacon.png'
+			image: '/src/lib/images/subs/8.png'
 		},
 		special: {
 			id: 9,
 			name: 'SpMicroLaser',
-			image: '/src/lib/images/specials/SpMicroLaser.png'
+			image: '/src/lib/images/specials/9.png'
 		}
 	},
 	'10': {
@@ -41,12 +41,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
-			image: '/src/lib/images/subs/Bomb_Splash.png'
+			image: '/src/lib/images/subs/0.png'
 		},
 		special: {
 			id: 2,
 			name: 'SpGreatBarrier',
-			image: '/src/lib/images/specials/SpGreatBarrier.png'
+			image: '/src/lib/images/specials/2.png'
 		}
 	},
 	'11': {
@@ -57,12 +57,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 13,
 			name: 'Bomb_Torpedo',
-			image: '/src/lib/images/subs/Bomb_Torpedo.png'
+			image: '/src/lib/images/subs/13.png'
 		},
 		special: {
 			id: 7,
 			name: 'SpShockSonar',
-			image: '/src/lib/images/specials/SpShockSonar.png'
+			image: '/src/lib/images/specials/7.png'
 		}
 	},
 	'20': {
@@ -73,12 +73,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 2,
 			name: 'Bomb_Quick',
-			image: '/src/lib/images/subs/Bomb_Quick.png'
+			image: '/src/lib/images/subs/2.png'
 		},
 		special: {
 			id: 12,
 			name: 'SpChariot',
-			image: '/src/lib/images/specials/SpChariot.png'
+			image: '/src/lib/images/specials/12.png'
 		}
 	},
 	'21': {
@@ -89,12 +89,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
-			image: '/src/lib/images/subs/Bomb_Suction.png'
+			image: '/src/lib/images/subs/1.png'
 		},
 		special: {
 			id: 14,
 			name: 'SpTripleTornado',
-			image: '/src/lib/images/specials/SpTripleTornado.png'
+			image: '/src/lib/images/specials/14.png'
 		}
 	},
 	'30': {
@@ -105,12 +105,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 5,
 			name: 'Bomb_Fizzy',
-			image: '/src/lib/images/subs/Bomb_Fizzy.png'
+			image: '/src/lib/images/subs/5.png'
 		},
 		special: {
 			id: 13,
 			name: 'SpSkewer',
-			image: '/src/lib/images/specials/SpSkewer.png'
+			image: '/src/lib/images/specials/13.png'
 		}
 	},
 	'31': {
@@ -121,12 +121,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
-			image: '/src/lib/images/subs/Sprinkler.png'
+			image: '/src/lib/images/subs/3.png'
 		},
 		special: {
 			id: 6,
 			name: 'SpNiceBall',
-			image: '/src/lib/images/specials/SpNiceBall.png'
+			image: '/src/lib/images/specials/6.png'
 		}
 	},
 	'40': {
@@ -137,12 +137,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
-			image: '/src/lib/images/subs/Bomb_Suction.png'
+			image: '/src/lib/images/subs/1.png'
 		},
 		special: {
 			id: 1,
 			name: 'SpUltraShot',
-			image: '/src/lib/images/specials/SpUltraShot.png'
+			image: '/src/lib/images/specials/1.png'
 		}
 	},
 	'41': {
@@ -153,12 +153,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
-			image: '/src/lib/images/subs/Bomb_Splash.png'
+			image: '/src/lib/images/subs/0.png'
 		},
 		special: {
 			id: 14,
 			name: 'SpTripleTornado',
-			image: '/src/lib/images/specials/SpTripleTornado.png'
+			image: '/src/lib/images/specials/14.png'
 		}
 	},
 	'45': {
@@ -169,12 +169,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
-			image: '/src/lib/images/subs/Bomb_Suction.png'
+			image: '/src/lib/images/subs/1.png'
 		},
 		special: {
 			id: 1,
 			name: 'SpUltraShot',
-			image: '/src/lib/images/specials/SpUltraShot.png'
+			image: '/src/lib/images/specials/1.png'
 		}
 	},
 	'46': {
@@ -185,12 +185,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
-			image: '/src/lib/images/subs/Bomb_Splash.png'
+			image: '/src/lib/images/subs/0.png'
 		},
 		special: {
 			id: 14,
 			name: 'SpTripleTornado',
-			image: '/src/lib/images/specials/SpTripleTornado.png'
+			image: '/src/lib/images/specials/14.png'
 		}
 	},
 	'47': {
@@ -201,12 +201,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
-			image: '/src/lib/images/subs/Bomb_Suction.png'
+			image: '/src/lib/images/subs/1.png'
 		},
 		special: {
 			id: 1,
 			name: 'SpUltraShot',
-			image: '/src/lib/images/specials/SpUltraShot.png'
+			image: '/src/lib/images/specials/1.png'
 		}
 	},
 	'50': {
@@ -217,12 +217,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 4,
 			name: 'Shield',
-			image: '/src/lib/images/subs/Shield.png'
+			image: '/src/lib/images/subs/4.png'
 		},
 		special: {
 			id: 9,
 			name: 'SpMicroLaser',
-			image: '/src/lib/images/specials/SpMicroLaser.png'
+			image: '/src/lib/images/specials/9.png'
 		}
 	},
 	'51': {
@@ -233,12 +233,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
-			image: '/src/lib/images/subs/Bomb_Curling.png'
+			image: '/src/lib/images/subs/6.png'
 		},
 		special: {
 			id: 19,
 			name: 'SpChimney',
-			image: '/src/lib/images/specials/SpChimney.png'
+			image: '/src/lib/images/specials/19.png'
 		}
 	},
 	'60': {
@@ -249,12 +249,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
-			image: '/src/lib/images/subs/Bomb_Suction.png'
+			image: '/src/lib/images/subs/1.png'
 		},
 		special: {
 			id: 15,
 			name: 'SpEnergyStand',
-			image: '/src/lib/images/specials/SpEnergyStand.png'
+			image: '/src/lib/images/specials/15.png'
 		}
 	},
 	'61': {
@@ -265,12 +265,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
-			image: '/src/lib/images/subs/Bomb_Robot.png'
+			image: '/src/lib/images/subs/7.png'
 		},
 		special: {
 			id: 16,
 			name: 'SpFirework',
-			image: '/src/lib/images/specials/SpFirework.png'
+			image: '/src/lib/images/specials/16.png'
 		}
 	},
 	'70': {
@@ -281,12 +281,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 12,
 			name: 'LineMarker',
-			image: '/src/lib/images/subs/LineMarker.png'
+			image: '/src/lib/images/subs/12.png'
 		},
 		special: {
 			id: 12,
 			name: 'SpChariot',
-			image: '/src/lib/images/specials/SpChariot.png'
+			image: '/src/lib/images/specials/12.png'
 		}
 	},
 	'71': {
@@ -297,12 +297,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
-			image: '/src/lib/images/subs/Bomb_Suction.png'
+			image: '/src/lib/images/subs/1.png'
 		},
 		special: {
 			id: 6,
 			name: 'SpNiceBall',
-			image: '/src/lib/images/specials/SpNiceBall.png'
+			image: '/src/lib/images/specials/6.png'
 		}
 	},
 	'80': {
@@ -313,12 +313,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
-			image: '/src/lib/images/subs/Sprinkler.png'
+			image: '/src/lib/images/subs/3.png'
 		},
 		special: {
 			id: 8,
 			name: 'SpBlower',
-			image: '/src/lib/images/specials/SpBlower.png'
+			image: '/src/lib/images/specials/8.png'
 		}
 	},
 	'81': {
@@ -329,12 +329,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 4,
 			name: 'Shield',
-			image: '/src/lib/images/subs/Shield.png'
+			image: '/src/lib/images/subs/4.png'
 		},
 		special: {
 			id: 17,
 			name: 'SpCastle',
-			image: '/src/lib/images/specials/SpCastle.png'
+			image: '/src/lib/images/specials/17.png'
 		}
 	},
 	'90': {
@@ -345,12 +345,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 12,
 			name: 'LineMarker',
-			image: '/src/lib/images/subs/LineMarker.png'
+			image: '/src/lib/images/subs/12.png'
 		},
 		special: {
 			id: 8,
 			name: 'SpBlower',
-			image: '/src/lib/images/specials/SpBlower.png'
+			image: '/src/lib/images/specials/8.png'
 		}
 	},
 	'91': {
@@ -361,12 +361,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 11,
 			name: 'PoisonMist',
-			image: '/src/lib/images/subs/PoisonMist.png'
+			image: '/src/lib/images/subs/11.png'
 		},
 		special: {
 			id: 5,
 			name: 'SpInkStorm',
-			image: '/src/lib/images/specials/SpInkStorm.png'
+			image: '/src/lib/images/specials/5.png'
 		}
 	},
 	'100': {
@@ -377,12 +377,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 9,
 			name: 'PointSensor',
-			image: '/src/lib/images/subs/PointSensor.png'
+			image: '/src/lib/images/subs/9.png'
 		},
 		special: {
 			id: 9,
 			name: 'SpMicroLaser',
-			image: '/src/lib/images/specials/SpMicroLaser.png'
+			image: '/src/lib/images/specials/9.png'
 		}
 	},
 	'101': {
@@ -393,12 +393,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 10,
 			name: 'Trap',
-			image: '/src/lib/images/subs/Trap.png'
+			image: '/src/lib/images/subs/10.png'
 		},
 		special: {
 			id: 10,
 			name: 'SpJetpack',
-			image: '/src/lib/images/specials/SpJetpack.png'
+			image: '/src/lib/images/specials/10.png'
 		}
 	},
 	'200': {
@@ -409,12 +409,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
-			image: '/src/lib/images/subs/Bomb_Splash.png'
+			image: '/src/lib/images/subs/0.png'
 		},
 		special: {
 			id: 3,
 			name: 'SpSuperHook',
-			image: '/src/lib/images/specials/SpSuperHook.png'
+			image: '/src/lib/images/specials/3.png'
 		}
 	},
 	'201': {
@@ -425,12 +425,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 5,
 			name: 'Bomb_Fizzy',
-			image: '/src/lib/images/subs/Bomb_Fizzy.png'
+			image: '/src/lib/images/subs/5.png'
 		},
 		special: {
 			id: 11,
 			name: 'SpUltraStamp',
-			image: '/src/lib/images/specials/SpUltraStamp.png'
+			image: '/src/lib/images/specials/11.png'
 		}
 	},
 	'205': {
@@ -441,12 +441,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
-			image: '/src/lib/images/subs/Bomb_Splash.png'
+			image: '/src/lib/images/subs/0.png'
 		},
 		special: {
 			id: 3,
 			name: 'SpSuperHook',
-			image: '/src/lib/images/specials/SpSuperHook.png'
+			image: '/src/lib/images/specials/3.png'
 		}
 	},
 	'210': {
@@ -457,12 +457,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
-			image: '/src/lib/images/subs/Bomb_Robot.png'
+			image: '/src/lib/images/subs/7.png'
 		},
 		special: {
 			id: 2,
 			name: 'SpGreatBarrier',
-			image: '/src/lib/images/specials/SpGreatBarrier.png'
+			image: '/src/lib/images/specials/2.png'
 		}
 	},
 	'211': {
@@ -473,12 +473,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 9,
 			name: 'PointSensor',
-			image: '/src/lib/images/subs/PointSensor.png'
+			image: '/src/lib/images/subs/9.png'
 		},
 		special: {
 			id: 18,
 			name: 'SpPogo',
-			image: '/src/lib/images/specials/SpPogo.png'
+			image: '/src/lib/images/specials/18.png'
 		}
 	},
 	'220': {
@@ -489,12 +489,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
-			image: '/src/lib/images/subs/Bomb_Suction.png'
+			image: '/src/lib/images/subs/1.png'
 		},
 		special: {
 			id: 7,
 			name: 'SpShockSonar',
-			image: '/src/lib/images/specials/SpShockSonar.png'
+			image: '/src/lib/images/specials/7.png'
 		}
 	},
 	'221': {
@@ -505,12 +505,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
-			image: '/src/lib/images/subs/Bomb_Splash.png'
+			image: '/src/lib/images/subs/0.png'
 		},
 		special: {
 			id: 17,
 			name: 'SpCastle',
-			image: '/src/lib/images/specials/SpCastle.png'
+			image: '/src/lib/images/specials/17.png'
 		}
 	},
 	'230': {
@@ -521,12 +521,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
-			image: '/src/lib/images/subs/Bomb_Splash.png'
+			image: '/src/lib/images/subs/0.png'
 		},
 		special: {
 			id: 1,
 			name: 'SpUltraShot',
-			image: '/src/lib/images/specials/SpUltraShot.png'
+			image: '/src/lib/images/specials/1.png'
 		}
 	},
 	'231': {
@@ -537,12 +537,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
-			image: '/src/lib/images/subs/Bomb_Curling.png'
+			image: '/src/lib/images/subs/6.png'
 		},
 		special: {
 			id: 16,
 			name: 'SpFirework',
-			image: '/src/lib/images/specials/SpFirework.png'
+			image: '/src/lib/images/specials/16.png'
 		}
 	},
 	'240': {
@@ -553,12 +553,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 10,
 			name: 'Trap',
-			image: '/src/lib/images/subs/Trap.png'
+			image: '/src/lib/images/subs/10.png'
 		},
 		special: {
 			id: 14,
 			name: 'SpTripleTornado',
-			image: '/src/lib/images/specials/SpTripleTornado.png'
+			image: '/src/lib/images/specials/14.png'
 		}
 	},
 	'241': {
@@ -569,12 +569,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 13,
 			name: 'Bomb_Torpedo',
-			image: '/src/lib/images/subs/Bomb_Torpedo.png'
+			image: '/src/lib/images/subs/13.png'
 		},
 		special: {
 			id: 10,
 			name: 'SpJetpack',
-			image: '/src/lib/images/specials/SpJetpack.png'
+			image: '/src/lib/images/specials/10.png'
 		}
 	},
 	'250': {
@@ -585,12 +585,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 11,
 			name: 'PoisonMist',
-			image: '/src/lib/images/subs/PoisonMist.png'
+			image: '/src/lib/images/subs/11.png'
 		},
 		special: {
 			id: 8,
 			name: 'SpBlower',
-			image: '/src/lib/images/specials/SpBlower.png'
+			image: '/src/lib/images/specials/8.png'
 		}
 	},
 	'251': {
@@ -601,12 +601,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 12,
 			name: 'LineMarker',
-			image: '/src/lib/images/subs/LineMarker.png'
+			image: '/src/lib/images/subs/12.png'
 		},
 		special: {
 			id: 9,
 			name: 'SpMicroLaser',
-			image: '/src/lib/images/specials/SpMicroLaser.png'
+			image: '/src/lib/images/specials/9.png'
 		}
 	},
 	'260': {
@@ -617,12 +617,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
-			image: '/src/lib/images/subs/Sprinkler.png'
+			image: '/src/lib/images/subs/3.png'
 		},
 		special: {
 			id: 13,
 			name: 'SpSkewer',
-			image: '/src/lib/images/specials/SpSkewer.png'
+			image: '/src/lib/images/specials/13.png'
 		}
 	},
 	'261': {
@@ -633,12 +633,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 2,
 			name: 'Bomb_Quick',
-			image: '/src/lib/images/subs/Bomb_Quick.png'
+			image: '/src/lib/images/subs/2.png'
 		},
 		special: {
 			id: 6,
 			name: 'SpNiceBall',
-			image: '/src/lib/images/specials/SpNiceBall.png'
+			image: '/src/lib/images/specials/6.png'
 		}
 	},
 	'300': {
@@ -649,12 +649,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
-			image: '/src/lib/images/subs/Bomb_Curling.png'
+			image: '/src/lib/images/subs/6.png'
 		},
 		special: {
 			id: 12,
 			name: 'SpChariot',
-			image: '/src/lib/images/specials/SpChariot.png'
+			image: '/src/lib/images/specials/12.png'
 		}
 	},
 	'301': {
@@ -665,12 +665,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 2,
 			name: 'Bomb_Quick',
-			image: '/src/lib/images/subs/Bomb_Quick.png'
+			image: '/src/lib/images/subs/2.png'
 		},
 		special: {
 			id: 11,
 			name: 'SpUltraStamp',
-			image: '/src/lib/images/specials/SpUltraStamp.png'
+			image: '/src/lib/images/specials/11.png'
 		}
 	},
 	'310': {
@@ -681,12 +681,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 9,
 			name: 'PointSensor',
-			image: '/src/lib/images/subs/PointSensor.png'
+			image: '/src/lib/images/subs/9.png'
 		},
 		special: {
 			id: 15,
 			name: 'SpEnergyStand',
-			image: '/src/lib/images/specials/SpEnergyStand.png'
+			image: '/src/lib/images/specials/15.png'
 		}
 	},
 	'311': {
@@ -697,12 +697,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 4,
 			name: 'Shield',
-			image: '/src/lib/images/subs/Shield.png'
+			image: '/src/lib/images/subs/4.png'
 		},
 		special: {
 			id: 2,
 			name: 'SpGreatBarrier',
-			image: '/src/lib/images/specials/SpGreatBarrier.png'
+			image: '/src/lib/images/specials/2.png'
 		}
 	},
 	'400': {
@@ -713,12 +713,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 4,
 			name: 'Shield',
-			image: '/src/lib/images/subs/Shield.png'
+			image: '/src/lib/images/subs/4.png'
 		},
 		special: {
 			id: 1,
 			name: 'SpUltraShot',
-			image: '/src/lib/images/specials/SpUltraShot.png'
+			image: '/src/lib/images/specials/1.png'
 		}
 	},
 	'401': {
@@ -729,12 +729,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
-			image: '/src/lib/images/subs/Bomb_Robot.png'
+			image: '/src/lib/images/subs/7.png'
 		},
 		special: {
 			id: 19,
 			name: 'SpChimney',
-			image: '/src/lib/images/specials/SpChimney.png'
+			image: '/src/lib/images/specials/19.png'
 		}
 	},
 	'1000': {
@@ -745,12 +745,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
-			image: '/src/lib/images/subs/Bomb_Robot.png'
+			image: '/src/lib/images/subs/7.png'
 		},
 		special: {
 			id: 3,
 			name: 'SpSuperHook',
-			image: '/src/lib/images/specials/SpSuperHook.png'
+			image: '/src/lib/images/specials/3.png'
 		}
 	},
 	'1001': {
@@ -761,12 +761,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 2,
 			name: 'Bomb_Quick',
-			image: '/src/lib/images/subs/Bomb_Quick.png'
+			image: '/src/lib/images/subs/2.png'
 		},
 		special: {
 			id: 1,
 			name: 'SpUltraShot',
-			image: '/src/lib/images/specials/SpUltraShot.png'
+			image: '/src/lib/images/specials/1.png'
 		}
 	},
 	'1010': {
@@ -777,12 +777,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
-			image: '/src/lib/images/subs/Bomb_Curling.png'
+			image: '/src/lib/images/subs/6.png'
 		},
 		special: {
 			id: 2,
 			name: 'SpGreatBarrier',
-			image: '/src/lib/images/specials/SpGreatBarrier.png'
+			image: '/src/lib/images/specials/2.png'
 		}
 	},
 	'1011': {
@@ -793,12 +793,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 8,
 			name: 'Beacon',
-			image: '/src/lib/images/subs/Beacon.png'
+			image: '/src/lib/images/subs/8.png'
 		},
 		special: {
 			id: 17,
 			name: 'SpCastle',
-			image: '/src/lib/images/specials/SpCastle.png'
+			image: '/src/lib/images/specials/17.png'
 		}
 	},
 	'1015': {
@@ -809,12 +809,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
-			image: '/src/lib/images/subs/Bomb_Curling.png'
+			image: '/src/lib/images/subs/6.png'
 		},
 		special: {
 			id: 2,
 			name: 'SpGreatBarrier',
-			image: '/src/lib/images/specials/SpGreatBarrier.png'
+			image: '/src/lib/images/specials/2.png'
 		}
 	},
 	'1020': {
@@ -825,12 +825,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
-			image: '/src/lib/images/subs/Sprinkler.png'
+			image: '/src/lib/images/subs/3.png'
 		},
 		special: {
 			id: 15,
 			name: 'SpEnergyStand',
-			image: '/src/lib/images/specials/SpEnergyStand.png'
+			image: '/src/lib/images/specials/15.png'
 		}
 	},
 	'1021': {
@@ -841,12 +841,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
-			image: '/src/lib/images/subs/Bomb_Splash.png'
+			image: '/src/lib/images/subs/0.png'
 		},
 		special: {
 			id: 16,
 			name: 'SpFirework',
-			image: '/src/lib/images/specials/SpFirework.png'
+			image: '/src/lib/images/specials/16.png'
 		}
 	},
 	'1030': {
@@ -857,12 +857,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 10,
 			name: 'Trap',
-			image: '/src/lib/images/subs/Trap.png'
+			image: '/src/lib/images/subs/10.png'
 		},
 		special: {
 			id: 4,
 			name: 'SpMultiMissile',
-			image: '/src/lib/images/specials/SpMultiMissile.png'
+			image: '/src/lib/images/specials/4.png'
 		}
 	},
 	'1031': {
@@ -873,12 +873,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
-			image: '/src/lib/images/subs/Bomb_Suction.png'
+			image: '/src/lib/images/subs/1.png'
 		},
 		special: {
 			id: 19,
 			name: 'SpChimney',
-			image: '/src/lib/images/specials/SpChimney.png'
+			image: '/src/lib/images/specials/19.png'
 		}
 	},
 	'1040': {
@@ -889,12 +889,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 4,
 			name: 'Shield',
-			image: '/src/lib/images/subs/Shield.png'
+			image: '/src/lib/images/subs/4.png'
 		},
 		special: {
 			id: 8,
 			name: 'SpBlower',
-			image: '/src/lib/images/specials/SpBlower.png'
+			image: '/src/lib/images/specials/8.png'
 		}
 	},
 	'1041': {
@@ -905,12 +905,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 12,
 			name: 'LineMarker',
-			image: '/src/lib/images/subs/LineMarker.png'
+			image: '/src/lib/images/subs/12.png'
 		},
 		special: {
 			id: 5,
 			name: 'SpInkStorm',
-			image: '/src/lib/images/specials/SpInkStorm.png'
+			image: '/src/lib/images/specials/5.png'
 		}
 	},
 	'1100': {
@@ -921,12 +921,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
-			image: '/src/lib/images/subs/Bomb_Splash.png'
+			image: '/src/lib/images/subs/0.png'
 		},
 		special: {
 			id: 9,
 			name: 'SpMicroLaser',
-			image: '/src/lib/images/specials/SpMicroLaser.png'
+			image: '/src/lib/images/specials/9.png'
 		}
 	},
 	'1101': {
@@ -937,12 +937,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 10,
 			name: 'Trap',
-			image: '/src/lib/images/subs/Trap.png'
+			image: '/src/lib/images/subs/10.png'
 		},
 		special: {
 			id: 11,
 			name: 'SpUltraStamp',
-			image: '/src/lib/images/specials/SpUltraStamp.png'
+			image: '/src/lib/images/specials/11.png'
 		}
 	},
 	'1110': {
@@ -953,12 +953,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
-			image: '/src/lib/images/subs/Bomb_Suction.png'
+			image: '/src/lib/images/subs/1.png'
 		},
 		special: {
 			id: 3,
 			name: 'SpSuperHook',
-			image: '/src/lib/images/specials/SpSuperHook.png'
+			image: '/src/lib/images/specials/3.png'
 		}
 	},
 	'1111': {
@@ -969,12 +969,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 8,
 			name: 'Beacon',
-			image: '/src/lib/images/subs/Beacon.png'
+			image: '/src/lib/images/subs/8.png'
 		},
 		special: {
 			id: 5,
 			name: 'SpInkStorm',
-			image: '/src/lib/images/specials/SpInkStorm.png'
+			image: '/src/lib/images/specials/5.png'
 		}
 	},
 	'1115': {
@@ -985,12 +985,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
-			image: '/src/lib/images/subs/Bomb_Suction.png'
+			image: '/src/lib/images/subs/1.png'
 		},
 		special: {
 			id: 3,
 			name: 'SpSuperHook',
-			image: '/src/lib/images/specials/SpSuperHook.png'
+			image: '/src/lib/images/specials/3.png'
 		}
 	},
 	'1120': {
@@ -1001,12 +1001,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
-			image: '/src/lib/images/subs/Bomb_Curling.png'
+			image: '/src/lib/images/subs/6.png'
 		},
 		special: {
 			id: 7,
 			name: 'SpShockSonar',
-			image: '/src/lib/images/specials/SpShockSonar.png'
+			image: '/src/lib/images/specials/7.png'
 		}
 	},
 	'1121': {
@@ -1017,12 +1017,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 9,
 			name: 'PointSensor',
-			image: '/src/lib/images/subs/PointSensor.png'
+			image: '/src/lib/images/subs/9.png'
 		},
 		special: {
 			id: 4,
 			name: 'SpMultiMissile',
-			image: '/src/lib/images/specials/SpMultiMissile.png'
+			image: '/src/lib/images/specials/4.png'
 		}
 	},
 	'2000': {
@@ -1033,12 +1033,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 9,
 			name: 'PointSensor',
-			image: '/src/lib/images/subs/PointSensor.png'
+			image: '/src/lib/images/subs/9.png'
 		},
 		special: {
 			id: 2,
 			name: 'SpGreatBarrier',
-			image: '/src/lib/images/specials/SpGreatBarrier.png'
+			image: '/src/lib/images/specials/2.png'
 		}
 	},
 	'2001': {
@@ -1049,12 +1049,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
-			image: '/src/lib/images/subs/Bomb_Robot.png'
+			image: '/src/lib/images/subs/7.png'
 		},
 		special: {
 			id: 3,
 			name: 'SpSuperHook',
-			image: '/src/lib/images/specials/SpSuperHook.png'
+			image: '/src/lib/images/specials/3.png'
 		}
 	},
 	'2010': {
@@ -1065,12 +1065,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
-			image: '/src/lib/images/subs/Bomb_Splash.png'
+			image: '/src/lib/images/subs/0.png'
 		},
 		special: {
 			id: 8,
 			name: 'SpBlower',
-			image: '/src/lib/images/specials/SpBlower.png'
+			image: '/src/lib/images/specials/8.png'
 		}
 	},
 	'2011': {
@@ -1081,12 +1081,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 4,
 			name: 'Shield',
-			image: '/src/lib/images/subs/Shield.png'
+			image: '/src/lib/images/subs/4.png'
 		},
 		special: {
 			id: 14,
 			name: 'SpTripleTornado',
-			image: '/src/lib/images/specials/SpTripleTornado.png'
+			image: '/src/lib/images/specials/14.png'
 		}
 	},
 	'2015': {
@@ -1097,12 +1097,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
-			image: '/src/lib/images/subs/Bomb_Splash.png'
+			image: '/src/lib/images/subs/0.png'
 		},
 		special: {
 			id: 8,
 			name: 'SpBlower',
-			image: '/src/lib/images/specials/SpBlower.png'
+			image: '/src/lib/images/specials/8.png'
 		}
 	},
 	'2020': {
@@ -1113,12 +1113,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
-			image: '/src/lib/images/subs/Bomb_Splash.png'
+			image: '/src/lib/images/subs/0.png'
 		},
 		special: {
 			id: 8,
 			name: 'SpBlower',
-			image: '/src/lib/images/specials/SpBlower.png'
+			image: '/src/lib/images/specials/8.png'
 		}
 	},
 	'2021': {
@@ -1129,12 +1129,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 4,
 			name: 'Shield',
-			image: '/src/lib/images/subs/Shield.png'
+			image: '/src/lib/images/subs/4.png'
 		},
 		special: {
 			id: 14,
 			name: 'SpTripleTornado',
-			image: '/src/lib/images/specials/SpTripleTornado.png'
+			image: '/src/lib/images/specials/14.png'
 		}
 	},
 	'2030': {
@@ -1145,12 +1145,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 10,
 			name: 'Trap',
-			image: '/src/lib/images/subs/Trap.png'
+			image: '/src/lib/images/subs/10.png'
 		},
 		special: {
 			id: 7,
 			name: 'SpShockSonar',
-			image: '/src/lib/images/specials/SpShockSonar.png'
+			image: '/src/lib/images/specials/7.png'
 		}
 	},
 	'2031': {
@@ -1161,12 +1161,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 8,
 			name: 'Beacon',
-			image: '/src/lib/images/subs/Beacon.png'
+			image: '/src/lib/images/subs/8.png'
 		},
 		special: {
 			id: 17,
 			name: 'SpCastle',
-			image: '/src/lib/images/specials/SpCastle.png'
+			image: '/src/lib/images/specials/17.png'
 		}
 	},
 	'2040': {
@@ -1177,12 +1177,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 10,
 			name: 'Trap',
-			image: '/src/lib/images/subs/Trap.png'
+			image: '/src/lib/images/subs/10.png'
 		},
 		special: {
 			id: 7,
 			name: 'SpShockSonar',
-			image: '/src/lib/images/specials/SpShockSonar.png'
+			image: '/src/lib/images/specials/7.png'
 		}
 	},
 	'2041': {
@@ -1193,12 +1193,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 8,
 			name: 'Beacon',
-			image: '/src/lib/images/subs/Beacon.png'
+			image: '/src/lib/images/subs/8.png'
 		},
 		special: {
 			id: 17,
 			name: 'SpCastle',
-			image: '/src/lib/images/specials/SpCastle.png'
+			image: '/src/lib/images/specials/17.png'
 		}
 	},
 	'2050': {
@@ -1209,12 +1209,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
-			image: '/src/lib/images/subs/Bomb_Robot.png'
+			image: '/src/lib/images/subs/7.png'
 		},
 		special: {
 			id: 9,
 			name: 'SpMicroLaser',
-			image: '/src/lib/images/specials/SpMicroLaser.png'
+			image: '/src/lib/images/specials/9.png'
 		}
 	},
 	'2051': {
@@ -1225,12 +1225,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 5,
 			name: 'Bomb_Fizzy',
-			image: '/src/lib/images/subs/Bomb_Fizzy.png'
+			image: '/src/lib/images/subs/5.png'
 		},
 		special: {
 			id: 16,
 			name: 'SpFirework',
-			image: '/src/lib/images/specials/SpFirework.png'
+			image: '/src/lib/images/specials/16.png'
 		}
 	},
 	'2060': {
@@ -1241,12 +1241,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 13,
 			name: 'Bomb_Torpedo',
-			image: '/src/lib/images/subs/Bomb_Torpedo.png'
+			image: '/src/lib/images/subs/13.png'
 		},
 		special: {
 			id: 4,
 			name: 'SpMultiMissile',
-			image: '/src/lib/images/specials/SpMultiMissile.png'
+			image: '/src/lib/images/specials/4.png'
 		}
 	},
 	'2061': {
@@ -1257,12 +1257,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 5,
 			name: 'Bomb_Fizzy',
-			image: '/src/lib/images/subs/Bomb_Fizzy.png'
+			image: '/src/lib/images/subs/5.png'
 		},
 		special: {
 			id: 11,
 			name: 'SpUltraStamp',
-			image: '/src/lib/images/specials/SpUltraStamp.png'
+			image: '/src/lib/images/specials/11.png'
 		}
 	},
 	'2070': {
@@ -1273,12 +1273,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
-			image: '/src/lib/images/subs/Sprinkler.png'
+			image: '/src/lib/images/subs/3.png'
 		},
 		special: {
 			id: 15,
 			name: 'SpEnergyStand',
-			image: '/src/lib/images/specials/SpEnergyStand.png'
+			image: '/src/lib/images/specials/15.png'
 		}
 	},
 	'2071': {
@@ -1289,12 +1289,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 4,
 			name: 'Shield',
-			image: '/src/lib/images/subs/Shield.png'
+			image: '/src/lib/images/subs/4.png'
 		},
 		special: {
 			id: 5,
 			name: 'SpInkStorm',
-			image: '/src/lib/images/specials/SpInkStorm.png'
+			image: '/src/lib/images/specials/5.png'
 		}
 	},
 	'3000': {
@@ -1305,12 +1305,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
-			image: '/src/lib/images/subs/Bomb_Splash.png'
+			image: '/src/lib/images/subs/0.png'
 		},
 		special: {
 			id: 14,
 			name: 'SpTripleTornado',
-			image: '/src/lib/images/specials/SpTripleTornado.png'
+			image: '/src/lib/images/specials/14.png'
 		}
 	},
 	'3001': {
@@ -1321,12 +1321,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 12,
 			name: 'LineMarker',
-			image: '/src/lib/images/subs/LineMarker.png'
+			image: '/src/lib/images/subs/12.png'
 		},
 		special: {
 			id: 3,
 			name: 'SpSuperHook',
-			image: '/src/lib/images/specials/SpSuperHook.png'
+			image: '/src/lib/images/specials/3.png'
 		}
 	},
 	'3005': {
@@ -1337,12 +1337,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
-			image: '/src/lib/images/subs/Bomb_Splash.png'
+			image: '/src/lib/images/subs/0.png'
 		},
 		special: {
 			id: 14,
 			name: 'SpTripleTornado',
-			image: '/src/lib/images/specials/SpTripleTornado.png'
+			image: '/src/lib/images/specials/14.png'
 		}
 	},
 	'3010': {
@@ -1353,12 +1353,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 11,
 			name: 'PoisonMist',
-			image: '/src/lib/images/subs/PoisonMist.png'
+			image: '/src/lib/images/subs/11.png'
 		},
 		special: {
 			id: 10,
 			name: 'SpJetpack',
-			image: '/src/lib/images/specials/SpJetpack.png'
+			image: '/src/lib/images/specials/10.png'
 		}
 	},
 	'3011': {
@@ -1369,12 +1369,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 5,
 			name: 'Bomb_Fizzy',
-			image: '/src/lib/images/subs/Bomb_Fizzy.png'
+			image: '/src/lib/images/subs/5.png'
 		},
 		special: {
 			id: 15,
 			name: 'SpEnergyStand',
-			image: '/src/lib/images/specials/SpEnergyStand.png'
+			image: '/src/lib/images/specials/15.png'
 		}
 	},
 	'3020': {
@@ -1385,12 +1385,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 5,
 			name: 'Bomb_Fizzy',
-			image: '/src/lib/images/subs/Bomb_Fizzy.png'
+			image: '/src/lib/images/subs/5.png'
 		},
 		special: {
 			id: 6,
 			name: 'SpNiceBall',
-			image: '/src/lib/images/specials/SpNiceBall.png'
+			image: '/src/lib/images/specials/6.png'
 		}
 	},
 	'3021': {
@@ -1401,12 +1401,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 9,
 			name: 'PointSensor',
-			image: '/src/lib/images/subs/PointSensor.png'
+			image: '/src/lib/images/subs/9.png'
 		},
 		special: {
 			id: 1,
 			name: 'SpUltraShot',
-			image: '/src/lib/images/specials/SpUltraShot.png'
+			image: '/src/lib/images/specials/1.png'
 		}
 	},
 	'3030': {
@@ -1417,12 +1417,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
-			image: '/src/lib/images/subs/Sprinkler.png'
+			image: '/src/lib/images/subs/3.png'
 		},
 		special: {
 			id: 5,
 			name: 'SpInkStorm',
-			image: '/src/lib/images/specials/SpInkStorm.png'
+			image: '/src/lib/images/specials/5.png'
 		}
 	},
 	'3031': {
@@ -1433,12 +1433,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 12,
 			name: 'LineMarker',
-			image: '/src/lib/images/subs/LineMarker.png'
+			image: '/src/lib/images/subs/12.png'
 		},
 		special: {
 			id: 17,
 			name: 'SpCastle',
-			image: '/src/lib/images/specials/SpCastle.png'
+			image: '/src/lib/images/specials/17.png'
 		}
 	},
 	'3040': {
@@ -1449,12 +1449,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 9,
 			name: 'PointSensor',
-			image: '/src/lib/images/subs/PointSensor.png'
+			image: '/src/lib/images/subs/9.png'
 		},
 		special: {
 			id: 5,
 			name: 'SpInkStorm',
-			image: '/src/lib/images/specials/SpInkStorm.png'
+			image: '/src/lib/images/specials/5.png'
 		}
 	},
 	'3041': {
@@ -1465,12 +1465,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 4,
 			name: 'Shield',
-			image: '/src/lib/images/subs/Shield.png'
+			image: '/src/lib/images/subs/4.png'
 		},
 		special: {
 			id: 18,
 			name: 'SpPogo',
-			image: '/src/lib/images/specials/SpPogo.png'
+			image: '/src/lib/images/specials/18.png'
 		}
 	},
 	'3050': {
@@ -1481,12 +1481,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
-			image: '/src/lib/images/subs/Bomb_Suction.png'
+			image: '/src/lib/images/subs/1.png'
 		},
 		special: {
 			id: 13,
 			name: 'SpSkewer',
-			image: '/src/lib/images/specials/SpSkewer.png'
+			image: '/src/lib/images/specials/13.png'
 		}
 	},
 	'3051': {
@@ -1497,12 +1497,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 8,
 			name: 'Beacon',
-			image: '/src/lib/images/subs/Beacon.png'
+			image: '/src/lib/images/subs/8.png'
 		},
 		special: {
 			id: 7,
 			name: 'SpShockSonar',
-			image: '/src/lib/images/specials/SpShockSonar.png'
+			image: '/src/lib/images/specials/7.png'
 		}
 	},
 	'4000': {
@@ -1513,12 +1513,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 2,
 			name: 'Bomb_Quick',
-			image: '/src/lib/images/subs/Bomb_Quick.png'
+			image: '/src/lib/images/subs/2.png'
 		},
 		special: {
 			id: 11,
 			name: 'SpUltraStamp',
-			image: '/src/lib/images/specials/SpUltraStamp.png'
+			image: '/src/lib/images/specials/11.png'
 		}
 	},
 	'4001': {
@@ -1529,12 +1529,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 11,
 			name: 'PoisonMist',
-			image: '/src/lib/images/subs/PoisonMist.png'
+			image: '/src/lib/images/subs/11.png'
 		},
 		special: {
 			id: 2,
 			name: 'SpGreatBarrier',
-			image: '/src/lib/images/specials/SpGreatBarrier.png'
+			image: '/src/lib/images/specials/2.png'
 		}
 	},
 	'4010': {
@@ -1545,12 +1545,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
-			image: '/src/lib/images/subs/Sprinkler.png'
+			image: '/src/lib/images/subs/3.png'
 		},
 		special: {
 			id: 7,
 			name: 'SpShockSonar',
-			image: '/src/lib/images/specials/SpShockSonar.png'
+			image: '/src/lib/images/specials/7.png'
 		}
 	},
 	'4011': {
@@ -1561,12 +1561,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 9,
 			name: 'PointSensor',
-			image: '/src/lib/images/subs/PointSensor.png'
+			image: '/src/lib/images/subs/9.png'
 		},
 		special: {
 			id: 17,
 			name: 'SpCastle',
-			image: '/src/lib/images/specials/SpCastle.png'
+			image: '/src/lib/images/specials/17.png'
 		}
 	},
 	'4015': {
@@ -1577,12 +1577,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
-			image: '/src/lib/images/subs/Sprinkler.png'
+			image: '/src/lib/images/subs/3.png'
 		},
 		special: {
 			id: 7,
 			name: 'SpShockSonar',
-			image: '/src/lib/images/specials/SpShockSonar.png'
+			image: '/src/lib/images/specials/7.png'
 		}
 	},
 	'4020': {
@@ -1593,12 +1593,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
-			image: '/src/lib/images/subs/Bomb_Robot.png'
+			image: '/src/lib/images/subs/7.png'
 		},
 		special: {
 			id: 6,
 			name: 'SpNiceBall',
-			image: '/src/lib/images/specials/SpNiceBall.png'
+			image: '/src/lib/images/specials/6.png'
 		}
 	},
 	'4021': {
@@ -1609,12 +1609,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 10,
 			name: 'Trap',
-			image: '/src/lib/images/subs/Trap.png'
+			image: '/src/lib/images/subs/10.png'
 		},
 		special: {
 			id: 19,
 			name: 'SpChimney',
-			image: '/src/lib/images/specials/SpChimney.png'
+			image: '/src/lib/images/specials/19.png'
 		}
 	},
 	'4030': {
@@ -1625,12 +1625,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 5,
 			name: 'Bomb_Fizzy',
-			image: '/src/lib/images/subs/Bomb_Fizzy.png'
+			image: '/src/lib/images/subs/5.png'
 		},
 		special: {
 			id: 10,
 			name: 'SpJetpack',
-			image: '/src/lib/images/specials/SpJetpack.png'
+			image: '/src/lib/images/specials/10.png'
 		}
 	},
 	'4031': {
@@ -1641,12 +1641,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 10,
 			name: 'Trap',
-			image: '/src/lib/images/subs/Trap.png'
+			image: '/src/lib/images/subs/10.png'
 		},
 		special: {
 			id: 8,
 			name: 'SpBlower',
-			image: '/src/lib/images/specials/SpBlower.png'
+			image: '/src/lib/images/specials/8.png'
 		}
 	},
 	'4040': {
@@ -1657,12 +1657,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 9,
 			name: 'PointSensor',
-			image: '/src/lib/images/subs/PointSensor.png'
+			image: '/src/lib/images/subs/9.png'
 		},
 		special: {
 			id: 5,
 			name: 'SpInkStorm',
-			image: '/src/lib/images/specials/SpInkStorm.png'
+			image: '/src/lib/images/specials/5.png'
 		}
 	},
 	'4041': {
@@ -1673,12 +1673,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
-			image: '/src/lib/images/subs/Bomb_Suction.png'
+			image: '/src/lib/images/subs/1.png'
 		},
 		special: {
 			id: 18,
 			name: 'SpPogo',
-			image: '/src/lib/images/specials/SpPogo.png'
+			image: '/src/lib/images/specials/18.png'
 		}
 	},
 	'4050': {
@@ -1689,12 +1689,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
-			image: '/src/lib/images/subs/Bomb_Curling.png'
+			image: '/src/lib/images/subs/6.png'
 		},
 		special: {
 			id: 15,
 			name: 'SpEnergyStand',
-			image: '/src/lib/images/specials/SpEnergyStand.png'
+			image: '/src/lib/images/specials/15.png'
 		}
 	},
 	'4051': {
@@ -1705,12 +1705,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
-			image: '/src/lib/images/subs/Bomb_Splash.png'
+			image: '/src/lib/images/subs/0.png'
 		},
 		special: {
 			id: 12,
 			name: 'SpChariot',
-			image: '/src/lib/images/specials/SpChariot.png'
+			image: '/src/lib/images/specials/12.png'
 		}
 	},
 	'5000': {
@@ -1721,12 +1721,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 8,
 			name: 'Beacon',
-			image: '/src/lib/images/subs/Beacon.png'
+			image: '/src/lib/images/subs/8.png'
 		},
 		special: {
 			id: 15,
 			name: 'SpEnergyStand',
-			image: '/src/lib/images/specials/SpEnergyStand.png'
+			image: '/src/lib/images/specials/15.png'
 		}
 	},
 	'5001': {
@@ -1737,12 +1737,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 13,
 			name: 'Bomb_Torpedo',
-			image: '/src/lib/images/subs/Bomb_Torpedo.png'
+			image: '/src/lib/images/subs/13.png'
 		},
 		special: {
 			id: 13,
 			name: 'SpSkewer',
-			image: '/src/lib/images/specials/SpSkewer.png'
+			image: '/src/lib/images/specials/13.png'
 		}
 	},
 	'5010': {
@@ -1753,12 +1753,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
-			image: '/src/lib/images/subs/Bomb_Suction.png'
+			image: '/src/lib/images/subs/1.png'
 		},
 		special: {
 			id: 12,
 			name: 'SpChariot',
-			image: '/src/lib/images/specials/SpChariot.png'
+			image: '/src/lib/images/specials/12.png'
 		}
 	},
 	'5011': {
@@ -1769,12 +1769,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
-			image: '/src/lib/images/subs/Bomb_Curling.png'
+			image: '/src/lib/images/subs/6.png'
 		},
 		special: {
 			id: 18,
 			name: 'SpPogo',
-			image: '/src/lib/images/specials/SpPogo.png'
+			image: '/src/lib/images/specials/18.png'
 		}
 	},
 	'5015': {
@@ -1785,12 +1785,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
-			image: '/src/lib/images/subs/Bomb_Suction.png'
+			image: '/src/lib/images/subs/1.png'
 		},
 		special: {
 			id: 12,
 			name: 'SpChariot',
-			image: '/src/lib/images/specials/SpChariot.png'
+			image: '/src/lib/images/specials/12.png'
 		}
 	},
 	'5020': {
@@ -1801,12 +1801,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 4,
 			name: 'Shield',
-			image: '/src/lib/images/subs/Shield.png'
+			image: '/src/lib/images/subs/4.png'
 		},
 		special: {
 			id: 6,
 			name: 'SpNiceBall',
-			image: '/src/lib/images/specials/SpNiceBall.png'
+			image: '/src/lib/images/specials/6.png'
 		}
 	},
 	'5021': {
@@ -1817,12 +1817,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 9,
 			name: 'PointSensor',
-			image: '/src/lib/images/subs/PointSensor.png'
+			image: '/src/lib/images/subs/9.png'
 		},
 		special: {
 			id: 1,
 			name: 'SpUltraShot',
-			image: '/src/lib/images/specials/SpUltraShot.png'
+			image: '/src/lib/images/specials/1.png'
 		}
 	},
 	'5030': {
@@ -1833,12 +1833,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 0,
 			name: 'Bomb_Splash',
-			image: '/src/lib/images/subs/Bomb_Splash.png'
+			image: '/src/lib/images/subs/0.png'
 		},
 		special: {
 			id: 7,
 			name: 'SpShockSonar',
-			image: '/src/lib/images/specials/SpShockSonar.png'
+			image: '/src/lib/images/specials/7.png'
 		}
 	},
 	'5031': {
@@ -1849,12 +1849,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 8,
 			name: 'Beacon',
-			image: '/src/lib/images/subs/Beacon.png'
+			image: '/src/lib/images/subs/8.png'
 		},
 		special: {
 			id: 16,
 			name: 'SpFirework',
-			image: '/src/lib/images/specials/SpFirework.png'
+			image: '/src/lib/images/specials/16.png'
 		}
 	},
 	'5040': {
@@ -1865,12 +1865,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
-			image: '/src/lib/images/subs/Bomb_Robot.png'
+			image: '/src/lib/images/subs/7.png'
 		},
 		special: {
 			id: 13,
 			name: 'SpSkewer',
-			image: '/src/lib/images/specials/SpSkewer.png'
+			image: '/src/lib/images/specials/13.png'
 		}
 	},
 	'5041': {
@@ -1881,12 +1881,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
-			image: '/src/lib/images/subs/Sprinkler.png'
+			image: '/src/lib/images/subs/3.png'
 		},
 		special: {
 			id: 3,
 			name: 'SpSuperHook',
-			image: '/src/lib/images/specials/SpSuperHook.png'
+			image: '/src/lib/images/specials/3.png'
 		}
 	},
 	'5050': {
@@ -1897,12 +1897,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 10,
 			name: 'Trap',
-			image: '/src/lib/images/subs/Trap.png'
+			image: '/src/lib/images/subs/10.png'
 		},
 		special: {
 			id: 9,
 			name: 'SpMicroLaser',
-			image: '/src/lib/images/specials/SpMicroLaser.png'
+			image: '/src/lib/images/specials/9.png'
 		}
 	},
 	'5051': {
@@ -1913,12 +1913,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 2,
 			name: 'Bomb_Quick',
-			image: '/src/lib/images/subs/Bomb_Quick.png'
+			image: '/src/lib/images/subs/2.png'
 		},
 		special: {
 			id: 14,
 			name: 'SpTripleTornado',
-			image: '/src/lib/images/specials/SpTripleTornado.png'
+			image: '/src/lib/images/specials/14.png'
 		}
 	},
 	'6000': {
@@ -1929,12 +1929,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
-			image: '/src/lib/images/subs/Sprinkler.png'
+			image: '/src/lib/images/subs/3.png'
 		},
 		special: {
 			id: 14,
 			name: 'SpTripleTornado',
-			image: '/src/lib/images/specials/SpTripleTornado.png'
+			image: '/src/lib/images/specials/14.png'
 		}
 	},
 	'6001': {
@@ -1945,12 +1945,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
-			image: '/src/lib/images/subs/Bomb_Robot.png'
+			image: '/src/lib/images/subs/7.png'
 		},
 		special: {
 			id: 10,
 			name: 'SpJetpack',
-			image: '/src/lib/images/specials/SpJetpack.png'
+			image: '/src/lib/images/specials/10.png'
 		}
 	},
 	'6005': {
@@ -1961,12 +1961,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
-			image: '/src/lib/images/subs/Sprinkler.png'
+			image: '/src/lib/images/subs/3.png'
 		},
 		special: {
 			id: 14,
 			name: 'SpTripleTornado',
-			image: '/src/lib/images/specials/SpTripleTornado.png'
+			image: '/src/lib/images/specials/14.png'
 		}
 	},
 	'6010': {
@@ -1977,12 +1977,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 8,
 			name: 'Beacon',
-			image: '/src/lib/images/subs/Beacon.png'
+			image: '/src/lib/images/subs/8.png'
 		},
 		special: {
 			id: 8,
 			name: 'SpBlower',
-			image: '/src/lib/images/specials/SpBlower.png'
+			image: '/src/lib/images/specials/8.png'
 		}
 	},
 	'6011': {
@@ -1993,12 +1993,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 10,
 			name: 'Trap',
-			image: '/src/lib/images/subs/Trap.png'
+			image: '/src/lib/images/subs/10.png'
 		},
 		special: {
 			id: 1,
 			name: 'SpUltraShot',
-			image: '/src/lib/images/specials/SpUltraShot.png'
+			image: '/src/lib/images/specials/1.png'
 		}
 	},
 	'6020': {
@@ -2009,12 +2009,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 10,
 			name: 'Trap',
-			image: '/src/lib/images/subs/Trap.png'
+			image: '/src/lib/images/subs/10.png'
 		},
 		special: {
 			id: 13,
 			name: 'SpSkewer',
-			image: '/src/lib/images/specials/SpSkewer.png'
+			image: '/src/lib/images/specials/13.png'
 		}
 	},
 	'6021': {
@@ -2025,12 +2025,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 13,
 			name: 'Bomb_Torpedo',
-			image: '/src/lib/images/subs/Bomb_Torpedo.png'
+			image: '/src/lib/images/subs/13.png'
 		},
 		special: {
 			id: 19,
 			name: 'SpChimney',
-			image: '/src/lib/images/specials/SpChimney.png'
+			image: '/src/lib/images/specials/19.png'
 		}
 	},
 	'6030': {
@@ -2041,12 +2041,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 12,
 			name: 'LineMarker',
-			image: '/src/lib/images/subs/LineMarker.png'
+			image: '/src/lib/images/subs/12.png'
 		},
 		special: {
 			id: 2,
 			name: 'SpGreatBarrier',
-			image: '/src/lib/images/specials/SpGreatBarrier.png'
+			image: '/src/lib/images/specials/2.png'
 		}
 	},
 	'6031': {
@@ -2057,12 +2057,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 11,
 			name: 'PoisonMist',
-			image: '/src/lib/images/subs/PoisonMist.png'
+			image: '/src/lib/images/subs/11.png'
 		},
 		special: {
 			id: 18,
 			name: 'SpPogo',
-			image: '/src/lib/images/specials/SpPogo.png'
+			image: '/src/lib/images/specials/18.png'
 		}
 	},
 	'7010': {
@@ -2073,12 +2073,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 11,
 			name: 'PoisonMist',
-			image: '/src/lib/images/subs/PoisonMist.png'
+			image: '/src/lib/images/subs/11.png'
 		},
 		special: {
 			id: 9,
 			name: 'SpMicroLaser',
-			image: '/src/lib/images/specials/SpMicroLaser.png'
+			image: '/src/lib/images/specials/9.png'
 		}
 	},
 	'7011': {
@@ -2089,12 +2089,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 3,
 			name: 'Sprinkler',
-			image: '/src/lib/images/subs/Sprinkler.png'
+			image: '/src/lib/images/subs/3.png'
 		},
 		special: {
 			id: 16,
 			name: 'SpFirework',
-			image: '/src/lib/images/specials/SpFirework.png'
+			image: '/src/lib/images/specials/16.png'
 		}
 	},
 	'7015': {
@@ -2105,12 +2105,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 11,
 			name: 'PoisonMist',
-			image: '/src/lib/images/subs/PoisonMist.png'
+			image: '/src/lib/images/subs/11.png'
 		},
 		special: {
 			id: 9,
 			name: 'SpMicroLaser',
-			image: '/src/lib/images/specials/SpMicroLaser.png'
+			image: '/src/lib/images/specials/9.png'
 		}
 	},
 	'7020': {
@@ -2121,12 +2121,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 6,
 			name: 'Bomb_Curling',
-			image: '/src/lib/images/subs/Bomb_Curling.png'
+			image: '/src/lib/images/subs/6.png'
 		},
 		special: {
 			id: 4,
 			name: 'SpMultiMissile',
-			image: '/src/lib/images/specials/SpMultiMissile.png'
+			image: '/src/lib/images/specials/4.png'
 		}
 	},
 	'7021': {
@@ -2137,12 +2137,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 4,
 			name: 'Shield',
-			image: '/src/lib/images/subs/Shield.png'
+			image: '/src/lib/images/subs/4.png'
 		},
 		special: {
 			id: 13,
 			name: 'SpSkewer',
-			image: '/src/lib/images/specials/SpSkewer.png'
+			image: '/src/lib/images/specials/13.png'
 		}
 	},
 	'7030': {
@@ -2153,12 +2153,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 7,
 			name: 'Bomb_Robot',
-			image: '/src/lib/images/subs/Bomb_Robot.png'
+			image: '/src/lib/images/subs/7.png'
 		},
 		special: {
 			id: 11,
 			name: 'SpUltraStamp',
-			image: '/src/lib/images/specials/SpUltraStamp.png'
+			image: '/src/lib/images/specials/11.png'
 		}
 	},
 	'7031': {
@@ -2169,12 +2169,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 9,
 			name: 'PointSensor',
-			image: '/src/lib/images/subs/PointSensor.png'
+			image: '/src/lib/images/subs/9.png'
 		},
 		special: {
 			id: 7,
 			name: 'SpShockSonar',
-			image: '/src/lib/images/specials/SpShockSonar.png'
+			image: '/src/lib/images/specials/7.png'
 		}
 	},
 	'8000': {
@@ -2185,12 +2185,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 2,
 			name: 'Bomb_Quick',
-			image: '/src/lib/images/subs/Bomb_Quick.png'
+			image: '/src/lib/images/subs/2.png'
 		},
 		special: {
 			id: 3,
 			name: 'SpSuperHook',
-			image: '/src/lib/images/specials/SpSuperHook.png'
+			image: '/src/lib/images/specials/3.png'
 		}
 	},
 	'8001': {
@@ -2201,12 +2201,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 11,
 			name: 'PoisonMist',
-			image: '/src/lib/images/subs/PoisonMist.png'
+			image: '/src/lib/images/subs/11.png'
 		},
 		special: {
 			id: 12,
 			name: 'SpChariot',
-			image: '/src/lib/images/specials/SpChariot.png'
+			image: '/src/lib/images/specials/12.png'
 		}
 	},
 	'8005': {
@@ -2217,12 +2217,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 2,
 			name: 'Bomb_Quick',
-			image: '/src/lib/images/subs/Bomb_Quick.png'
+			image: '/src/lib/images/subs/2.png'
 		},
 		special: {
 			id: 3,
 			name: 'SpSuperHook',
-			image: '/src/lib/images/specials/SpSuperHook.png'
+			image: '/src/lib/images/specials/3.png'
 		}
 	},
 	'8010': {
@@ -2233,12 +2233,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 13,
 			name: 'Bomb_Torpedo',
-			image: '/src/lib/images/subs/Bomb_Torpedo.png'
+			image: '/src/lib/images/subs/13.png'
 		},
 		special: {
 			id: 11,
 			name: 'SpUltraStamp',
-			image: '/src/lib/images/specials/SpUltraStamp.png'
+			image: '/src/lib/images/specials/11.png'
 		}
 	},
 	'8011': {
@@ -2249,12 +2249,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 8,
 			name: 'Beacon',
-			image: '/src/lib/images/subs/Beacon.png'
+			image: '/src/lib/images/subs/8.png'
 		},
 		special: {
 			id: 4,
 			name: 'SpMultiMissile',
-			image: '/src/lib/images/specials/SpMultiMissile.png'
+			image: '/src/lib/images/specials/4.png'
 		}
 	},
 	'8020': {
@@ -2265,12 +2265,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 1,
 			name: 'Bomb_Suction',
-			image: '/src/lib/images/subs/Bomb_Suction.png'
+			image: '/src/lib/images/subs/1.png'
 		},
 		special: {
 			id: 2,
 			name: 'SpGreatBarrier',
-			image: '/src/lib/images/specials/SpGreatBarrier.png'
+			image: '/src/lib/images/specials/2.png'
 		}
 	},
 	'8021': {
@@ -2281,12 +2281,12 @@ export const weapons: { [key: string]: Weapon } = {
 		sub: {
 			id: 4,
 			name: 'Shield',
-			image: '/src/lib/images/subs/Shield.png'
+			image: '/src/lib/images/subs/4.png'
 		},
 		special: {
 			id: 10,
 			name: 'SpJetpack',
-			image: '/src/lib/images/specials/SpJetpack.png'
+			image: '/src/lib/images/specials/10.png'
 		}
 	}
 };
