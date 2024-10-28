@@ -83,21 +83,15 @@
 
 <style>
 	.heading {
-		padding-bottom: 2rem;
 		border-bottom: 1px solid var(--spl-color-outline);
-
-		@media (min-width: 800px) {
-			margin-bottom: 2rem;
-		}
+		margin-bottom: 2rem;
+		padding-bottom: 2rem;
 	}
 
 	.information {
-		padding-top: 2rem;
 		border-top: 1px solid var(--spl-color-outline);
-
-		@media (min-width: 800px) {
-			margin-top: 2rem;
-		}
+		margin-top: 2rem;
+		padding-top: 2rem;
 	}
 
 	.credits-container {
@@ -163,27 +157,23 @@
 		justify-items: center;
 		align-items: flex-start;
 		width: 100%;
-		padding: 2rem 0rem;
 
 		&:first-child {
 			border-bottom: 1px solid var(--spl-color-outline);
 			border-right: 0;
+			padding-bottom: 2rem;
+			margin-bottom: 0.5rem;
 
 			@media (min-width: 800px) {
-				border-bottom: 0;
 				border-right: 1px solid var(--spl-color-outline);
-			}
-		}
-
-		&:last-child {
-			padding-top: 0.5rem;
-			@media (min-width: 800px) {
-				padding-top: 2rem;
+				border-bottom: 0;
+				padding-bottom: 0;
+				margin-bottom: 0;
 			}
 		}
 
 		@media (min-width: 800px) {
-			padding: 2rem;
+			padding: 0rem 2rem;
 		}
 	}
 
