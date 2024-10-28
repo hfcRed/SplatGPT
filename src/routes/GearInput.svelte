@@ -11,6 +11,7 @@
 		outputSlots,
 		outputPredictions,
 		isRunning,
+		fetchError,
 		weapon,
 		type Token
 	} from './gear-states.svelte';
@@ -104,16 +105,20 @@
 		} catch (error) {
 			console.error(error);
 			isRunning.state = false;
+			fetchError.state = true;
 			return;
 		}
 
 		if (!data.predictions) {
 			isRunning.state = false;
+			fetchError.state = true;
 			return;
 		}
 
 		const predictions = [...data.predictions].sort((a, b) => b[1] - a[1]) as Token[];
+
 		outputPredictions.tokens = predictions;
+		fetchError.state = false;
 	}
 
 	function startCountdown() {
@@ -204,10 +209,6 @@
 		height: 2.5rem;
 		width: 2.5rem;
 		transition: border-color 0.15s;
-
-		&:hover {
-			border-color: var(--spl-color-outline-high);
-		}
 	}
 
 	.slots {

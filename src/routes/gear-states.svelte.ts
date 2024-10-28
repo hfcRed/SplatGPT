@@ -17,6 +17,8 @@ export const outputPredictions: { [tokens: string]: Token[] } = $state({
 
 export const isRunning: { [state: string]: boolean } = $state({ state: false });
 
+export const fetchError: { [state: string]: boolean } = $state({ state: false });
+
 export const weapon: { [weapon: string]: Weapon } = $state({
 	weapon: weapons[0]
 });

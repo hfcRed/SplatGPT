@@ -13,6 +13,7 @@
 		outputSlots,
 		outputPredictions,
 		isRunning,
+		fetchError,
 		weapon,
 		type Token
 	} from './gear-states.svelte';
@@ -22,18 +23,18 @@
 	let sendouUrl = $state('https://sendou.ink/analyzer');
 
 	$effect(() => {
-		const abilities = untrack(() => outputSlots.abilities);
+		const untracked = untrack(() => outputSlots.abilities);
 		const tokens = outputPredictions.tokens;
 
 		(async () => {
 			const newSlots = mapResponseToSlots(tokens);
 
+			createSendouUrl(newSlots);
+
 			for (let i = 0; i < newSlots.length; i++) {
-				abilities[i] = newSlots[i];
+				untracked[i] = newSlots[i];
 				await sleep(50);
 			}
-
-			createSendouUrl();
 
 			isRunning.state = false;
 		})();
@@ -150,12 +151,12 @@
 		return proxySlots;
 	}
 
-	function createSendouUrl() {
-		if (outputSlots.abilities.filter((slot) => slot.id === '0').length === 12) return;
+	function createSendouUrl(abilities: Ability[]) {
+		if (abilities.filter((slot) => slot.id === '0').length === 12) return;
 
 		let url = `https://sendou.ink/analyzer?weapon=${weapon.weapon.id}&build=`;
 
-		for (const ability of outputSlots.abilities) {
+		for (const ability of abilities) {
 			url += ability.sendouName + '%2C';
 		}
 
@@ -181,9 +182,17 @@
 		{/each}
 	</div>
 	<div class="buttons">
-		<Button variant="text" href={sendouUrl} target="_blank">Sendou<Open size="18" /></Button>
-		<Button variant="text" aria-label="like"><ThumbsUp size="20" /></Button>
-		<Button variant="text" color="red" aria-label="dislike"><ThumbsDown size="20" /></Button>
+		{#if fetchError.state === false}
+			<Button variant="text" href={sendouUrl} target="_blank">Sendou<Open size="18" /></Button>
+			<Button variant="text" aria-label="like" disabled={isRunning.state}
+				><ThumbsUp size="20" /></Button
+			>
+			<Button variant="text" color="red" aria-label="dislike" disabled={isRunning.state}
+				><ThumbsDown size="20" /></Button
+			>
+		{:else}
+			<p>Something went wrong...</p>
+		{/if}
 	</div>
 </div>
 
@@ -220,5 +229,10 @@
 	.buttons {
 		display: flex;
 		gap: 0.5rem;
+	}
+
+	.buttons > p {
+		color: var(--spl-color-red);
+		font-weight: 600;
 	}
 </style>
