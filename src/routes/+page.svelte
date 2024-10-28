@@ -102,7 +102,11 @@
 	.credits-container {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 2rem;
+		gap: 1rem;
+
+		@media (min-width: 800px) {
+			gap: 2rem;
+		}
 	}
 
 	.credit {
@@ -142,9 +146,11 @@
 		grid-template-rows: repeat(5, auto);
 		align-items: center;
 		justify-items: center;
+		gap: 1.5rem 0;
 
 		@media (min-width: 800px) {
 			grid-template-columns: 1fr 1fr;
+			gap: 2rem 0;
 		}
 	}
 
@@ -155,8 +161,7 @@
 		justify-items: center;
 		align-items: flex-start;
 		width: 100%;
-		gap: 1.5rem;
-		padding: 2rem 1rem;
+		padding: 2rem 0rem;
 
 		&:first-child {
 			border-bottom: 1px solid var(--spl-color-outline);
@@ -168,8 +173,14 @@
 			}
 		}
 
+		&:last-child {
+			padding-top: 0.5rem;
+			@media (min-width: 800px) {
+				padding-top: 2rem;
+			}
+		}
+
 		@media (min-width: 800px) {
-			gap: 2rem;
 			padding: 2rem;
 		}
 	}
