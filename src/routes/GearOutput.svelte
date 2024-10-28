@@ -23,16 +23,17 @@
 	let sendouUrl = $state('https://sendou.ink/analyzer');
 
 	$effect(() => {
-		const untracked = untrack(() => outputSlots.abilities);
+		const untrackedWeapon = untrack(() => weapon.weapon.id);
+		const untrackedAbilities = untrack(() => outputSlots.abilities);
 		const tokens = outputPredictions.tokens;
 
 		(async () => {
 			const newSlots = mapResponseToSlots(tokens);
 
-			createSendouUrl(newSlots);
+			createSendouUrl(newSlots, untrackedWeapon);
 
 			for (let i = 0; i < newSlots.length; i++) {
-				untracked[i] = newSlots[i];
+				untrackedAbilities[i] = newSlots[i];
 				await sleep(50);
 			}
 
@@ -151,10 +152,10 @@
 		return proxySlots;
 	}
 
-	function createSendouUrl(abilities: Ability[]) {
+	function createSendouUrl(abilities: Ability[], weapon: number) {
 		if (abilities.filter((slot) => slot.id === '0').length === 12) return;
 
-		let url = `https://sendou.ink/analyzer?weapon=${weapon.weapon.id}&build=`;
+		let url = `https://sendou.ink/analyzer?weapon=${weapon}&build=`;
 
 		for (const ability of abilities) {
 			url += ability.sendouName + '%2C';
