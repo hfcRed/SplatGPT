@@ -167,6 +167,7 @@
 		border: 1px solid var(--spl-color-outline);
 		border-radius: var(--cbb-radius);
 		padding: 0 calc(var(--cbb-padding) * 3) 0 var(--cbb-padding);
+		line-height: var(--spl-line-height);
 		min-height: var(--cbb-min-height);
 		height: auto;
 		width: 100%;
