@@ -11,6 +11,6 @@
 
 <style>
 	div {
-		margin: 3rem;
+		min-height: 100vh;
 	}
 </style>

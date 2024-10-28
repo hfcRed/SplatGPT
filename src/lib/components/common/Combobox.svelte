@@ -71,7 +71,7 @@
 	const IconComponent = $derived(icon);
 </script>
 
-<div>
+<div class="controls-container">
 	<!-- svelte-ignore a11y_label_has_associated_control - $label contains the 'for' attribute -->
 	{#if title}
 		<label class="title" use:melt={$label}>
@@ -107,7 +107,9 @@
 					{#if item.image}
 						<enhanced:img src={images[item.image]} alt={item.name} width="32" height="32" />
 					{/if}
-					{item.name}
+					<div class="item-text">
+						{item.name}
+					</div>
 				</li>
 			{:else}
 				<li>No weapons found</li>
@@ -117,6 +119,14 @@
 {/if}
 
 <style>
+	.controls-container {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		gap: 0.15rem;
+		width: 100%;
+	}
+
 	.controls {
 		position: relative;
 		transition: opacity 0.15s;
@@ -144,13 +154,11 @@
 
 	.title {
 		display: block;
-		margin-bottom: 0.15rem;
 	}
 
 	.description {
 		color: var(--spl-color-subtext);
 		font-size: var(--spl-text-sm);
-		margin-top: 0.15rem;
 	}
 
 	input {
@@ -219,6 +227,12 @@
 		&[data-highlighted] {
 			background-color: var(--spl-color-bg);
 		}
+	}
+
+	.item-text {
+		flex: 1;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
 	.small {

@@ -1,6 +1,6 @@
 :root,
 ::backdrop {
-	--spl-color-accent-low: #002643;
+	--spl-color-accent-low: #012c4d;
 	--spl-color-accent: #006eb4;
 	--spl-color-accent-high: #9aceff;
 	--spl-color-white: #ffffff;
@@ -125,7 +125,6 @@ h5,
 h6 {
 	color: var(--spl-color-white);
 	line-height: var(--spl-line-height-headings);
-	margin-top: 1.5rem;
 	overflow-wrap: anywhere;
 }
 

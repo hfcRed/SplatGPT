@@ -66,9 +66,9 @@
 <style>
 	div {
 		display: flex;
+		justify-content: center;
 		flex-wrap: wrap;
 		gap: 0.5rem;
-		margin: 2rem 0;
 	}
 
 	div > :global(button) {

@@ -1,24 +1,17 @@
 <script lang="ts">
 	import type { Tokens } from '$lib/data/abilities/tokens/types';
-	import type { Weapon } from '$lib/data/weapons';
-	import { mainIndexes, type Ability } from '$lib/data/abilities';
-
-	interface Props {
-		slots: Ability[];
-		weapon: Weapon;
-	}
-
-	let { slots = [], weapon }: Props = $props();
+	import { mainIndexes } from '$lib/data/abilities';
+	import { inputSlots, weapon } from '../../../routes/gear-states.svelte';
 
 	let quality = $state(0);
 
 	$effect(() => {
-		slots;
+		inputSlots.abilities;
 		getQuality();
 	});
 
 	function getQuality() {
-		if (!tokens || slots.filter((slot) => slot.id === '0').length === 12) {
+		if (!tokens || inputSlots.abilities.filter((slot) => slot.id === '0').length === 12) {
 			quality = 1;
 			return;
 		}
@@ -28,10 +21,10 @@
 		let abilityCounts: { [key: string]: number } = {};
 		let remainingAp = 57;
 
-		for (const ability of slots) {
+		for (const ability of inputSlots.abilities) {
 			if (ability.id === '0') continue;
 
-			const points = mainIndexes.hasOwnProperty(slots.indexOf(ability)) ? 10 : 3;
+			const points = mainIndexes.hasOwnProperty(inputSlots.abilities.indexOf(ability)) ? 10 : 3;
 
 			remainingAp -= points;
 			abilityCounts[ability.name] = abilityCounts[ability.name] + points || points;
@@ -72,27 +65,43 @@
 	let tokens: Tokens | undefined = $state();
 
 	$effect(() => {
-		weapon;
-		modules[`/src/lib/data/abilities/tokens/${weapon.referenceKit}.ts`]().then((module) => {
+		weapon.weapon;
+		modules[`/src/lib/data/abilities/tokens/${weapon.weapon.referenceKit}.ts`]().then((module) => {
 			tokens = module as Tokens;
 			getQuality();
 		});
 	});
 </script>
 
-<p>Estimated output quality</p>
-<div class="meter" role="meter" aria-valuemin="0" aria-valuemax="0.4" aria-valuenow={quality}>
-	<div class="meter-bar" style={`transform: translateX(-${100 - (100 * quality) / 0.4}%)`}></div>
+<div class="meter-container">
+	<p>Estimated output quality</p>
+	<div
+		id="quality-meter"
+		class="meter"
+		role="meter"
+		aria-valuemin="0"
+		aria-valuemax="0.5"
+		aria-valuenow={quality}
+	>
+		<div class="meter-bar" style={`transform: translateX(-${100 - (100 * quality) / 0.5}%)`}></div>
+	</div>
 </div>
 
 <style>
+	.meter-container {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		width: 100%;
+	}
+
 	.meter {
 		background-color: var(--spl-color-bg);
 		position: relative;
-		width: 100%;
 		height: 1rem;
 		border-radius: 99999px;
 		overflow: hidden;
+		margin-top: 0.75rem;
 	}
 
 	.meter-bar {

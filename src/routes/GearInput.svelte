@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { abilities, emptyAbility, mainIndexes, type Ability } from '$lib/data/abilities';
-	import { weapons, type Weapon } from '$lib/data/weapons/index';
+	import { weapons } from '$lib/data/weapons/index';
+	import { images } from '$lib/images';
 	import AbilitySelector from '$lib/components/gear-builder/AbilitySelector.svelte';
 	import AbilitySlot from '$lib/components/gear-builder/AbilitySlot.svelte';
-	import OutputQuality from '../lib/components/gear-builder/OutputQuality.svelte';
 	import Combobox from '$lib/components/common/Combobox.svelte';
 	import Button from '$lib/components/common/Button.svelte';
 	import {
@@ -11,6 +11,7 @@
 		outputSlots,
 		outputPredictions,
 		isRunning,
+		weapon,
 		type Token
 	} from './gear-states.svelte';
 
@@ -59,6 +60,8 @@
 
 	const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
+	let buttonText = $state('Send');
+
 	async function getProbabilities() {
 		isRunning.state = true;
 
@@ -88,9 +91,14 @@
 				},
 				body: JSON.stringify({
 					abilities,
-					weapon_id: weapon.id
+					weapon_id: weapon.weapon.id
 				})
 			});
+
+			if (response.status === 429) {
+				startCountdown();
+				return;
+			}
 
 			data = await response.json();
 		} catch (error) {
@@ -99,51 +107,118 @@
 			return;
 		}
 
+		if (!data.predictions) {
+			isRunning.state = false;
+			return;
+		}
+
 		const predictions = [...data.predictions].sort((a, b) => b[1] - a[1]) as Token[];
 		outputPredictions.tokens = predictions;
 	}
 
-	let weapon: Weapon = $state(weapons[Object.keys(weapons)[0]]);
+	function startCountdown() {
+		let seconds = 60;
+		const interval = setInterval(() => {
+			seconds--;
+			buttonText = `Blocked for ${seconds} seconds`;
+
+			if (seconds <= 0) {
+				clearInterval(interval);
+				buttonText = 'Send';
+				isRunning.state = false;
+			}
+		}, 1000);
+	}
 </script>
 
-<Combobox bind:current={weapon} title="Weapon" items={Object.values(weapons)} />
-
-<OutputQuality {weapon} slots={inputSlots.abilities} />
-
-<div>
-	{#each inputSlots.abilities as slot, index}
-		<AbilitySlot
-			bind:ability={inputSlots.abilities[index]}
-			disabled={enabledSlots === 'all' ? false : mainIndexes[index] === enabledSlots ? false : true}
-			items={slot.id === '0' ? [] : [slot]}
-			mainType={mainIndexes[index] || null}
-			drag={updateEnabledSlots}
+<div class="container">
+	<div class="input">
+		<Combobox bind:current={weapon.weapon} title="Weapon" items={Object.values(weapons)} />
+		<enhanced:img
+			src={images[weapon.weapon.sub.image]}
+			alt={weapon.weapon.sub.name}
+			width="32"
+			height="32"
 		/>
-	{/each}
+		<enhanced:img
+			src={images[weapon.weapon.special.image]}
+			alt={weapon.weapon.special.name}
+			width="32"
+			height="32"
+		/>
+	</div>
+
+	<div class="slots">
+		{#each inputSlots.abilities as slot, index}
+			<AbilitySlot
+				bind:ability={inputSlots.abilities[index]}
+				disabled={enabledSlots === 'all'
+					? false
+					: mainIndexes[index] === enabledSlots
+						? false
+						: true}
+				items={slot.id === '0' ? [] : [slot]}
+				mainType={mainIndexes[index] || null}
+				drag={updateEnabledSlots}
+			/>
+		{/each}
+	</div>
+
+	<AbilitySelector
+		abilities={subAbilities}
+		{disabledAbilities}
+		drag={updateEnabledSlots}
+		interact={addAbility}
+	/>
+
+	<AbilitySelector
+		abilities={mainAbilities}
+		{disabledAbilities}
+		drag={updateEnabledSlots}
+		interact={addAbility}
+	/>
+
+	<div class="buttons">
+		<Button onclick={getProbabilities} full disabled={isRunning.state}>{buttonText}</Button>
+		<Button
+			color="red"
+			onclick={clearAbilities}
+			disabled={inputSlots.abilities.filter((slot) => slot.id === '0').length === 12}>Clear</Button
+		>
+	</div>
 </div>
 
-<AbilitySelector
-	abilities={subAbilities}
-	{disabledAbilities}
-	drag={updateEnabledSlots}
-	interact={addAbility}
-/>
-
-<AbilitySelector
-	abilities={mainAbilities}
-	{disabledAbilities}
-	drag={updateEnabledSlots}
-	interact={addAbility}
-/>
-
-<Button color="red" onclick={clearAbilities}>Clear</Button>
-<Button onclick={getProbabilities} disabled={isRunning.state}>Send</Button>
-
 <style>
-	div {
+	.input {
+		display: flex;
+		align-items: flex-end;
+		gap: 0.5rem;
+		width: 100%;
+	}
+
+	.input :global(img) {
+		border: 1px solid var(--spl-color-outline);
+		border-radius: var(--spl-radius-md);
+		padding: 0.3rem;
+		height: 2.5rem;
+		width: 2.5rem;
+		transition: border-color 0.15s;
+
+		&:hover {
+			border-color: var(--spl-color-outline-high);
+		}
+	}
+
+	.slots {
 		display: grid;
 		grid-template-columns: repeat(4, fit-content(100%));
 		gap: 1rem 0.5rem;
 		align-items: center;
+	}
+
+	.buttons {
+		display: flex;
+		width: 100%;
+		gap: 0.5rem;
 	}
 </style>

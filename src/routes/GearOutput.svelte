@@ -4,9 +4,22 @@
 	import { expoIn } from 'svelte/easing';
 	import { abilities, emptyAbility, mainIndexes, type Ability } from '$lib/data/abilities';
 	import AbilityItem from '$lib/components/gear-builder/AbilityItem.svelte';
-	import { outputSlots, outputPredictions, isRunning, type Token } from './gear-states.svelte';
+	import OutputQuality from '$lib/components/gear-builder/OutputQuality.svelte';
+	import Button from '$lib/components/common/Button.svelte';
+	import ThumbsDown from '$lib/icons/ThumbsDown.svelte';
+	import ThumbsUp from '$lib/icons/ThumbsUp.svelte';
+	import Open from '$lib/icons/Open.svelte';
+	import {
+		outputSlots,
+		outputPredictions,
+		isRunning,
+		weapon,
+		type Token
+	} from './gear-states.svelte';
 
 	const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+	let sendouUrl = $state('https://sendou.ink/analyzer');
 
 	$effect(() => {
 		const abilities = untrack(() => outputSlots.abilities);
@@ -19,6 +32,8 @@
 				abilities[i] = newSlots[i];
 				await sleep(50);
 			}
+
+			createSendouUrl();
 
 			isRunning.state = false;
 		})();
@@ -134,25 +149,46 @@
 
 		return proxySlots;
 	}
+
+	function createSendouUrl() {
+		if (outputSlots.abilities.filter((slot) => slot.id === '0').length === 12) return;
+
+		let url = `https://sendou.ink/analyzer?weapon=${weapon.weapon.id}&build=`;
+
+		for (const ability of outputSlots.abilities) {
+			url += ability.sendouName + '%2C';
+		}
+
+		url = url.slice(0, -3);
+		sendouUrl = url;
+	}
 </script>
 
 <div class="container">
-	{#each outputSlots.abilities as slot, index}
-		<div class="item" class:main={mainIndexes[index]}>
-			{#if slot.id !== '0'}
-				<div
-					in:fly={{ y: -20, duration: 250, opacity: 1, easing: expoIn }}
-					out:blur={{ duration: 250 }}
-				>
-					<AbilityItem ability={slot} disabled={false} interact={() => {}} />
-				</div>
-			{/if}
-		</div>
-	{/each}
+	<OutputQuality />
+	<div class="slots">
+		{#each outputSlots.abilities as slot, index}
+			<div class="item" class:main={mainIndexes[index]}>
+				{#if slot.id !== '0'}
+					<div
+						in:fly={{ y: -20, duration: 250, opacity: 1, easing: expoIn }}
+						out:blur={{ duration: 250 }}
+					>
+						<AbilityItem ability={slot} disabled={false} interact={() => {}} />
+					</div>
+				{/if}
+			</div>
+		{/each}
+	</div>
+	<div class="buttons">
+		<Button variant="text" href={sendouUrl} target="_blank">Sendou<Open size="18" /></Button>
+		<Button variant="text"><ThumbsUp size="20" /></Button>
+		<Button variant="text" color="red"><ThumbsDown size="20" /></Button>
+	</div>
 </div>
 
 <style>
-	.container {
+	.slots {
 		display: grid;
 		grid-template-columns: repeat(4, fit-content(100%));
 		gap: 1rem 0.5rem;
@@ -179,5 +215,10 @@
 	.main {
 		width: 4rem;
 		height: 4rem;
+	}
+
+	.buttons {
+		display: flex;
+		gap: 0.5rem;
 	}
 </style>
