@@ -1,0 +1,17 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"title": "SplatGPT",
+	"description": "Autocomplete gear builds by utilizing an AI model trained on over 1.5 million matches!",
+	"weapon": "Weapon",
+	"send": "Send",
+	"send_blocked": "Blocked for {seconds} seconds",
+	"clear": "Clear",
+	"output_quality": "Estimated output quality",
+	"sendou": "Sendou",
+	"like": "Like",
+	"dislike": "Dislike",
+	"credits": "Credits",
+	"creadits_joy": "Creator of the model and API",
+	"credits_hfcRed": "Creator of the website",
+	"credits_Leanny": "Game parameters and images"
+}

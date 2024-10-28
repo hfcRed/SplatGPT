@@ -1,4 +1,5 @@
 <script lang="ts">
+	import * as m from '$lib/paraglide/messages.js';
 	import { abilities, emptyAbility, mainIndexes, type Ability } from '$lib/data/abilities';
 	import { weapons } from '$lib/data/weapons/index';
 	import { images } from '$lib/images';
@@ -61,7 +62,7 @@
 
 	const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-	let buttonText = $state('Send');
+	let buttonText = $state(m.send());
 
 	async function getProbabilities() {
 		isRunning.state = true;
@@ -127,11 +128,11 @@
 		let seconds = 60;
 		const interval = setInterval(() => {
 			seconds--;
-			buttonText = `Blocked for ${seconds} seconds`;
+			buttonText = m.send_blocked({ seconds });
 
 			if (seconds <= 0) {
 				clearInterval(interval);
-				buttonText = 'Send';
+				buttonText = m.send();
 				isRunning.state = false;
 			}
 		}, 1000);
@@ -140,7 +141,7 @@
 
 <div class="container">
 	<div class="input">
-		<Combobox bind:current={weapon.weapon} title="Weapon" items={Object.values(weapons)} />
+		<Combobox bind:current={weapon.weapon} title={m.weapon()} items={Object.values(weapons)} />
 		<enhanced:img
 			src={images[weapon.weapon.sub.image]}
 			alt={weapon.weapon.sub.name}
@@ -190,7 +191,8 @@
 		<Button
 			color="red"
 			onclick={clearAbilities}
-			disabled={inputSlots.abilities.filter((slot) => slot.id === '0').length === 12}>Clear</Button
+			disabled={inputSlots.abilities.filter((slot) => slot.id === '0').length === 12}
+			>{m.clear()}</Button
 		>
 	</div>
 </div>

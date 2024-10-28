@@ -1,4 +1,5 @@
 <script lang="ts">
+	import * as m from '$lib/paraglide/messages.js';
 	import { untrack } from 'svelte';
 	import { fly, blur } from 'svelte/transition';
 	import { expoIn } from 'svelte/easing';
@@ -184,11 +185,12 @@
 	</div>
 	<div class="buttons">
 		{#if fetchError.state === false}
-			<Button variant="text" href={sendouUrl} target="_blank">Sendou<Open size="18" /></Button>
-			<Button variant="text" aria-label="like" disabled={isRunning.state}
+			<Button variant="text" href={sendouUrl} target="_blank">{m.sendou()}<Open size="18" /></Button
+			>
+			<Button variant="text" aria-label={m.like()} disabled={isRunning.state}
 				><ThumbsUp size="20" /></Button
 			>
-			<Button variant="text" color="red" aria-label="dislike" disabled={isRunning.state}
+			<Button variant="text" color="red" aria-label={m.dislike()} disabled={isRunning.state}
 				><ThumbsDown size="20" /></Button
 			>
 		{:else}

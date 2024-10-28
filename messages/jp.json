@@ -1,0 +1,17 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"title": "SplatGPT",
+	"description": "150 万を超える試合でトレーニングされた AI モデルを利用して、ギアの構築を自動完了します。",
+	"weapon": "武器",
+	"send": "送信",
+	"send_blocked": "{seconds}秒間ブロックされました",
+	"clear": "クリア",
+	"output_quality": "推定出力品質",
+	"sendou": "Sendou",
+	"like": "のように",
+	"dislike": "嫌い",
+	"credits": "クレジット",
+	"creadits_joy": "AIとAPIの作成者",
+	"credits_hfcRed": "ウェブサイトの作成者",
+	"credits_Leanny": "ゲームパラメータと画像"
+}

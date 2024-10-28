@@ -1,8 +1,9 @@
 {
-	"recommendations": [
-		"svelte.svelte-vscode",
-		"esbenp.prettier-vscode",
-		"dbaeumer.vscode-eslint",
-		"vunguyentuan.vscode-css-variables"
-	]
+  "recommendations": [
+    "svelte.svelte-vscode",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "vunguyentuan.vscode-css-variables",
+    "inlang.vs-code-extension"
+  ]
 }

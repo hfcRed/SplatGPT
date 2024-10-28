@@ -1,4 +1,5 @@
 <script lang="ts">
+	import * as m from '$lib/paraglide/messages.js';
 	import type { Tokens } from '$lib/data/abilities/tokens/types';
 	import { mainIndexes } from '$lib/data/abilities';
 	import { inputSlots, weapon } from '../../../routes/gear-states.svelte';
@@ -74,7 +75,7 @@
 </script>
 
 <div class="meter-container">
-	<p id="meter-description">Estimated output quality</p>
+	<p id="meter-description">{m.output_quality()}</p>
 	<div
 		class="meter"
 		role="meter"

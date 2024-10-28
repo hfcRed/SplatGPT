@@ -1,13 +1,18 @@
 <script>
+	import { ParaglideJS } from '@inlang/paraglide-sveltekit';
+	import { i18n } from '$lib/i18n';
+
 	import '../styles/normalize.css';
 	import '../styles/global.css';
 	/** @type {{children?: import('svelte').Snippet}} */
 	let { children } = $props();
 </script>
 
-<div>
-	{@render children?.()}
-</div>
+<ParaglideJS {i18n}>
+	<div>
+		{@render children?.()}
+	</div>
+</ParaglideJS>
 
 <style>
 	div {

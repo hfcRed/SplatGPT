@@ -1,4 +1,5 @@
 <script lang="ts">
+	import * as m from '$lib/paraglide/messages.js';
 	import GearInput from './GearInput.svelte';
 	import GearOutput from './GearOutput.svelte';
 	import Button from '$lib/components/common/Button.svelte';
@@ -9,7 +10,7 @@
 	const credits = [
 		{
 			name: 'Joy',
-			role: 'Creator of the model and API',
+			role: m.creadits_joy(),
 			links: [
 				{ name: 'GitHub', url: 'https://github.com/cesaregarza', icon: GitHub },
 				{ name: 'Twitter', url: 'https://x.com/JoyTheDataNerd', icon: Twitter },
@@ -22,7 +23,7 @@
 		},
 		{
 			name: 'hfcRed',
-			role: 'Creator of the website',
+			role: m.credits_hfcRed(),
 			links: [
 				{ name: 'GitHub', url: 'https://github.com/hfcRed', icon: GitHub },
 				{ name: 'Twitter', url: 'https://x.com/hfcRedddd', icon: Twitter },
@@ -35,7 +36,7 @@
 		},
 		{
 			name: 'Leanny',
-			role: 'Game parameters and images',
+			role: m.credits_Leanny(),
 			links: [
 				{ name: 'GitHub', url: 'https://github.com/Leanny', icon: GitHub },
 				{ name: 'Twitter', url: 'https://x.com/LeanYoshi', icon: Twitter }
@@ -46,8 +47,8 @@
 
 <main>
 	<section class="heading">
-		<h1>SplatGPT</h1>
-		<p>Autocomplete gear builds by utilizing an AI model trained on over 1.5 million matches!</p>
+		<h1>{m.title()}</h1>
+		<p>{m.description()}</p>
 	</section>
 	<div class="gear-container">
 		<GearInput />
