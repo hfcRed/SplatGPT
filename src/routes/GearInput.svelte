@@ -106,12 +106,14 @@
 			console.error(error);
 			isRunning.state = false;
 			fetchError.state = true;
+			outputPredictions.tokens = [];
 			return;
 		}
 
 		if (!data.predictions) {
 			isRunning.state = false;
 			fetchError.state = true;
+			outputPredictions.tokens = [];
 			return;
 		}
 
