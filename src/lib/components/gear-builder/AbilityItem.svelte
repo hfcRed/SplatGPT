@@ -16,10 +16,10 @@
 </script>
 
 <button
-	aria-label={ability.name}
 	class={`${ability.mainType !== 'none' ? `main ${ability.mainType}` : ''}`}
 	{disabled}
 	onclick={fireInteract}
+	aria-label={ability.name}
 >
 	<enhanced:img src={images[`/src/lib/images/abilities/${ability.name}.png`]} alt={ability.name} />
 </button>

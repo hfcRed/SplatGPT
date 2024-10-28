@@ -62,7 +62,14 @@
 					<p>{credit.role}</p>
 					<article class="links">
 						{#each credit.links as link}
-							<Button href={link.url} target="_blank" variant="text" size="medium" circle>
+							<Button
+								href={link.url}
+								target="_blank"
+								variant="text"
+								size="medium"
+								circle
+								aria-label={link.name}
+							>
 								<link.icon size="24" />
 							</Button>
 						{/each}

@@ -182,8 +182,8 @@
 	</div>
 	<div class="buttons">
 		<Button variant="text" href={sendouUrl} target="_blank">Sendou<Open size="18" /></Button>
-		<Button variant="text"><ThumbsUp size="20" /></Button>
-		<Button variant="text" color="red"><ThumbsDown size="20" /></Button>
+		<Button variant="text" aria-label="like"><ThumbsUp size="20" /></Button>
+		<Button variant="text" color="red" aria-label="dislike"><ThumbsDown size="20" /></Button>
 	</div>
 </div>
 

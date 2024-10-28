@@ -74,14 +74,14 @@
 </script>
 
 <div class="meter-container">
-	<p>Estimated output quality</p>
+	<p id="meter-description">Estimated output quality</p>
 	<div
-		id="quality-meter"
 		class="meter"
 		role="meter"
 		aria-valuemin="0"
 		aria-valuemax="0.5"
 		aria-valuenow={quality}
+		aria-labelledby="meter-description"
 	>
 		<div class="meter-bar" style={`transform: translateX(-${100 - (100 * quality) / 0.5}%)`}></div>
 	</div>
