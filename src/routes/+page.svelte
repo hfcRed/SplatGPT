@@ -60,13 +60,13 @@
 				<div class="credit">
 					<h3>{credit.name}</h3>
 					<p>{credit.role}</p>
-					<div class="links">
+					<article class="links">
 						{#each credit.links as link}
 							<Button href={link.url} target="_blank" variant="text" size="medium" circle>
-								<link.icon size="28" />
+								<link.icon size="24" />
 							</Button>
 						{/each}
-					</div>
+					</article>
 				</div>
 			{/each}
 		</div>
@@ -76,14 +76,20 @@
 <style>
 	.heading {
 		padding-bottom: 2rem;
-		margin-bottom: 2rem;
 		border-bottom: 1px solid var(--spl-color-outline);
+
+		@media (min-width: 800px) {
+			margin-bottom: 2rem;
+		}
 	}
 
 	.information {
 		padding-top: 2rem;
-		margin-top: 2rem;
 		border-top: 1px solid var(--spl-color-outline);
+
+		@media (min-width: 800px) {
+			margin-top: 2rem;
+		}
 	}
 
 	.credits-container {
@@ -104,7 +110,7 @@
 	.links {
 		margin-top: 0.5rem;
 		display: flex;
-		gap: 1rem;
+		gap: 0.5rem;
 	}
 
 	h1,
@@ -116,7 +122,7 @@
 		width: 100%;
 		max-width: 65rem;
 		margin: 0 auto;
-		padding: 1rem 0.5rem;
+		padding: 1rem;
 
 		@media (min-width: 800px) {
 			padding: 2rem 1rem;
