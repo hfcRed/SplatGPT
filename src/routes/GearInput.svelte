@@ -92,7 +92,7 @@
 				},
 				body: JSON.stringify({
 					abilities,
-					weapon_id: weapon.weapon.id
+					weapon_id: weapon.weapon.referenceKit
 				})
 			});
 
