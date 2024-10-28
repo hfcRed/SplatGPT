@@ -197,6 +197,7 @@
 	}
 
 	.input :global(img) {
+		background-color: var(--spl-color-bg-low);
 		border: 1px solid var(--spl-color-outline);
 		border-radius: var(--spl-radius-md);
 		padding: 0.3rem;
