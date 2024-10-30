@@ -1,5 +1,6 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"language_select": "Select language",
 	"title": "SplatGPT",
 	"description": "Autocomplete gear builds by utilizing an AI model trained on over 1.5 million matches!",
 	"weapon": "Weapon",

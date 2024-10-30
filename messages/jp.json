@@ -1,5 +1,6 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"language_select": "言語を選択してください",
 	"title": "SplatGPT",
 	"description": "150 万を超える試合でトレーニングされた AI モデルを利用して、ギアの構築を自動完了します。",
 	"weapon": "武器",
