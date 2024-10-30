@@ -136,7 +136,7 @@
 
 		&:hover:not(:disabled),
 		&:focus-visible {
-			background-color: color-mix(in hsl, var(--btn-color) 90%, black);
+			background-color: color-mix(in hsl, var(--btn-color) 85%, black);
 		}
 
 		&:active:not(:disabled) {
