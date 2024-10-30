@@ -33,6 +33,8 @@
 		current = $bindable(items[0])
 	}: BaseProps = $props();
 
+	$inspect(current);
+
 	const defaultItem = items[0];
 
 	const toOption = (item: Item): ComboboxOptionProps<Item> => ({
@@ -45,8 +47,8 @@
 		states: { open, inputValue, touchedInput, selected },
 		helpers: { isSelected }
 	} = createCombobox<Item>({
-		forceVisible: true,
-		defaultSelected: toOption(current)
+		defaultSelected: toOption(items[0]),
+		forceVisible: true
 	});
 
 	$effect(() => {
@@ -179,7 +181,6 @@
 
 		&:focus-visible {
 			outline: solid 2px var(--spl-color-accent-high);
-			outline-offset: 1px;
 		}
 
 		&.hasIcon {
