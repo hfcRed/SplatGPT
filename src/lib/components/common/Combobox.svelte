@@ -169,10 +169,8 @@
 		padding: 0 calc(var(--cbb-padding) * 3) 0 var(--cbb-padding);
 		line-height: var(--spl-line-height);
 		min-height: var(--cbb-min-height);
-		height: auto;
 		width: 100%;
 		outline: solid 2px transparent;
-		white-space: nowrap;
 		transition: border-color 0.15s;
 
 		&:hover {
