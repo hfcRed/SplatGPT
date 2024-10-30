@@ -6,6 +6,7 @@
 	import GitHub from '$lib/icons/GitHub.svelte';
 	import Twitter from '$lib/icons/Twitter.svelte';
 	import Bluesky from '$lib/icons/Bluesky.svelte';
+	import LanguageSwitcher from '$lib/components/common/LanguageSwitcher.svelte';
 
 	const credits = [
 		{
@@ -45,6 +46,11 @@
 	];
 </script>
 
+<header>
+	<div>
+		<LanguageSwitcher />
+	</div>
+</header>
 <main>
 	<section class="heading">
 		<h1>{m.title()}</h1>
@@ -80,6 +86,19 @@
 		</div>
 	</section>
 </main>
+<footer>
+	<div>
+		<p>
+			This website is not affiliated with Nintendo. All product names, logos, and brands are
+			property of their respective owners.
+		</p>
+		<div class="footer-links">
+			<a href="https://github.com/hfcRed/SplatGPT" target="_blank">Source Code</a>
+			<span>•</span>
+			<a href="https://splat.top/api/infer" target="_blank">Infer API</a>
+		</div>
+	</div>
+</footer>
 <div class="noise"></div>
 
 <style>
@@ -126,15 +145,48 @@
 		margin-bottom: 1rem;
 	}
 
-	main {
+	main,
+	header > div,
+	footer > div {
 		width: 100%;
 		max-width: 65rem;
 		margin: 0 auto;
-		padding: 2rem 1rem;
+		padding: 1rem;
 
 		@media (min-width: 800px) {
-			padding: 2rem;
+			padding: 1rem 2rem;
 		}
+	}
+
+	main {
+		padding-block: 3rem;
+
+		@media (min-width: 800px) {
+			padding-block: 4rem;
+		}
+	}
+
+	header {
+		background-color: rgba(0, 0, 0, 0.2);
+		border-bottom: 1px solid var(--spl-color-outline);
+		backdrop-filter: blur(10px);
+		box-shadow: var(--spl-shadow-md);
+	}
+
+	footer {
+		color: var(--spl-color-subtext);
+		font-size: var(--spl-text-xs);
+		background-color: rgba(0, 0, 0, 0.25);
+		border-top: 1px solid var(--spl-color-outline);
+		backdrop-filter: blur(10px);
+		margin-top: auto;
+		text-align: center;
+	}
+
+	.footer-links {
+		display: flex;
+		gap: 0.5rem;
+		justify-content: center;
 	}
 
 	.gear-container {
