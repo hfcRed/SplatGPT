@@ -117,7 +117,7 @@
 		border: none;
 		min-height: 2rem;
 		width: 100%;
-		padding: 0 2rem;
+		padding: 0 2.5rem;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		outline: solid 2px transparent;
@@ -131,7 +131,6 @@
 
 		&:focus-visible {
 			outline: solid 2px var(--spl-color-accent-high);
-			outline-offset: 1px;
 		}
 	}
 
