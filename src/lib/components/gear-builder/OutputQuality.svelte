@@ -13,7 +13,7 @@
 
 	function getQuality() {
 		if (!tokens || inputSlots.abilities.filter((slot) => slot.id === '0').length === 12) {
-			quality = 1;
+			quality = 0.45;
 			return;
 		}
 
