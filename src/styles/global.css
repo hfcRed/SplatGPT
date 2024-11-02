@@ -131,10 +131,12 @@ h6 {
 
 h1 {
 	font-size: var(--spl-text-h1);
+	margin-bottom: 1rem;
 }
 
 h2 {
 	font-size: var(--spl-text-h2);
+	margin-bottom: 1rem;
 }
 
 h3 {

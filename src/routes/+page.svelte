@@ -67,11 +67,6 @@
 		padding-top: 2rem;
 	}
 
-	h1,
-	h2 {
-		margin-bottom: 1rem;
-	}
-
 	main,
 	header > div,
 	footer > div {
