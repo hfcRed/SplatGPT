@@ -43,6 +43,7 @@
 	];
 </script>
 
+<h2>{m.credits()}</h2>
 <div class="credits-container">
 	{#each credits as credit}
 		<div class="credit">

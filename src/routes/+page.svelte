@@ -30,7 +30,6 @@
 		<h2>Information</h2>
 	</section>
 	<section>
-		<h2>Credits</h2>
 		<Credits />
 	</section>
 </main>
