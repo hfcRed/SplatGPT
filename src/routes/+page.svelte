@@ -2,57 +2,20 @@
 	import * as m from '$lib/paraglide/messages.js';
 	import GearInput from './GearInput.svelte';
 	import GearOutput from './GearOutput.svelte';
+	import Credits from './Credits.svelte';
 	import Button from '$lib/components/common/Button.svelte';
-	import GitHub from '$lib/icons/GitHub.svelte';
-	import Twitter from '$lib/icons/Twitter.svelte';
-	import Bluesky from '$lib/icons/Bluesky.svelte';
+	import Moon from '$lib/icons/Moon.svelte';
 	import LanguageSwitcher from '$lib/components/common/LanguageSwitcher.svelte';
-
-	const credits = [
-		{
-			name: 'Joy',
-			role: m.creadits_joy(),
-			links: [
-				{ name: 'GitHub', url: 'https://github.com/cesaregarza', icon: GitHub },
-				{ name: 'Twitter', url: 'https://x.com/JoyTheDataNerd', icon: Twitter },
-				{
-					name: 'Bluesky',
-					url: 'https://bsky.app/profile/joythedatanerd.bsky.social',
-					icon: Bluesky
-				}
-			]
-		},
-		{
-			name: 'hfcRed',
-			role: m.credits_hfcRed(),
-			links: [
-				{ name: 'GitHub', url: 'https://github.com/hfcRed', icon: GitHub },
-				{ name: 'Twitter', url: 'https://x.com/hfcRedddd', icon: Twitter },
-				{
-					name: 'Bluesky',
-					url: 'https://bsky.app/profile/hfcred.dev',
-					icon: Bluesky
-				}
-			]
-		},
-		{
-			name: 'Leanny',
-			role: m.credits_Leanny(),
-			links: [
-				{ name: 'GitHub', url: 'https://github.com/Leanny', icon: GitHub },
-				{ name: 'Twitter', url: 'https://x.com/LeanYoshi', icon: Twitter }
-			]
-		}
-	];
 </script>
 
 <header>
 	<div>
+		<Button variant="text" color="neutral" circle><Moon size="24" /></Button>
 		<LanguageSwitcher />
 	</div>
 </header>
 <main>
-	<section class="heading">
+	<section class="title">
 		<h1>{m.title()}</h1>
 		<p>{m.description()}</p>
 	</section>
@@ -61,29 +24,11 @@
 		<GearOutput />
 	</div>
 	<section class="information">
+		<h2>Information</h2>
+	</section>
+	<section>
 		<h2>Credits</h2>
-		<div class="credits-container">
-			{#each credits as credit}
-				<div class="credit">
-					<h3>{credit.name}</h3>
-					<p>{credit.role}</p>
-					<article class="links">
-						{#each credit.links as link}
-							<Button
-								href={link.url}
-								target="_blank"
-								variant="text"
-								size="medium"
-								circle
-								aria-label={link.name}
-							>
-								<link.icon size="24" />
-							</Button>
-						{/each}
-					</article>
-				</div>
-			{/each}
-		</div>
+		<Credits />
 	</section>
 </main>
 <footer>
@@ -102,7 +47,7 @@
 <div class="noise"></div>
 
 <style>
-	.heading {
+	.title {
 		border-bottom: 1px solid var(--spl-color-outline);
 		margin-bottom: 2rem;
 		padding-bottom: 2rem;
@@ -112,32 +57,6 @@
 		border-top: 1px solid var(--spl-color-outline);
 		margin-top: 2rem;
 		padding-top: 2rem;
-	}
-
-	.credits-container {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1.5rem;
-
-		@media (min-width: 800px) {
-			gap: 2rem;
-		}
-	}
-
-	.credit {
-		background-color: var(--spl-color-bg-low);
-		border: 1px solid var(--spl-color-outline);
-		border-radius: var(--spl-radius-md);
-		padding: 1rem 2rem;
-		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
-	}
-
-	.links {
-		margin-top: 0.5rem;
-		display: flex;
-		gap: 0.5rem;
 	}
 
 	h1,
@@ -173,10 +92,16 @@
 		box-shadow: var(--spl-shadow-md);
 	}
 
+	header > div {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
 	footer {
 		color: var(--spl-color-subtext);
 		font-size: var(--spl-text-xs);
-		background-color: rgba(0, 0, 0, 0.25);
+		background-color: rgba(0, 0, 0, 0.2);
 		border-top: 1px solid var(--spl-color-outline);
 		backdrop-filter: blur(10px);
 		margin-top: auto;
