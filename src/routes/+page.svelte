@@ -2,6 +2,7 @@
 	import * as m from '$lib/paraglide/messages.js';
 	import GearInput from './GearInput.svelte';
 	import GearOutput from './GearOutput.svelte';
+	import Information from './Information.svelte';
 	import Credits from './Credits.svelte';
 	import Button from '$lib/components/common/Button.svelte';
 	import Moon from '$lib/icons/Moon.svelte';
@@ -27,7 +28,7 @@
 		<GearOutput />
 	</div>
 	<section class="information">
-		<h2>Information</h2>
+		<Information />
 	</section>
 	<section>
 		<Credits />
@@ -64,6 +65,7 @@
 	.information {
 		border-top: 1px solid var(--spl-color-outline);
 		margin-top: 2rem;
+		margin-bottom: 2rem;
 		padding-top: 2rem;
 	}
 
