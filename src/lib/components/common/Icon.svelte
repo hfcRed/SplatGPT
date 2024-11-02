@@ -16,6 +16,8 @@
 		strokeWidth?: number | string;
 		flippedX?: boolean;
 		flippedY?: boolean;
+		rotate?: number;
+		duration?: number;
 	};
 </script>
 
@@ -27,7 +29,9 @@
 		viewBox = '0 0 24 24',
 		strokeWidth = 2,
 		flippedX = false,
-		flippedY = false
+		flippedY = false,
+		rotate = undefined,
+		duration = undefined
 	}: IconProps = $props();
 </script>
 
@@ -44,6 +48,9 @@
 	class={`${color}`}
 	class:flip-x={flippedX}
 	class:flip-y={flippedY}
+	style:transform={rotate === undefined ? undefined : `rotate(${rotate}deg)`}
+	style:transition-property={duration === undefined ? undefined : 'transform'}
+	style:transition-duration={duration === undefined ? undefined : `${duration}ms`}
 >
 	{#each nodes as [element, attributes]}
 		<svelte:element this={element} {...attributes} />
