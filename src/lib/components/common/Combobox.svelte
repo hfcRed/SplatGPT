@@ -33,8 +33,6 @@
 		current = $bindable(items[0])
 	}: BaseProps = $props();
 
-	$inspect(current);
-
 	const defaultItem = items[0];
 
 	const toOption = (item: Item): ComboboxOptionProps<Item> => ({
