@@ -11,6 +11,7 @@
 		inputSlots,
 		outputSlots,
 		outputPredictions,
+		outputId,
 		isRunning,
 		fetchError,
 		weapon,
@@ -89,7 +90,7 @@
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
-					'User-Agent': 'SplatGPT'
+					'User-Agent': 'SplatGPT/1.0'
 				},
 				body: JSON.stringify({
 					abilities,
@@ -121,6 +122,7 @@
 		const predictions = [...data.predictions].sort((a, b) => b[1] - a[1]) as Token[];
 
 		outputPredictions.tokens = predictions;
+		outputId.id = data.metadata.request_id;
 		fetchError.state = false;
 	}
 

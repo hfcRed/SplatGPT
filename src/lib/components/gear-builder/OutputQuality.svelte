@@ -4,7 +4,13 @@
 	import { mainIndexes } from '$lib/data/abilities';
 	import { inputSlots, weapon } from '../../../routes/gear-states.svelte';
 
-	let quality = $state(0);
+	interface Props {
+		min: number;
+		max: number;
+		quality: number;
+	}
+
+	let { min, max, quality = $bindable(0) }: Props = $props();
 
 	$effect(() => {
 		inputSlots.abilities;
@@ -79,12 +85,12 @@
 	<div
 		class="meter"
 		role="meter"
-		aria-valuemin="0"
-		aria-valuemax="0.5"
+		aria-valuemin={min}
+		aria-valuemax={max}
 		aria-valuenow={quality}
 		aria-labelledby="meter-description"
 	>
-		<div class="meter-bar" style={`transform: translateX(-${100 - (100 * quality) / 0.5}%)`}></div>
+		<div class="meter-bar" style={`transform: translateX(-${100 - (100 * quality) / max}%)`}></div>
 	</div>
 </div>
 

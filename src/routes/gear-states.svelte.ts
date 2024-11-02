@@ -15,6 +15,10 @@ export const outputPredictions: { [tokens: string]: Token[] } = $state({
 	tokens: []
 });
 
+export const outputId: { [id: string]: string | undefined } = $state({
+	id: undefined
+});
+
 export const isRunning: { [state: string]: boolean } = $state({ state: false });
 
 export const fetchError: { [state: string]: boolean } = $state({ state: false });

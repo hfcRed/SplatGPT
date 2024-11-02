@@ -13,6 +13,7 @@
 	import {
 		outputSlots,
 		outputPredictions,
+		outputId,
 		isRunning,
 		fetchError,
 		weapon,
@@ -20,8 +21,14 @@
 	} from './gear-states.svelte';
 
 	const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+	const minQuality = 0;
+	const maxQuality = 0.5;
 
 	let sendouUrl = $state('https://sendou.ink/analyzer');
+	let hasVoted = $state(false);
+	let quality = $state(0);
+	let feedbackQuality = $state(0);
+	let disableFeedback = $derived(isRunning.state || hasVoted);
 
 	$effect(() => {
 		const untrackedWeapon = untrack(() => weapon.weapon.id);
@@ -39,6 +46,8 @@
 			}
 
 			isRunning.state = false;
+			hasVoted = false;
+			feedbackQuality = quality;
 		})();
 	});
 
@@ -165,10 +174,37 @@
 		url = url.slice(0, -3);
 		sendouUrl = url;
 	}
+
+	async function sendFeedback(event: { currentTarget: HTMLButtonElement }) {
+		if (!outputId.id) return;
+
+		console.log('Sending feedback...');
+		hasVoted = true;
+
+		await fetch('https://splat.top/api/feedback', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'User-Agent': 'SplatGPT/1.0'
+			},
+			body: JSON.stringify({
+				request_id: outputId.id,
+				user_agent: 'SplatGPT/1.0',
+				feedback: event.currentTarget.id === 'like' ? true : false,
+				metadata: {
+					quality_estimation: {
+						min: minQuality,
+						max: maxQuality,
+						current: feedbackQuality
+					}
+				}
+			})
+		});
+	}
 </script>
 
 <div class="container">
-	<OutputQuality />
+	<OutputQuality min={minQuality} max={maxQuality} bind:quality />
 	<div class="slots">
 		{#each outputSlots.abilities as slot, index}
 			<div class="item" class:main={mainIndexes[index]}>
@@ -187,11 +223,21 @@
 		{#if fetchError.state === false}
 			<Button variant="text" href={sendouUrl} target="_blank">{m.sendou()}<Open size="18" /></Button
 			>
-			<Button variant="text" aria-label={m.like()} disabled={isRunning.state}
-				><ThumbsUp size="20" /></Button
+			<Button
+				id="like"
+				variant="text"
+				color="theme"
+				aria-label={m.like()}
+				disabled={disableFeedback}
+				onclick={sendFeedback}><ThumbsUp size="20" /></Button
 			>
-			<Button variant="text" color="red" aria-label={m.dislike()} disabled={isRunning.state}
-				><ThumbsDown size="20" /></Button
+			<Button
+				id="dislike"
+				variant="text"
+				color="red"
+				aria-label={m.dislike()}
+				disabled={disableFeedback}
+				onclick={sendFeedback}><ThumbsDown size="20" /></Button
 			>
 		{:else}
 			<p>Something went wrong...</p>
