@@ -1,5 +1,7 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"is_google_translate": "false",
+	"translate_description": "This page was translated using Google Translate. If you would like to help improve the translation, consider contributing to the project on GitHub or contacting me.",
 	"language_select": "Select language",
 	"title": "SplatGPT",
 	"description": "Autocomplete gear builds by utilizing an AI model trained on over 1.5 million matches!",

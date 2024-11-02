@@ -18,6 +18,9 @@
 	<section class="title">
 		<h1>{m.title()}</h1>
 		<p>{m.description()}</p>
+		{#if m.is_google_translate() === 'true'}
+			<p class="translation">{m.translate_description()}</p>
+		{/if}
 	</section>
 	<div class="gear-container">
 		<GearInput />
@@ -47,6 +50,12 @@
 <div class="noise"></div>
 
 <style>
+	.translation {
+		font-size: var(--spl-text-xs);
+		color: var(--spl-color-subtext);
+		margin-top: 0.5rem;
+	}
+
 	.title {
 		border-bottom: 1px solid var(--spl-color-outline);
 		margin-bottom: 2rem;

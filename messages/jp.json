@@ -1,5 +1,7 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"is_google_translate": "true",
+	"translate_description": "このページは Google 翻訳を使用して翻訳されました。翻訳の改善に協力したい場合は、GitHub 上のプロジェクトに貢献するか、私に連絡してください。",
 	"language_select": "言語を選択してください",
 	"title": "SplatGPT",
 	"description": "150 万を超える試合でトレーニングされた AI モデルを利用して、ギアの構築を自動完了します。",
