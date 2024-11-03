@@ -81,7 +81,6 @@
 	header {
 		background-color: var(--spl-color-bg-low);
 		border-bottom: 1px solid var(--spl-color-outline);
-		box-shadow: var(--spl-shadow-sm);
 	}
 
 	header > div {

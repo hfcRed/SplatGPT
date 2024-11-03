@@ -1,5 +1,4 @@
-:root,
-::backdrop {
+:root {
 	--spl-color-accent-low: #012c4d;
 	--spl-color-accent: #006eb4;
 	--spl-color-accent-high: #9aceff;
@@ -49,8 +48,7 @@
 	--spl-color-item-outline: var(--spl-color-gray-1);
 }
 
-:root,
-::backdrop {
+:root {
 	--spl-color-red-low: hsl(var(--spl-hue-red), var(--spl-sl-low));
 	--spl-color-red: hsl(var(--spl-hue-red), var(--spl-sl));
 	--spl-color-red-high: hsl(var(--spl-hue-red), var(--spl-sl-high));
@@ -118,6 +116,8 @@
 html {
 	color-scheme: dark;
 	accent-color: var(--spl-color-accent);
+	-webkit-tap-highlight-color: transparent;
+	-webkit-text-size-adjust: 100%;
 	scrollbar-width: thin;
 	scrollbar-color: var(--spl-color-bg-high) var(--spl-color-bg);
 
