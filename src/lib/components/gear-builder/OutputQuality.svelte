@@ -112,7 +112,7 @@
 	}
 
 	.meter-bar {
-		background-color: var(--spl-color-accent-high);
+		background-color: var(--spl-color-text-accent);
 		position: absolute;
 		width: 100%;
 		height: 100%;

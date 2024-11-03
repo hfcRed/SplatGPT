@@ -1,16 +1,14 @@
 <script>
-	import '../styles/normalize.css';
-	import '../styles/global.css';
-
 	import { ParaglideJS } from '@inlang/paraglide-sveltekit';
 	import { i18n } from '$lib/i18n';
 	import Button from '$lib/components/common/Button.svelte';
-	import Moon from '$lib/icons/Moon.svelte';
 	import GitHub from '$lib/icons/GitHub.svelte';
 	import LanguageSwitcher from '$lib/components/common/LanguageSwitcher.svelte';
+	import ThemeSwitcher from '$lib/components/common/ThemeSwitcher.svelte';
+	import '../styles/normalize.css';
+	import '../styles/global.css';
 
-	/** @type {{children?: import('svelte').Snippet}} */
-	let { children } = $props();
+	let { children, data } = $props();
 </script>
 
 <ParaglideJS {i18n}>
@@ -29,7 +27,7 @@
 			</div>
 			<div class="nav-items">
 				<LanguageSwitcher />
-				<Button variant="text" color="neutral" circle><Moon size="22" /></Button>
+				<ThemeSwitcher theme={data.theme} />
 			</div>
 		</div>
 	</header>
@@ -83,7 +81,7 @@
 	header {
 		background-color: var(--spl-color-bg-low);
 		border-bottom: 1px solid var(--spl-color-outline);
-		box-shadow: var(--spl-shadow-md);
+		box-shadow: var(--spl-shadow-sm);
 	}
 
 	header > div {

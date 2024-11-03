@@ -208,13 +208,12 @@
 	}
 
 	.input :global(img) {
-		background-color: var(--spl-color-bg-low);
-		border: 1px solid var(--spl-color-outline);
+		background-color: var(--spl-color-item-bg);
+		border: 1px solid var(--spl-color-item-outline);
 		border-radius: var(--spl-radius-md);
 		padding: 0.3rem;
 		height: 2.5rem;
 		width: 2.5rem;
-		transition: border-color 0.15s;
 	}
 
 	.slots {

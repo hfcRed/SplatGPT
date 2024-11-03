@@ -178,7 +178,7 @@
 		}
 
 		&:focus-visible {
-			outline: solid 2px var(--spl-color-accent-high);
+			outline: solid 2px var(--spl-color-text-accent);
 		}
 
 		&.hasIcon {

@@ -26,8 +26,8 @@
 
 <style>
 	button {
-		background-color: var(--spl-color-bg-low);
-		outline: 1px solid var(--spl-color-outline);
+		background-color: var(--spl-color-item-bg);
+		outline: 1px solid var(--spl-color-item-outline);
 		outline-offset: -1px;
 		display: flex;
 		align-items: center;

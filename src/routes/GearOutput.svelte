@@ -254,7 +254,7 @@
 	}
 
 	.item {
-		background-color: var(--spl-color-bg-low);
+		background-color: var(--spl-color-item-bg);
 		border: 2px solid var(--spl-color-outline-high);
 		border-right: 0;
 		border-bottom: 0;

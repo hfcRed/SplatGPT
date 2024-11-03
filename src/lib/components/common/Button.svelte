@@ -136,7 +136,7 @@
 
 		&:hover:not(:disabled),
 		&:focus-visible {
-			background-color: color-mix(in hsl, var(--btn-color) 85%, black);
+			background-color: color-mix(in hsl, var(--btn-color) 85%, var(--spl-color-black));
 		}
 
 		&:active:not(:disabled) {
@@ -179,7 +179,7 @@
 	}
 
 	.theme {
-		--btn-color: var(--spl-color-accent-high);
+		--btn-color: var(--spl-color-text-accent);
 		--btn-color-hover: var(--spl-color-accent-low);
 	}
 
@@ -228,5 +228,9 @@
 
 	.full {
 		width: 100%;
+	}
+
+	[hidden] {
+		visibility: hidden;
 	}
 </style>

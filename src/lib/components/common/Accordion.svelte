@@ -41,6 +41,7 @@
 
 <style>
 	button {
+		color: var(--spl-color-text);
 		line-height: var(--spl-line-height);
 		font-size: var(--spl-text-xl);
 		display: flex;
@@ -55,7 +56,7 @@
 		transition: color 0.15s;
 
 		&:hover {
-			color: var(--spl-color-accent-high);
+			color: var(--spl-color-text-accent);
 		}
 	}
 
