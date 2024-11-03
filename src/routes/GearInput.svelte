@@ -206,7 +206,9 @@
 	/>
 
 	<div class="buttons">
-		<Button onclick={getProbabilities} full disabled={isRunning.state}>{buttonText}</Button>
+		<Button onclick={getProbabilities} full disabled={isRunning.state} loading={isRunning.state}
+			>{buttonText}</Button
+		>
 		<Button
 			color="red"
 			onclick={clearAbilities}
