@@ -95,7 +95,7 @@
 	.nav-items {
 		display: flex;
 		align-items: center;
-		gap: 1rem;
+		gap: 0.5rem;
 	}
 
 	footer {

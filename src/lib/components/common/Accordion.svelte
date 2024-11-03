@@ -45,7 +45,7 @@
 		font-size: var(--spl-text-xl);
 		display: flex;
 		justify-content: space-between;
-		align-items: flex-end;
+		align-items: center;
 		font-weight: 600;
 		background: none;
 		border: none;

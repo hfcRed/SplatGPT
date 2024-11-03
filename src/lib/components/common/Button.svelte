@@ -195,7 +195,7 @@
 
 	.neutral {
 		--btn-color: var(--spl-color-text);
-		--btn-color-hover: var(--spl-color-bg-high);
+		--btn-color-hover: var(--spl-color-bg);
 	}
 
 	.small {
