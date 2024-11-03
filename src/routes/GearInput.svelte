@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages.js';
 	import { abilities, emptyAbility, mainIndexes, type Ability } from '$lib/data/abilities';
-	import { weapons } from '$lib/data/weapons/index';
+	import { weapons, type Weapon } from '$lib/data/weapons/index';
 	import { images } from '$lib/images';
 	import AbilitySelector from '$lib/components/gear-builder/AbilitySelector.svelte';
 	import AbilitySlot from '$lib/components/gear-builder/AbilitySlot.svelte';
@@ -139,11 +139,25 @@
 			}
 		}, 1000);
 	}
+
+	function translateWeapons() {
+		let translatedWeapons: { [key: string]: Weapon } = {};
+
+		Object.keys(weapons).forEach((key) => {
+			const weapon = weapons[key].name;
+			const translations: [[string, string]] = JSON.parse(m.weapons());
+
+			const translation = translations.find((item) => item[0] === weapon);
+			translatedWeapons[key] = { ...weapons[key], name: translation ? translation[1] : weapon };
+		});
+
+		return Object.values(translatedWeapons);
+	}
 </script>
 
 <div class="container">
 	<div class="input">
-		<Combobox bind:current={weapon.weapon} title={m.weapon()} items={Object.values(weapons)} />
+		<Combobox bind:current={weapon.weapon} title={m.weapon()} items={translateWeapons()} />
 		<enhanced:img
 			src={images[weapon.weapon.sub.image]}
 			alt={weapon.weapon.sub.name}

@@ -83,11 +83,13 @@
 			<IconComponent size="22" />
 		{/if}
 		<input
-			class:hasIcon={icon}
-			class:rounded
-			type="test"
+			type="text"
 			autocomplete="off"
 			autocorrect="off"
+			spellcheck="false"
+			autocapitalize="off"
+			class:hasIcon={icon}
+			class:rounded
 			{disabled}
 			use:melt={$input}
 		/>

@@ -8,7 +8,7 @@
 	const credits = [
 		{
 			name: 'Joy',
-			role: m.creadits_joy(),
+			role: m.credits_joy(),
 			links: [
 				{ name: 'GitHub', url: 'https://github.com/cesaregarza', icon: GitHub },
 				{ name: 'Twitter', url: 'https://x.com/JoyTheDataNerd', icon: Twitter },

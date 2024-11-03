@@ -14,7 +14,8 @@
 		"test:integration": "playwright test",
 		"test:unit": "vitest",
 		"create-weapon-data": "node scripts/create-weapon-data.js",
-		"create-ability-data": "node scripts/create-ability-data.js"
+		"create-ability-data": "node scripts/create-ability-data.js",
+		"create-translation-data": "node scripts/create-translation-data.js"
 	},
 	"devDependencies": {
 		"@inlang/paraglide-js": "1.11.3",
