@@ -57,6 +57,7 @@
 
 		let remainingAp = 57;
 		let mainAbilities: { [key: string]: number } = {};
+		let takenMainTypes: string[] = [];
 		let subAbilities: { [key: string]: number } = {};
 		let proxySlots = [...Array(12).fill(emptyAbility)];
 
@@ -72,8 +73,13 @@
 
 			if (!ability) continue;
 
-			if (num === 10) mainAbilities[ability.tokenName] = num;
-			else subAbilities[ability.tokenName] = num;
+			if (num === 10) {
+				if (takenMainTypes.includes(ability.mainType)) continue;
+				mainAbilities[ability.tokenName] = num;
+				takenMainTypes.push(ability.mainType);
+			} else {
+				subAbilities[ability.tokenName] = num;
+			}
 
 			const allAp =
 				Object.values(mainAbilities).reduce((acc, cur) => acc + cur, 0) +
@@ -178,7 +184,6 @@
 	async function sendFeedback(event: { currentTarget: HTMLButtonElement }) {
 		if (!outputId.id) return;
 
-		console.log('Sending feedback...');
 		hasVoted = true;
 
 		await fetch('https://splat.top/api/feedback', {
