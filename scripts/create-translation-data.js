@@ -1,7 +1,7 @@
 import exec from 'child_process';
 import fs from 'fs';
 
-const languages = { en: "USen", jp: "JPja" }
+const languages = { en: "USen", ja: "JPja" }
 
 let weaponInfoMain;
 let translationData;

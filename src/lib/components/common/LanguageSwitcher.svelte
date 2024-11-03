@@ -19,7 +19,7 @@
 			name: 'English'
 		},
 		{
-			tag: 'jp',
+			tag: 'ja',
 			name: '日本語'
 		}
 	];
