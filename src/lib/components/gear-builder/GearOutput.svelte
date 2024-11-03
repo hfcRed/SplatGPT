@@ -18,7 +18,7 @@
 		fetchError,
 		weapon,
 		type Token
-	} from './gear-states.svelte';
+	} from '$lib/states/gear-states.svelte';
 
 	const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 	const minQuality = 0;

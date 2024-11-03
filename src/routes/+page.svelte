@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages.js';
-	import GearInput from './GearInput.svelte';
-	import GearOutput from './GearOutput.svelte';
+	import GearInput from '$lib/components/gear-builder/GearInput.svelte';
+	import GearOutput from '$lib/components/gear-builder/GearOutput.svelte';
 	import Information from './Information.svelte';
 	import Credits from './Credits.svelte';
 </script>

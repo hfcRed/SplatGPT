@@ -2,7 +2,7 @@
 	import * as m from '$lib/paraglide/messages.js';
 	import type { Tokens } from '$lib/data/abilities/tokens/types';
 	import { mainIndexes } from '$lib/data/abilities';
-	import { inputSlots, weapon } from '../../../routes/gear-states.svelte';
+	import { inputSlots, weapon } from '$lib/states/gear-states.svelte';
 
 	interface Props {
 		min: number;

@@ -16,7 +16,7 @@
 		fetchError,
 		weapon,
 		type Token
-	} from './gear-states.svelte';
+	} from '$lib/states/gear-states.svelte';
 
 	const abilityEntries = Object.values(abilities);
 	const mainAbilities: Ability[] = abilityEntries.filter((item) => item.mainType !== 'none');
