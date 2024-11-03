@@ -30,6 +30,7 @@
 		type="submit"
 		formaction="/?/setTheme&theme=light&redirect={$page.url.pathname}"
 		hidden={theme === 'light'}
+		aria-label="Light theme"
 	>
 		<Moon duration={200} rotate={theme === 'light' ? -180 : 0} size="22" />
 	</Button>
@@ -40,6 +41,7 @@
 		type="submit"
 		formaction="/?/setTheme&theme=dark&redirect={$page.url.pathname}"
 		hidden={theme === 'dark'}
+		aria-label="Dark theme"
 	>
 		<Sun duration={200} rotate={theme === 'dark' ? -180 : 0} size="22" />
 	</Button>

@@ -21,6 +21,7 @@
 					circle
 					href="https://github.com/hfcRed/SplatGPT"
 					target="_blank"
+					aria-label="GitHub"
 				>
 					<GitHub size="22" />
 				</Button>
