@@ -27,7 +27,7 @@
 			<h3>
 				<button use:melt={$trigger(id)}>
 					{title}
-					<ChevronDown size="24" rotate={$isSelected(id) ? 180 : 0} duration={200} />
+					<ChevronDown size="22" rotate={$isSelected(id) ? 180 : 0} duration={200} />
 				</button>
 			</h3>
 			{#if $isSelected(id)}

@@ -59,7 +59,7 @@
 						circle
 						aria-label={link.name}
 					>
-						<link.icon size="24" />
+						<link.icon size="22" />
 					</Button>
 				{/each}
 			</article>

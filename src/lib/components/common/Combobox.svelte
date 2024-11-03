@@ -80,7 +80,7 @@
 	{/if}
 	<div class={`controls ${size}`}>
 		{#if icon}
-			<IconComponent size="1.25em" />
+			<IconComponent size="22" />
 		{/if}
 		<input
 			class:hasIcon={icon}
@@ -91,7 +91,7 @@
 			{disabled}
 			use:melt={$input}
 		/>
-		<ChevronUpDown size="1.25em" />
+		<ChevronUpDown size="22" />
 	</div>
 	{#if description}
 		<p class="description">{description}</p>
@@ -103,7 +103,7 @@
 		<div class="item-container" tabindex="0">
 			{#each filteredItems as item, index (index)}
 				<li class:selected={$isSelected(item)} use:melt={$option(toOption(item))}>
-					<item.icon size="32px" />
+					<item.icon size="22" />
 					{#if item.image}
 						<enhanced:img src={images[item.image]} alt={item.name} width="32" height="32" />
 					{/if}

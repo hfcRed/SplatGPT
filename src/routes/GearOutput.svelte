@@ -229,7 +229,7 @@
 				color="theme"
 				aria-label={m.like()}
 				disabled={disableFeedback}
-				onclick={sendFeedback}><ThumbsUp size="20" /></Button
+				onclick={sendFeedback}><ThumbsUp size="22" /></Button
 			>
 			<Button
 				id="dislike"
@@ -237,7 +237,7 @@
 				color="red"
 				aria-label={m.dislike()}
 				disabled={disableFeedback}
-				onclick={sendFeedback}><ThumbsDown size="20" /></Button
+				onclick={sendFeedback}><ThumbsDown size="22" /></Button
 			>
 		{:else}
 			<p>Something went wrong...</p>

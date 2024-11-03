@@ -58,7 +58,7 @@
 	{disabled}
 	{...rest}
 >
-	<Spinner color="currentColor" size="1.5em" strokeWidth="3" />
+	<Spinner color="currentColor" size="22" strokeWidth="3" />
 	<div>
 		{@render children?.()}
 	</div>
