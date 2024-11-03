@@ -208,7 +208,7 @@
 	}
 </script>
 
-<div class="container">
+<div class="container output">
 	<OutputQuality min={minQuality} max={maxQuality} bind:quality />
 	<div class="slots">
 		{#each outputSlots.abilities as slot, index}

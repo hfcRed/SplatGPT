@@ -66,6 +66,9 @@
 	let buttonText = $state(m.send());
 
 	async function getProbabilities() {
+		const element = document.querySelector('.output') as HTMLElement;
+		element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
 		isRunning.state = true;
 
 		let abilities: { [key: string]: number } = {};
