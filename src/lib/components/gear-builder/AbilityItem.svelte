@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Ability } from '$lib/data/abilities';
-	import { images } from '$lib/images';
+	import { abilityImages } from '$lib/images';
 
 	interface Props {
 		ability: Ability;
@@ -21,7 +21,10 @@
 	onclick={fireInteract}
 	aria-label={ability.name}
 >
-	<enhanced:img src={images[`/src/lib/images/abilities/${ability.name}.png`]} alt={ability.name} />
+	<enhanced:img
+		src={abilityImages[`/src/lib/images/abilities/${ability.name}.png`]}
+		alt={ability.name}
+	/>
 </button>
 
 <style>

@@ -20,7 +20,7 @@
 	import { createCombobox, melt, type ComboboxOptionProps } from '@melt-ui/svelte';
 	import { fly } from 'svelte/transition';
 	import ChevronUpDown from '$lib/icons/ChevronUpDown.svelte';
-	import { images } from '$lib/images';
+	import { allImages } from '$lib/images';
 
 	let {
 		size = 'medium',
@@ -107,7 +107,7 @@
 				<li class:selected={$isSelected(item)} use:melt={$option(toOption(item))}>
 					<item.icon size="22" />
 					{#if item.image}
-						<enhanced:img src={images[item.image]} alt={item.name} width="32" height="32" />
+						<enhanced:img src={allImages[item.image]} alt={item.name} width="32" height="32" />
 					{/if}
 					<div class="item-text">
 						{item.name}

@@ -11,8 +11,34 @@ export type Image = {
 	};
 };
 
-export const images = import.meta.glob<Image>('/src/lib/images/*/*.{png,jpg,webp}', {
-	query: { enhanced: true },
+export const weaponImages = import.meta.glob<Image>('/src/lib/images/weapons/*.png', {
+	query: { enhanced: true, imgWidth: 64 },
 	import: 'default',
 	eager: true
 });
+
+export const subImages = import.meta.glob<Image>('/src/lib/images/subs/*.png', {
+	query: { enhanced: true, imgWidth: 64 },
+	import: 'default',
+	eager: true
+});
+
+export const specialImages = import.meta.glob<Image>('/src/lib/images/specials/*.png', {
+	query: { enhanced: true, imgWidth: 64 },
+	import: 'default',
+	eager: true
+});
+
+export const abilityImages = import.meta.glob<Image>('/src/lib/images/abilities/*.png', {
+	query: { enhanced: true, imgWidth: 64 },
+	import: 'default',
+	eager: true
+});
+
+export const allImages: Record<string, Image> = Object.assign(
+	{},
+	weaponImages,
+	subImages,
+	specialImages,
+	abilityImages
+);

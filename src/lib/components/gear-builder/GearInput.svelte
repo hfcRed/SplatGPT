@@ -2,7 +2,7 @@
 	import * as m from '$lib/paraglide/messages.js';
 	import { abilities, emptyAbility, mainIndexes, type Ability } from '$lib/data/abilities';
 	import { weapons, type Weapon } from '$lib/data/weapons/index';
-	import { images } from '$lib/images';
+	import { subImages, specialImages } from '$lib/images';
 	import AbilitySelector from '$lib/components/gear-builder/AbilitySelector.svelte';
 	import AbilitySlot from '$lib/components/gear-builder/AbilitySlot.svelte';
 	import Combobox from '$lib/components/common/Combobox.svelte';
@@ -161,17 +161,10 @@
 <div class="container">
 	<div class="input">
 		<Combobox bind:current={weapon.weapon} title={m.weapon()} items={translateWeapons()} />
+		<enhanced:img src={subImages[weapon.weapon.sub.image]} alt={weapon.weapon.sub.name} />
 		<enhanced:img
-			src={images[weapon.weapon.sub.image]}
-			alt={weapon.weapon.sub.name}
-			width="32"
-			height="32"
-		/>
-		<enhanced:img
-			src={images[weapon.weapon.special.image]}
+			src={specialImages[weapon.weapon.special.image]}
 			alt={weapon.weapon.special.name}
-			width="32"
-			height="32"
 		/>
 	</div>
 
