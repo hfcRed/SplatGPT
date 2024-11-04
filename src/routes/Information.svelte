@@ -19,7 +19,7 @@
 <h2>{m.information()}</h2>
 <p>
 	{@html m.information_desc({
-		href: 'https://cegarza.com/blog/2024/10/27/splatgpt-set-based-deep-learning-for-splatoon-gear-completion/'
+		href: 'https://cegarza.com/introducing-splatgpt/'
 	})}
 </p>
 <Accordion {items} />
