@@ -2,8 +2,8 @@
 	import { getContext } from 'svelte';
 	import GitHub from '$lib/icons/GitHub.svelte';
 	import Button from '$lib/components/common/Button.svelte';
-	import LanguageSwitcher from '$lib/components/common/LanguageSwitcher.svelte';
-	import ThemeSwitcher from '$lib/components/common/ThemeSwitcher.svelte';
+	import LanguageSwitcher from './LanguageSwitcher.svelte';
+	import ThemeSwitcher from './ThemeSwitcher.svelte';
 
 	const data = getContext('layoutData');
 </script>

@@ -4,7 +4,7 @@
 	import { enhance } from '$app/forms';
 	import Moon from '$lib/icons/Moon.svelte';
 	import Sun from '$lib/icons/Sun.svelte';
-	import Button from './Button.svelte';
+	import Button from '../common/Button.svelte';
 
 	interface Props {
 		theme: string;
