@@ -127,7 +127,7 @@
 
 	button[data-loading='false'] :global(.spinner),
 	a[data-loading='false'] :global(.spinner) {
-		visibility: hidden;
+		display: none;
 	}
 
 	.filled {
