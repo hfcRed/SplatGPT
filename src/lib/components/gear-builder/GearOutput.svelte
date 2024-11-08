@@ -10,15 +10,7 @@
 	import ThumbsDown from '$lib/icons/ThumbsDown.svelte';
 	import ThumbsUp from '$lib/icons/ThumbsUp.svelte';
 	import Open from '$lib/icons/Open.svelte';
-	import {
-		outputSlots,
-		outputPredictions,
-		outputId,
-		isRunning,
-		fetchError,
-		weapon,
-		type Token
-	} from '$lib/states/gear-states.svelte';
+	import { gearStates, type Token } from '$lib/states/gear-states.svelte';
 
 	const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 	const minQuality = 0;
@@ -28,12 +20,12 @@
 	let hasVoted = $state(false);
 	let quality = $state(0);
 	let feedbackQuality = $state(0);
-	let disableFeedback = $derived(isRunning.state || hasVoted);
+	let disableFeedback = $derived(gearStates.isFetching || hasVoted);
 
 	$effect(() => {
-		const untrackedWeapon = untrack(() => weapon.weapon.id);
-		const untrackedAbilities = untrack(() => outputSlots.abilities);
-		const tokens = outputPredictions.tokens;
+		const untrackedWeapon = untrack(() => gearStates.currentWeapon.id);
+		const untrackedAbilities = untrack(() => gearStates.outputSlots);
+		const tokens = gearStates.outputTokens;
 
 		(async () => {
 			const newSlots = mapResponseToSlots(tokens);
@@ -45,7 +37,7 @@
 				await sleep(50);
 			}
 
-			isRunning.state = false;
+			gearStates.isFetching = false;
 			hasVoted = false;
 			feedbackQuality = quality;
 		})();
@@ -182,7 +174,7 @@
 	}
 
 	async function sendFeedback(event: { currentTarget: HTMLButtonElement }) {
-		if (!outputId.id) return;
+		if (!gearStates.outputId) return;
 
 		hasVoted = true;
 
@@ -193,7 +185,7 @@
 				'User-Agent': 'SplatGPT/1.0'
 			},
 			body: JSON.stringify({
-				request_id: outputId.id,
+				request_id: gearStates.outputId,
 				user_agent: 'SplatGPT/1.0',
 				feedback: event.currentTarget.id === 'like' ? true : false,
 				metadata: {
@@ -211,7 +203,7 @@
 <div class="container output">
 	<OutputQuality min={minQuality} max={maxQuality} bind:quality />
 	<div class="slots">
-		{#each outputSlots.abilities as slot, index}
+		{#each gearStates.outputSlots as slot, index}
 			<div class="item" class:main={mainIndexes[index]}>
 				{#if slot.id !== '0'}
 					<div
@@ -225,7 +217,7 @@
 		{/each}
 	</div>
 	<div class="buttons">
-		{#if fetchError.state === false}
+		{#if gearStates.fetchError === false}
 			<Button variant="text" href={sendouUrl} target="_blank">{m.sendou()}<Open size="18" /></Button
 			>
 			<Button

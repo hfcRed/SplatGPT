@@ -2,7 +2,7 @@
 	import * as m from '$lib/paraglide/messages.js';
 	import type { Tokens } from '$lib/data/abilities/tokens/types';
 	import { mainIndexes } from '$lib/data/abilities';
-	import { inputSlots, weapon } from '$lib/states/gear-states.svelte';
+	import { gearStates } from '$lib/states/gear-states.svelte';
 
 	interface Props {
 		min: number;
@@ -13,12 +13,12 @@
 	let { min, max, quality = $bindable(0) }: Props = $props();
 
 	$effect(() => {
-		inputSlots.abilities;
+		gearStates.inputSlots;
 		getQuality();
 	});
 
 	function getQuality() {
-		if (!tokens || inputSlots.abilities.filter((slot) => slot.id === '0').length === 12) {
+		if (!tokens || gearStates.inputSlots.filter((slot) => slot.id === '0').length === 12) {
 			quality = 0.45;
 			return;
 		}
@@ -28,10 +28,10 @@
 		let abilityCounts: { [key: string]: number } = {};
 		let remainingAp = 57;
 
-		for (const ability of inputSlots.abilities) {
+		for (const ability of gearStates.inputSlots) {
 			if (ability.id === '0') continue;
 
-			const points = mainIndexes.hasOwnProperty(inputSlots.abilities.indexOf(ability)) ? 10 : 3;
+			const points = mainIndexes.hasOwnProperty(gearStates.inputSlots.indexOf(ability)) ? 10 : 3;
 
 			remainingAp -= points;
 			abilityCounts[ability.name] = abilityCounts[ability.name] + points || points;
@@ -72,11 +72,13 @@
 	let tokens: Tokens | undefined = $state();
 
 	$effect(() => {
-		weapon.weapon;
-		modules[`/src/lib/data/abilities/tokens/${weapon.weapon.referenceKit}.ts`]().then((module) => {
-			tokens = module as Tokens;
-			getQuality();
-		});
+		gearStates.currentWeapon;
+		modules[`/src/lib/data/abilities/tokens/${gearStates.currentWeapon.referenceKit}.ts`]().then(
+			(module) => {
+				tokens = module as Tokens;
+				getQuality();
+			}
+		);
 	});
 </script>
 

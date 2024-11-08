@@ -7,16 +7,7 @@
 	import AbilitySlot from '$lib/components/gear-builder/AbilitySlot.svelte';
 	import Combobox from '$lib/components/common/Combobox.svelte';
 	import Button from '$lib/components/common/Button.svelte';
-	import {
-		inputSlots,
-		outputSlots,
-		outputPredictions,
-		outputId,
-		isRunning,
-		fetchError,
-		weapon,
-		type Token
-	} from '$lib/states/gear-states.svelte';
+	import { gearStates, type Token } from '$lib/states/gear-states.svelte';
 
 	const abilityEntries = Object.values(abilities);
 	const mainAbilities: Ability[] = abilityEntries.filter((item) => item.mainType !== 'none');
@@ -33,32 +24,32 @@
 	}
 
 	let disabledAbilities = $derived({
-		head: inputSlots.abilities[0].id !== '0',
-		clothes: inputSlots.abilities[4].id !== '0',
-		shoes: inputSlots.abilities[8].id !== '0',
-		all: inputSlots.abilities.filter((slot) => slot.id !== '0').length === 12
+		head: gearStates.inputSlots[0].id !== '0',
+		clothes: gearStates.inputSlots[4].id !== '0',
+		shoes: gearStates.inputSlots[8].id !== '0',
+		all: gearStates.inputSlots.filter((slot) => slot.id !== '0').length === 12
 	});
 
 	function addAbility(ability: Ability) {
-		inputSlots.abilities.find((slot, index) => {
+		gearStates.inputSlots.find((slot, index) => {
 			if (slot.id !== '0') return false;
 
 			const newSlot = { ...ability, id: Math.floor(Math.random() * 10000000000).toString() };
 
 			if (ability.mainType === 'none') {
-				inputSlots.abilities[index] = newSlot;
+				gearStates.inputSlots[index] = newSlot;
 				return true;
 			}
 
 			if (mainIndexes[index] && ability.mainType === mainIndexes[index]) {
-				inputSlots.abilities[index] = newSlot;
+				gearStates.inputSlots[index] = newSlot;
 				return true;
 			}
 		});
 	}
 
 	function clearAbilities() {
-		inputSlots.abilities = inputSlots.abilities.map(() => emptyAbility);
+		gearStates.clearInputSlots();
 	}
 
 	const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -69,22 +60,22 @@
 		const element = document.querySelector('.output') as HTMLElement;
 		element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
-		isRunning.state = true;
+		gearStates.isFetching = true;
 
 		let abilities: { [key: string]: number } = {};
 
-		for (const ability of inputSlots.abilities) {
+		for (const ability of gearStates.inputSlots) {
 			if (ability.id === '0') continue;
 
-			const points = mainIndexes.hasOwnProperty(inputSlots.abilities.indexOf(ability)) ? 10 : 3;
+			const points = mainIndexes.hasOwnProperty(gearStates.inputSlots.indexOf(ability)) ? 10 : 3;
 
 			abilities[ability.tokenName] = abilities[ability.tokenName] + points || points;
 		}
 
-		outputSlots.abilities = Array(12).fill(emptyAbility);
+		gearStates.clearOutputSlots();
 		await sleep(500);
 
-		outputSlots.abilities = [...inputSlots.abilities];
+		gearStates.outputSlots = [...gearStates.inputSlots];
 		await sleep(500);
 
 		let data;
@@ -97,7 +88,7 @@
 				},
 				body: JSON.stringify({
 					abilities,
-					weapon_id: weapon.weapon.referenceKit
+					weapon_id: gearStates.currentWeapon.referenceKit
 				})
 			});
 
@@ -109,24 +100,24 @@
 			data = await response.json();
 		} catch (error) {
 			console.error(error);
-			isRunning.state = false;
-			fetchError.state = true;
-			outputPredictions.tokens = [];
+			gearStates.isFetching = false;
+			gearStates.fetchError = true;
+			gearStates.outputTokens = [];
 			return;
 		}
 
 		if (!data.predictions) {
-			isRunning.state = false;
-			fetchError.state = true;
-			outputPredictions.tokens = [];
+			gearStates.isFetching = false;
+			gearStates.fetchError = true;
+			gearStates.outputTokens = [];
 			return;
 		}
 
 		const predictions = [...data.predictions].sort((a, b) => b[1] - a[1]) as Token[];
 
-		outputPredictions.tokens = predictions;
-		outputId.id = data.metadata.request_id;
-		fetchError.state = false;
+		gearStates.outputTokens = predictions;
+		gearStates.outputId = data.metadata.request_id;
+		gearStates.fetchError = false;
 	}
 
 	function startCountdown() {
@@ -138,7 +129,7 @@
 			if (seconds <= 0) {
 				clearInterval(interval);
 				buttonText = m.send();
-				isRunning.state = false;
+				gearStates.isFetching = false;
 			}
 		}, 1000);
 	}
@@ -160,18 +151,25 @@
 
 <div class="container">
 	<div class="input">
-		<Combobox bind:current={weapon.weapon} title={m.weapon()} items={translateWeapons()} />
-		<enhanced:img src={subImages[weapon.weapon.sub.image]} alt={weapon.weapon.sub.name} />
+		<Combobox
+			bind:current={gearStates.currentWeapon}
+			title={m.weapon()}
+			items={translateWeapons()}
+		/>
 		<enhanced:img
-			src={specialImages[weapon.weapon.special.image]}
-			alt={weapon.weapon.special.name}
+			src={subImages[gearStates.currentWeapon.sub.image]}
+			alt={gearStates.currentWeapon.sub.name}
+		/>
+		<enhanced:img
+			src={specialImages[gearStates.currentWeapon.special.image]}
+			alt={gearStates.currentWeapon.special.name}
 		/>
 	</div>
 
 	<div class="slots">
-		{#each inputSlots.abilities as slot, index}
+		{#each gearStates.inputSlots as slot, index}
 			<AbilitySlot
-				bind:ability={inputSlots.abilities[index]}
+				bind:ability={gearStates.inputSlots[index]}
 				disabled={enabledSlots === 'all'
 					? false
 					: mainIndexes[index] === enabledSlots
@@ -199,13 +197,16 @@
 	/>
 
 	<div class="buttons">
-		<Button onclick={getProbabilities} full disabled={isRunning.state} loading={isRunning.state}
-			>{buttonText}</Button
+		<Button
+			onclick={getProbabilities}
+			full
+			disabled={gearStates.isFetching}
+			loading={gearStates.isFetching}>{buttonText}</Button
 		>
 		<Button
 			color="red"
 			onclick={clearAbilities}
-			disabled={inputSlots.abilities.filter((slot) => slot.id === '0').length === 12}
+			disabled={gearStates.inputSlots.filter((slot) => slot.id === '0').length === 12}
 			>{m.clear()}</Button
 		>
 	</div>

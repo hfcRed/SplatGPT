@@ -3,26 +3,24 @@ import { emptyAbility, type Ability } from '$lib/data/abilities';
 
 export type Token = [string, number];
 
-export const inputSlots: { [abilities: string]: Ability[] } = $state({
-	abilities: Array(12).fill(emptyAbility)
-});
+class GearStates {
+	private emptySlots: Ability[] = Array(12).fill(emptyAbility);
 
-export const outputSlots: { [abilities: string]: Ability[] } = $state({
-	abilities: Array(12).fill(emptyAbility)
-});
+	inputSlots: Ability[] = $state([...this.emptySlots]);
+	outputSlots: Ability[] = $state([...this.emptySlots]);
+	currentWeapon: Weapon = $state(weapons[0]);
+	isFetching: boolean = $state(false);
+	fetchError: boolean = $state(false);
+	outputTokens: Token[] = $state([]);
+	outputId: string | undefined = $state(undefined);
 
-export const outputPredictions: { [tokens: string]: Token[] } = $state({
-	tokens: []
-});
+	clearInputSlots() {
+		this.inputSlots = [...this.emptySlots];
+	}
 
-export const outputId: { [id: string]: string | undefined } = $state({
-	id: undefined
-});
+	clearOutputSlots() {
+		this.outputSlots = [...this.emptySlots];
+	}
+}
 
-export const isRunning: { [state: string]: boolean } = $state({ state: false });
-
-export const fetchError: { [state: string]: boolean } = $state({ state: false });
-
-export const weapon: { [weapon: string]: Weapon } = $state({
-	weapon: weapons[0]
-});
+export const gearStates = new GearStates();
