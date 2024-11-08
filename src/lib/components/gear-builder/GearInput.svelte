@@ -219,6 +219,7 @@
 		width: 100%;
 
 		& :global(img) {
+			background-color: var(--spl-color-item-bg);
 			border: 1px solid var(--spl-color-item-outline);
 			border-radius: var(--spl-radius-md);
 			padding: 0.3rem;
