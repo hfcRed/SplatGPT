@@ -1,13 +1,20 @@
-<script>
+<script lang="ts">
 	import '../styles/normalize.css';
 	import '../styles/global.css';
+	import type { LayoutData } from './$types.js';
+	import type { Snippet } from 'svelte';
 	import { ParaglideJS } from '@inlang/paraglide-sveltekit';
 	import { i18n } from '$lib/i18n';
 	import { setContext } from 'svelte';
 	import Header from '$lib/components/layout/Header.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 
-	let { children, data } = $props();
+	interface Props {
+		children: Snippet;
+		data: LayoutData;
+	}
+
+	let { children, data }: Props = $props();
 
 	setContext('layoutData', data);
 </script>

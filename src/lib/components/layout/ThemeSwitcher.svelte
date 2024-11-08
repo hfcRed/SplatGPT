@@ -1,16 +1,14 @@
 <script lang="ts">
 	import type { SubmitFunction } from '@sveltejs/kit';
+	import type { LayoutData } from '../../../routes/$types';
+	import { getContext } from 'svelte';
 	import { page } from '$app/stores';
 	import { enhance } from '$app/forms';
 	import Moon from '$lib/icons/Moon.svelte';
 	import Sun from '$lib/icons/Sun.svelte';
 	import Button from '../common/Button.svelte';
 
-	interface Props {
-		theme: string;
-	}
-
-	let { theme }: Props = $props();
+	let { theme } = getContext('layoutData') as LayoutData;
 
 	const updateTheme: SubmitFunction = ({ action }) => {
 		const newTheme = action.searchParams.get('theme');

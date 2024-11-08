@@ -1,11 +1,8 @@
 <script>
-	import { getContext } from 'svelte';
 	import GitHub from '$lib/icons/GitHub.svelte';
 	import Button from '$lib/components/common/Button.svelte';
 	import LanguageSwitcher from './LanguageSwitcher.svelte';
 	import ThemeSwitcher from './ThemeSwitcher.svelte';
-
-	const data = getContext('layoutData');
 </script>
 
 <header>
@@ -24,7 +21,7 @@
 		</div>
 		<div class="nav-items">
 			<LanguageSwitcher />
-			<ThemeSwitcher theme={data.theme} />
+			<ThemeSwitcher />
 		</div>
 	</div>
 </header>
