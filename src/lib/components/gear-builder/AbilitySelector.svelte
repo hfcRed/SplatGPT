@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Ability } from '$lib/data/abilities';
 	import { dndzone, TRIGGERS, type DndEvent } from 'svelte-dnd-action';
+	import type { Ability } from '$lib/data/abilities';
 	import AbilityItem from './AbilityItem.svelte';
 
 	interface Props {
@@ -69,10 +69,10 @@
 		justify-content: center;
 		flex-wrap: wrap;
 		gap: 0.5rem;
-	}
 
-	div > :global(button) {
-		width: 3rem;
-		height: 3rem;
+		& > :global(button) {
+			width: 3rem;
+			height: 3rem;
+		}
 	}
 </style>

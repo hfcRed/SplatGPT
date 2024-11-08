@@ -4,13 +4,13 @@
 	import { fly, blur } from 'svelte/transition';
 	import { expoIn } from 'svelte/easing';
 	import { abilities, emptyAbility, mainIndexes, type Ability } from '$lib/data/abilities';
-	import AbilityItem from '$lib/components/gear-builder/AbilityItem.svelte';
-	import OutputQuality from '$lib/components/gear-builder/OutputQuality.svelte';
-	import Button from '$lib/components/common/Button.svelte';
+	import { gearStates, type Token } from '$lib/states/gear-states.svelte';
 	import ThumbsDown from '$lib/icons/ThumbsDown.svelte';
 	import ThumbsUp from '$lib/icons/ThumbsUp.svelte';
 	import Open from '$lib/icons/Open.svelte';
-	import { gearStates, type Token } from '$lib/states/gear-states.svelte';
+	import Button from '$lib/components/common/Button.svelte';
+	import AbilityItem from '$lib/components/gear-builder/AbilityItem.svelte';
+	import OutputQuality from '$lib/components/gear-builder/OutputQuality.svelte';
 
 	const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 	const minQuality = 0;
@@ -18,7 +18,7 @@
 
 	let sendouUrl = $state('https://sendou.ink/analyzer');
 	let hasVoted = $state(false);
-	let quality = $state(0);
+	let quality = $state(0.45);
 	let feedbackQuality = $state(0);
 	let disableFeedback = $derived(gearStates.isFetching || hasVoted);
 
@@ -204,7 +204,7 @@
 	<OutputQuality min={minQuality} max={maxQuality} bind:quality />
 	<div class="slots">
 		{#each gearStates.outputSlots as slot, index}
-			<div class="item" class:main={mainIndexes[index]}>
+			<div class="ability">
 				{#if slot.id !== '0'}
 					<div
 						in:fly={{ y: -20, duration: 250, opacity: 1, easing: expoIn }}
@@ -250,7 +250,7 @@
 		align-items: center;
 	}
 
-	.item {
+	.ability {
 		background-color: var(--spl-color-item-bg);
 		border: 2px solid var(--spl-color-outline-high);
 		border-right: 0;
@@ -261,24 +261,24 @@
 		background-image: url('/src/lib/images/abilities/None.png');
 		background-size: contain;
 		transition: opacity 0.1s;
-	}
 
-	.item :global(button) {
-		outline: 0;
-	}
+		&:nth-child(4n - 3) {
+			width: 4rem;
+			height: 4rem;
+		}
 
-	.main {
-		width: 4rem;
-		height: 4rem;
+		& :global(button) {
+			outline: 0;
+		}
 	}
 
 	.buttons {
 		display: flex;
 		gap: 0.5rem;
-	}
 
-	.buttons > p {
-		color: var(--spl-color-red);
-		font-weight: 600;
+		& > p {
+			color: var(--spl-color-red);
+			font-weight: 600;
+		}
 	}
 </style>

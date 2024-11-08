@@ -63,7 +63,6 @@
 		dragDisabled,
 		dropTargetStyle: {}
 	}}
-	class:main={mainType}
 	class:disabled
 	onconsider={handleConsider}
 	onfinalize={handleFinalize}
@@ -87,15 +86,15 @@
 		background-image: url('/src/lib/images/abilities/None.png');
 		background-size: contain;
 		transition: opacity 0.1s;
-	}
 
-	div > :global(button) {
-		outline: 0;
-	}
+		&:nth-child(4n - 3) {
+			width: 4rem;
+			height: 4rem;
+		}
 
-	.main {
-		width: 4rem;
-		height: 4rem;
+		& :global(button) {
+			outline: 0;
+		}
 	}
 
 	.disabled {

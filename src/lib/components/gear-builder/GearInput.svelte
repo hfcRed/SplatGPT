@@ -1,14 +1,15 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages.js';
-	import { abilities, emptyAbility, mainIndexes, type Ability } from '$lib/data/abilities';
-	import { weapons, type Weapon } from '$lib/data/weapons/index';
 	import { subImages, specialImages } from '$lib/images';
+	import { abilities, mainIndexes, type Ability } from '$lib/data/abilities';
+	import { weapons, type Weapon } from '$lib/data/weapons/index';
+	import { gearStates, type Token } from '$lib/states/gear-states.svelte';
 	import AbilitySelector from '$lib/components/gear-builder/AbilitySelector.svelte';
 	import AbilitySlot from '$lib/components/gear-builder/AbilitySlot.svelte';
 	import Combobox from '$lib/components/common/Combobox.svelte';
 	import Button from '$lib/components/common/Button.svelte';
-	import { gearStates, type Token } from '$lib/states/gear-states.svelte';
 
+	const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 	const abilityEntries = Object.values(abilities);
 	const mainAbilities: Ability[] = abilityEntries.filter((item) => item.mainType !== 'none');
 	const subAbilities: Ability[] = abilityEntries.filter((item) => item.mainType === 'none');
@@ -51,8 +52,6 @@
 	function clearAbilities() {
 		gearStates.clearInputSlots();
 	}
-
-	const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 	let buttonText = $state(m.send());
 
@@ -150,7 +149,7 @@
 </script>
 
 <div class="container">
-	<div class="input">
+	<div class="weapon-input">
 		<Combobox
 			bind:current={gearStates.currentWeapon}
 			title={m.weapon()}
@@ -213,20 +212,19 @@
 </div>
 
 <style>
-	.input {
+	.weapon-input {
 		display: flex;
 		align-items: flex-end;
 		gap: 0.5rem;
 		width: 100%;
-	}
 
-	.input :global(img) {
-		background-color: var(--spl-color-item-bg);
-		border: 1px solid var(--spl-color-item-outline);
-		border-radius: var(--spl-radius-md);
-		padding: 0.3rem;
-		height: 2.5rem;
-		width: 2.5rem;
+		& :global(img) {
+			border: 1px solid var(--spl-color-item-outline);
+			border-radius: var(--spl-radius-md);
+			padding: 0.3rem;
+			height: 2.5rem;
+			width: 2.5rem;
+		}
 	}
 
 	.slots {

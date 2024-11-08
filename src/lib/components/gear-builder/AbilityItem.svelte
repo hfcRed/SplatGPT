@@ -41,16 +41,15 @@
 		border-radius: 50%;
 		padding: 0.25rem;
 		transition: opacity 0.1s;
-	}
 
-	[disabled] {
-		opacity: 0.25;
-		pointer-events: none;
-	}
+		&[disabled] {
+			opacity: 0.25;
+			cursor: not-allowed !important;
+		}
 
-	/* svelte-ignore */
-	button :global(img) {
-		width: 100%;
-		height: 100%;
+		& :global(img) {
+			width: 100%;
+			height: 100%;
+		}
 	}
 </style>

@@ -1,8 +1,10 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages.js';
 	import type { Tokens } from '$lib/data/abilities/tokens/types';
-	import { mainIndexes } from '$lib/data/abilities';
+	import { mainIndexes, type Ability } from '$lib/data/abilities';
 	import { gearStates } from '$lib/states/gear-states.svelte';
+
+	const modules = import.meta.glob('/src/lib/data/abilities/tokens/*.ts', { import: 'tokens' });
 
 	interface Props {
 		min: number;
@@ -10,15 +12,14 @@
 		quality: number;
 	}
 
-	let { min, max, quality = $bindable(0) }: Props = $props();
+	let { min, max, quality = $bindable() }: Props = $props();
 
 	$effect(() => {
-		gearStates.inputSlots;
-		getQuality();
+		getQuality(gearStates.inputSlots);
 	});
 
-	function getQuality() {
-		if (!tokens || gearStates.inputSlots.filter((slot) => slot.id === '0').length === 12) {
+	function getQuality(slots: Ability[]) {
+		if (!tokens || slots.filter((slot) => slot.id === '0').length === 12) {
 			quality = 0.45;
 			return;
 		}
@@ -28,10 +29,10 @@
 		let abilityCounts: { [key: string]: number } = {};
 		let remainingAp = 57;
 
-		for (const ability of gearStates.inputSlots) {
+		for (const ability of slots) {
 			if (ability.id === '0') continue;
 
-			const points = mainIndexes.hasOwnProperty(gearStates.inputSlots.indexOf(ability)) ? 10 : 3;
+			const points = mainIndexes.hasOwnProperty(slots.indexOf(ability)) ? 10 : 3;
 
 			remainingAp -= points;
 			abilityCounts[ability.name] = abilityCounts[ability.name] + points || points;
@@ -67,16 +68,13 @@
 		quality = adjustedProbability / highest;
 	}
 
-	const modules = import.meta.glob('/src/lib/data/abilities/tokens/*.ts', { import: 'tokens' });
-
-	let tokens: Tokens | undefined = $state();
+	let tokens: Tokens | undefined = $state(undefined);
 
 	$effect(() => {
-		gearStates.currentWeapon;
 		modules[`/src/lib/data/abilities/tokens/${gearStates.currentWeapon.referenceKit}.ts`]().then(
 			(module) => {
 				tokens = module as Tokens;
-				getQuality();
+				getQuality(gearStates.inputSlots);
 			}
 		);
 	});

@@ -50,11 +50,11 @@
 <style>
 	form {
 		position: relative;
-	}
 
-	form > :global(:last-child) {
-		position: absolute;
-		top: 0;
-		right: 0;
+		& > :global(:last-child) {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
 	}
 </style>

@@ -19,8 +19,8 @@
 <script lang="ts">
 	import { createCombobox, melt, type ComboboxOptionProps } from '@melt-ui/svelte';
 	import { fly } from 'svelte/transition';
-	import ChevronUpDown from '$lib/icons/ChevronUpDown.svelte';
 	import { allImages } from '$lib/images';
+	import ChevronUpDown from '$lib/icons/ChevronUpDown.svelte';
 
 	let {
 		size = 'medium',
@@ -30,10 +30,8 @@
 		icon = undefined,
 		rounded = false,
 		disabled = false,
-		current = $bindable(items[0])
+		current = $bindable()
 	}: BaseProps = $props();
-
-	const defaultItem = items[0];
 
 	const toOption = (item: Item): ComboboxOptionProps<Item> => ({
 		value: item,
@@ -50,7 +48,7 @@
 	});
 
 	$effect(() => {
-		current = $selected?.value ?? defaultItem;
+		current = $selected?.value ?? items[0];
 	});
 
 	$effect(() => {

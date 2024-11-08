@@ -197,3 +197,16 @@ embed,
 object {
 	display: block;
 }
+
+main,
+header > div,
+footer > div {
+	width: 100%;
+	max-width: 65rem;
+	margin: 0 auto;
+	padding: 1rem;
+
+	@media (min-width: 800px) {
+		padding: 1rem 2rem;
+	}
+}
