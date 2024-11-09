@@ -58,7 +58,9 @@
 	{disabled}
 	{...rest}
 >
-	<Spinner color="currentColor" size="22" strokeWidth="3" />
+	{#if loading}
+		<Spinner color="currentColor" size="22" strokeWidth="3" />
+	{/if}
 	<div>
 		{@render children?.()}
 	</div>
@@ -108,11 +110,6 @@
 		justify-content: center;
 	}
 
-	button[data-loading='true'],
-	a[data-loading='true'] {
-		pointer-events: none;
-	}
-
 	button[data-loading='true'] div,
 	a[data-loading='true'] div {
 		visibility: hidden;
@@ -123,11 +120,6 @@
 		position: absolute;
 		top: calc(50% - 0.75em);
 		left: calc(50% - 0.75em);
-	}
-
-	button[data-loading='false'] :global(.spinner),
-	a[data-loading='false'] :global(.spinner) {
-		display: none;
 	}
 
 	.filled {
