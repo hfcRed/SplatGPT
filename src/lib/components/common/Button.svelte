@@ -52,6 +52,7 @@
 	class:custom
 	class:full
 	class:rounded
+	data-loading={loading}
 	{href}
 	{target}
 	{disabled}
@@ -59,11 +60,10 @@
 >
 	{#if loading}
 		<Spinner color="currentColor" size="22" strokeWidth="3" />
-	{:else}
-		<div>
-			{@render children?.()}
-		</div>
 	{/if}
+	<div>
+		{@render children?.()}
+	</div>
 </svelte:element>
 
 <style>
@@ -108,6 +108,11 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
+
+	button[data-loading='true'] div,
+	a[data-loading='true'] div {
+		visibility: hidden;
 	}
 
 	button :global(.spinner),
