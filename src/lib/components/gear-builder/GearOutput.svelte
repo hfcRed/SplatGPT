@@ -66,9 +66,12 @@
 			if (!ability) continue;
 
 			if (num === 10) {
+				// We do not want to overwrite main slots that have already been filled
+				// otherwise lower probability abilities can take the spot of higher probability ones
 				if (takenMainTypes.includes(ability.mainType)) continue;
-				mainAbilities[ability.tokenName] = num;
 				takenMainTypes.push(ability.mainType);
+
+				mainAbilities[ability.tokenName] = num;
 			} else {
 				subAbilities[ability.tokenName] = num;
 			}
@@ -76,6 +79,7 @@
 			const allAp =
 				Object.values(mainAbilities).reduce((acc, cur) => acc + cur, 0) +
 				Object.values(subAbilities).reduce((acc, cur) => acc + cur, 0);
+
 			remainingAp = 57 - allAp;
 		}
 
@@ -85,6 +89,8 @@
 		);
 
 		// We need to ensure that we have at least 3 abilities that could be main abilities
+		// by looking for the next best tokens that could be main abilities
+		// otherwise we might end up with empty main slots
 		while (subAbilitiesAbove10 + Object.keys(mainAbilities).length < 3) {
 			const token = sortedResponse.shift();
 			if (!token) break;
@@ -104,6 +110,7 @@
 			);
 		}
 
+		// Adding the main abilities first so that their spots cant be taken by sub abilities
 		for (const name of Object.keys(mainAbilities)) {
 			const ability = Object.values(abilities).find((ability) => ability.tokenName === name);
 			if (!ability) continue;
@@ -138,8 +145,8 @@
 				return acc;
 			}, [] as number[]);
 
-			// Temporary fix to prevent a slot from being left over due to the 3 AP cost
-			// the AP buckets might change in the future
+			// Fix to prevent a slot from being left over due to the 3 AP cost
+			// caused by the AP buckets of the model
 			if (currentAp === 2) currentAp = 3;
 			if (currentAp === 11) currentAp = 12;
 
