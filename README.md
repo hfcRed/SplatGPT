@@ -4,7 +4,7 @@
 
 [![wakatime](https://wakatime.com/badge/user/7100369a-eb08-483f-96e8-41accea7b5a0/project/ca2f961a-c0bb-45b2-b702-f129ffa79996.svg)](https://wakatime.com/badge/user/7100369a-eb08-483f-96e8-41accea7b5a0/project/ca2f961a-c0bb-45b2-b702-f129ffa79996)
 
-Website for autocompleting Splatoon 3 gear builds by utilizing an AI model trained on over 1.5 million matches
+Website for autocompleting Splatoon 3 gear builds by utilizing an AI model trained on over 15 million matches
 
 ![chrome_ofFzFZXBou](https://github.com/user-attachments/assets/58da90cc-4b25-452e-8ea3-ebba9c7759b2)
 

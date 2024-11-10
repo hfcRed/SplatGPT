@@ -4,7 +4,7 @@
 	"translate_description": "This page was translated using Google Translate. If you would like to help improve the translation, consider contributing to the project on GitHub or contacting me.",
 	"language_select": "Select language",
 	"title": "SplatGPT",
-	"description": "Autocomplete gear builds by utilizing an AI model trained on over 1.5 million matches!",
+	"description": "Autocomplete gear builds by utilizing an AI model trained on over 15 million matches!",
 	"weapon": "Weapon",
 	"send": "Send",
 	"send_blocked": "Blocked for {seconds} seconds",
